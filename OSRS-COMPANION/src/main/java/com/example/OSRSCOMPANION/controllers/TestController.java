@@ -28,6 +28,7 @@ public class TestController {
 
         Player testPlayer = new Player("franquito");
         testPlayer.updateData();
+        playerDao.save(testPlayer);
 
         //finish and display elapsed time
         Instant finish = Instant.now();

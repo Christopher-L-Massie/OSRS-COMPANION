@@ -2,6 +2,7 @@ package com.example.OSRSCOMPANION.models;
 
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
@@ -19,21 +20,18 @@ public class Player {
     private String displayName;
 
     //all will be one-to-many or many-to-one <
-    @OneToMany
-    @JoinColumn(name="datapoint_id")
-    private ArrayList<DataPoint> normalData = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name="datapoint_id")
-    private ArrayList<DataPoint> ironmanData = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DataPoint> normalData = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name="datapoint_id")
-    private ArrayList<DataPoint> ultimateData = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DataPoint> ironmanData = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name="datapoint_id")
-    private ArrayList<DataPoint> hardcoreData = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DataPoint> ultimateData = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DataPoint> hardcoreData = new ArrayList<>();
 
     //create constructor
     public Player(){}
