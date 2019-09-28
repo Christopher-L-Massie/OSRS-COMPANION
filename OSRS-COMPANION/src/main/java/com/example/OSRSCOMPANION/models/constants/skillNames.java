@@ -32,8 +32,12 @@ public enum skillNames {
         this.skillName = skillName;
     }
 
-    public String getName(){
+    public String getSkillName(){
         return skillName;
+    }
+
+    public void setSkillName(String skillName){
+        this.skillName = skillName;
     }
 
 }

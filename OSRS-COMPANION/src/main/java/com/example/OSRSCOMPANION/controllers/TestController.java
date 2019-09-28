@@ -32,7 +32,7 @@ public class TestController {
 
         System.out.println(playerDao.findById(1));
 
-        model.addAttribute("player",playerDao.findById(1).get());
+
 
         //finish and display elapsed time
         Instant finish = Instant.now();
