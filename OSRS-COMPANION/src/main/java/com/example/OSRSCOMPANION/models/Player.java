@@ -60,4 +60,14 @@ public class Player {
         } finally {
         }
     }
+    public List getNormalData(){return this.normalData;}
+
+    public List getIronmanData(){return this.ironmanData;}
+
+    public List getUltimateData(){return this.ultimateData;}
+
+    public List getHardcoreData(){return this.hardcoreData;}
 }
+
+
+

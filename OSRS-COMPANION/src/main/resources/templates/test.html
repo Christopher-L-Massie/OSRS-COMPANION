@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <p>test-</p>
+
+
+<ul th:each="normaldata: ${player.normalData}">
+    <li   th:text="${normaldata.attackRank}"></li>
+    <li th:text="${normaldata.attackLevel}"></li>
+</ul>
 
 </body>
 </html>

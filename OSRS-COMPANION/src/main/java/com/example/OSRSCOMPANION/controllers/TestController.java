@@ -30,6 +30,10 @@ public class TestController {
         testPlayer.updateData();
         playerDao.save(testPlayer);
 
+        System.out.println(playerDao.findById(1));
+
+        model.addAttribute("player",playerDao.findById(1).get());
+
         //finish and display elapsed time
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start,finish).toMillis();
