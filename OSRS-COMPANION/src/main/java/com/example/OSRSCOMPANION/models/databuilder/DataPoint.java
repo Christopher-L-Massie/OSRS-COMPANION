@@ -71,13 +71,14 @@ public class DataPoint {
                 //rank
                 //level
                 //experience
+                //skillname
 
                 int i = 0;
                 for (skillNames skill : skillNames.values()){
                     skillInfo.add(new skillData(dataArrayInts.get(i),dataArrayInts.get(i+1),dataArrayInts.get(i+2),skill.getSkillName()));
                     i += 3;
                 }
-                
+
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
                 System.out.println(this.dataTimeStamp.getTime());
@@ -131,5 +132,9 @@ public class DataPoint {
 
     public Timestamp getDataTimeStamp() {
         return dataTimeStamp;
+    }
+
+    public List getSkillInfo(){
+        return skillInfo;
     }
 }

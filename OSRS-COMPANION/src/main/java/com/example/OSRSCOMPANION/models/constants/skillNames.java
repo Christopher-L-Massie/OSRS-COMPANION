@@ -22,6 +22,7 @@ public enum skillNames {
     AGILITY("agility"),
     THIEVING("thieving"),
     SLAYER("slayer"),
+    FARMING("farming"),
     RUNECRAFTING("runecrafting"),
     HUNTER("hunter"),
     CONSTRUCTION("construction");

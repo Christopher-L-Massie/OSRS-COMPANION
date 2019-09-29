@@ -27,4 +27,24 @@ public class skillData {
         this.level = level;
         this.skillName = skillName;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 }
