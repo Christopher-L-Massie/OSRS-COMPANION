@@ -9,8 +9,8 @@
 
 <div th:each="skillData: ${player.normalData}">
     <div th:each="skill : ${skillData.skillInfo}">
-        <ul >
-            <li th:text="${skill.skillName}"></li>
+        <ul>
+            <li th:text="${skill.rank}"></li>
         </ul>
     </div>
 </div>

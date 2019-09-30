@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<div th:each="skillData : ${player.normalData}">
+    <div th:each="skill : ${skillData.skillInfo}">
+        <div class="container body-content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Skill</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Experience</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${skill.skillName}"></td>
+                    <td th:text="${skill.experience}"></td>
+                    <td th:text="${skill.rank}"></td>
+                    <td th:text="${skill.level}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
