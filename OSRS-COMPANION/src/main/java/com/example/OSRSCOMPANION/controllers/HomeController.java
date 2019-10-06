@@ -24,6 +24,10 @@ public class HomeController {
 
         //temp test for building table
         model.addAttribute("player",playerDao.findById(1).get());
-        return "home/player";}
+        return "home/player";
+    }
+
+
+
 
 }

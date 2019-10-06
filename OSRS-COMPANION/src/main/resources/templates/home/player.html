@@ -6,11 +6,13 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
-
-
-<div th:each="skillData : ${player.normalData}">
-    <div th:each="skill : ${skillData.skillInfo}">
+<div>
+    <nav th:replace="fragments :: navigation"></nav>
+</div>
+<br>
+<br>
+<div >
+    <div >
         <div class="container body-content">
             <table class="table">
                 <thead>
@@ -21,8 +23,8 @@
                         <th scope="col">Experience</th>
                     </tr>
                 </thead>
-                <tbody>
-                <tr>
+                <tbody th:each="skillData : ${player.normalData}">
+                <tr th:each="skill : ${skillData.skillInfo}">
                     <td th:text="${skill.skillName}"></td>
                     <td th:text="${skill.experience}"></td>
                     <td th:text="${skill.rank}"></td>

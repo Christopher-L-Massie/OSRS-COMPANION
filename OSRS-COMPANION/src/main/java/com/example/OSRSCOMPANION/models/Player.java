@@ -3,6 +3,7 @@ package com.example.OSRSCOMPANION.models;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.NaturalId;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
@@ -16,7 +17,8 @@ public class Player {
     @GeneratedValue
     int id;
 
-
+    @NaturalId
+    @Column(name="displayname")
     private String displayName;
 
     //all will be one-to-many or many-to-one <

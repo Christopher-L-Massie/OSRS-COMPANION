@@ -3,6 +3,7 @@ package com.example.OSRSCOMPANION.controllers;
 
 import com.example.OSRSCOMPANION.models.Player;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +27,15 @@ public class TestController {
         //start keeping track of time elapsed
         Instant start = Instant.now();
 
+
+
         Player testPlayer = new Player("franquito");
         testPlayer.updateData();
         playerDao.save(testPlayer);
 
+
+
+        System.out.println(playerDao.findAll());
         System.out.println(playerDao.findById(1).get());
 
         model.addAttribute("player",playerDao.findById(1).get());
