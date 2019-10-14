@@ -26,4 +26,17 @@ public class Tournament {
 
     private boolean isPublic;
 
+    public Tournament(){}
+
+    public Tournament(Player owner, String tournamentName, String skill,boolean isPublic){
+        this.owner = owner;
+        this.tournamentName = tournamentName;
+        this.skill = skill;
+        this.isPublic = isPublic;
+    }
+
+    public void addTag(String tag){
+        this.tags.add(tag);
+    }
+
 }

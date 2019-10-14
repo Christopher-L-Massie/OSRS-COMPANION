@@ -22,16 +22,38 @@ public class TestController {
     @RequestMapping(value = "")
     public String index(Model model){
 
-        model.addAttribute("title","Test Area");
+
 
         //start keeping track of time elapsed
         Instant start = Instant.now();
 
+        String searchedName = "franquito";
 
+        Player displayedPlayer;
+        Boolean isFound = false;
+
+        for (Player player : playerDao.findAll()){
+            if (player.getDisplayName().equals(searchedName) & (isFound == false)){
+                displayedPlayer = player;
+                isFound = true;
+                model.addAttribute(playerDao.findById(player.getId()).get());
+
+                return "home/player";
+            } else {
+                continue;
+            }
+        }
+
+
+
+
+        /*
 
         Player testPlayer = new Player("franquito");
         testPlayer.updateData();
         playerDao.save(testPlayer);
+
+         */
 
 
 

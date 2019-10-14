@@ -62,6 +62,11 @@ public class Player {
         } finally {
         }
     }
+
+    public int getId(){return this.id;}
+
+    public String getDisplayName(){return this.displayName;}
+
     public List getNormalData(){return this.normalData;}
 
     public List getIronmanData(){return this.ironmanData;}

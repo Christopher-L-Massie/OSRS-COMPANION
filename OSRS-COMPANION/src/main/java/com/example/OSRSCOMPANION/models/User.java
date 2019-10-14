@@ -1,6 +1,8 @@
 package com.example.OSRSCOMPANION.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +15,13 @@ public class User {
     int id;
 
     @Column(name="userName")
+    @Min(value = 3)
+    @Max(value = 25)
     private String userName;
 
     @Column(name = "password")
+    @Min(value = 5)
+    @Max(value = 25)
     private String password;
 
 
