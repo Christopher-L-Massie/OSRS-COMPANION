@@ -13,13 +13,13 @@ import java.time.Duration;
 import java.time.Instant;
 
 @Controller
-@RequestMapping("test")
+@RequestMapping(value = "test")
 public class TestController {
 
     @Autowired
     private PlayerDao playerDao;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "playerscore")
     public String index(Model model){
 
 
@@ -32,6 +32,9 @@ public class TestController {
         Player displayedPlayer;
         Boolean isFound = false;
 
+        if (playerDao.count() > 0){
+
+
         for (Player player : playerDao.findAll()){
             if (player.getDisplayName().equals(searchedName) & (isFound == false)){
                 displayedPlayer = player;
@@ -42,6 +45,8 @@ public class TestController {
             } else {
                 continue;
             }
+        }
+
         }
 
 
@@ -57,16 +62,15 @@ public class TestController {
 
 
 
-        System.out.println(playerDao.findAll());
-        System.out.println(playerDao.findById(1).get());
 
-        model.addAttribute("player",playerDao.findById(1).get());
+
+        //model.addAttribute("player",playerDao.findById(1).get());
 
         //finish and display elapsed time
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start,finish).toMillis();
         System.out.println("time elapsed:" + timeElapsed);
-
         return "test";
+
     }
 }

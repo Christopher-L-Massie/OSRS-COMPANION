@@ -18,7 +18,7 @@ public class Calculator {
     private List<Step> stepsNeeded;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<String> tags;
+    private List<Tag> tags;
 
     private int likes;
 
@@ -44,7 +44,7 @@ public class Calculator {
         this.dislikes =+ 1;
     }
 
-    public void addTag(String tag){
+    public void addTag(Tag tag){
         this.tags.add(tag);
     }
 

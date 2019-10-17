@@ -18,24 +18,26 @@ public class Tournament {
 
     private String skill;
 
+
     @ManyToMany
     private List<Player> contestants;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<String> tags;
+    private List<Tag> tags;
 
     private boolean isPublic;
 
     public Tournament(){}
 
-    public Tournament(Player owner, String tournamentName, String skill,boolean isPublic){
+    public Tournament(Player owner, String tournamentName, String skill,boolean isPublic, String tag){
         this.owner = owner;
         this.tournamentName = tournamentName;
         this.skill = skill;
         this.isPublic = isPublic;
+
     }
 
-    public void addTag(String tag){
+    public void addTag(Tag tag){
         this.tags.add(tag);
     }
 
