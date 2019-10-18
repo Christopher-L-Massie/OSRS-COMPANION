@@ -29,20 +29,14 @@ public class TestController {
 
         String searchedName = "franquito";
 
-        Player displayedPlayer;
         Boolean isFound = false;
 
         if (playerDao.count() > 0){
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(searchedName) & (!isFound)){
-                    displayedPlayer = player;
-                    isFound = true;
                     model.addAttribute("player",playerDao.findById(player.getId()).get());
                     return "home/player";
-                } else if (isFound){
-                    break;
                 } else {
-                    isFound = false;
                     continue;
                 }
             }
@@ -55,25 +49,8 @@ public class TestController {
             return "home/player";
         }
 
-
-
-
-
-        /*
-
-        Player testPlayer = new Player("franquito");
-        testPlayer.updateData();
-        playerDao.save(testPlayer);
-
-         */
-
-
-
-
-
-        //model.addAttribute("player",playerDao.findById(1).get());
-
         //finish and display elapsed time
+        //shouldn't be reached normally
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start,finish).toMillis();
         System.out.println("time elapsed:" + timeElapsed);
