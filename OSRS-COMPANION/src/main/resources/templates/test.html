@@ -7,11 +7,13 @@
 <body>
 <p>test-</p>
 
-<div th:each="skillData: ${player.normalData}">
-    <div th:each="skill : ${skillData.skillInfo}">
-        <ul>
-            <li th:text="${skill.rank}"></li>
-        </ul>
+<div th:if="${player}">
+    <div th:each="skillData: ${player.normalData}">
+        <div th:each="skill : ${skillData.skillInfo}">
+            <ul>
+                <li th:text="${skill.rank}"></li>
+            </ul>
+        </div>
     </div>
 </div>
 

@@ -33,21 +33,28 @@ public class TestController {
         Boolean isFound = false;
 
         if (playerDao.count() > 0){
-
-
-        for (Player player : playerDao.findAll()){
-            if (player.getDisplayName().equals(searchedName) & (isFound == false)){
-                displayedPlayer = player;
-                isFound = true;
-                model.addAttribute(playerDao.findById(player.getId()).get());
-
-                return "home/player";
-            } else {
-                continue;
+            for (Player player : playerDao.findAll()){
+                if (player.getDisplayName().equals(searchedName) & (!isFound)){
+                    displayedPlayer = player;
+                    isFound = true;
+                    model.addAttribute("player",playerDao.findById(player.getId()).get());
+                    return "home/player";
+                } else if (isFound){
+                    break;
+                } else {
+                    isFound = false;
+                    continue;
+                }
             }
         }
-
+        if (!isFound){
+            Player testPlayer = new Player(searchedName);
+            testPlayer.updateData();
+            playerDao.save(testPlayer);
+            model.addAttribute("player",testPlayer);
+            return "home/player";
         }
+
 
 
 
