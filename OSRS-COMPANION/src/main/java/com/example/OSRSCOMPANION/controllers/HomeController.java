@@ -1,11 +1,19 @@
 package com.example.OSRSCOMPANION.controllers;
 
 
+import com.example.OSRSCOMPANION.models.Player;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
+import com.example.OSRSCOMPANION.models.forms.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "")
@@ -25,6 +33,38 @@ public class HomeController {
         //temp test for building table
         model.addAttribute("player",playerDao.findById(1).get());
         return "home/player";
+    }
+
+    @RequestMapping(value = "search",method = RequestMethod.POST)
+    public String searchPlayer(@ModelAttribute @Valid Search newSearch, Errors errors, @RequestParam String displayName,Model model){
+        if (errors.hasErrors()){
+            return "home/index";
+        }
+
+        String searchedName = displayName;
+
+        Boolean isFound = false;
+
+        if (playerDao.count() > 0){
+            for (Player player : playerDao.findAll()){
+                if (player.getDisplayName().equals(searchedName) & (!isFound)){
+                    model.addAttribute("player",playerDao.findById(player.getId()).get());
+                    return "home/player";
+                } else {
+                    continue;
+                }
+            }
+        }
+
+        if (!isFound){
+            Player testPlayer = new Player(searchedName);
+            testPlayer.updateData();
+            playerDao.save(testPlayer);
+            model.addAttribute("player",testPlayer);
+            return "home/player";
+        }
+
+        return "home/index";
     }
 
 

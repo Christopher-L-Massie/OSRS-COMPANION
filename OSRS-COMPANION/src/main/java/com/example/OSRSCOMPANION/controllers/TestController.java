@@ -22,8 +22,6 @@ public class TestController {
     @RequestMapping(value = "playerscore")
     public String index(Model model){
 
-
-
         //start keeping track of time elapsed
         Instant start = Instant.now();
 
@@ -41,6 +39,7 @@ public class TestController {
                 }
             }
         }
+
         if (!isFound){
             Player testPlayer = new Player(searchedName);
             testPlayer.updateData();
@@ -57,4 +56,5 @@ public class TestController {
         return "test";
 
     }
+
 }
