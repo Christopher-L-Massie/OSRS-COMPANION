@@ -7,6 +7,10 @@ public class Search {
     //properties
 
     @NotNull
-    private String displayNameSearch;
+    private String displayName;
+
+    //accessors
+
+    public String getDisplayName(){return this.displayName;}
 
 }

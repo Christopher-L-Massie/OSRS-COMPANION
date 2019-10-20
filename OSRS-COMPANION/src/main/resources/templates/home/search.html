@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<br>
+<br>
+<br>
+<br>
+
+<form method="post" class="navbar-form navbar-right" action="/search" th:object="${Search}">
+    <div class="form-group">
+        <input th:field="*{displayName}" class="form-control" placeholder="Search User">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+</body>
+</html>
