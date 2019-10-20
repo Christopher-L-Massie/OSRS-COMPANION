@@ -94,7 +94,7 @@ public class DataPoint {
 
     //method for base(normal account) url building (used in constructor)
     static public String buildUrlString(String displayName){
-        String urlString = String.format("https://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=%1$s",displayName);
+        String urlString = String.format("https://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=%1$s",displayName.replaceAll(" ", "_"));
         System.out.println(urlString);
         return urlString;
 
@@ -102,7 +102,8 @@ public class DataPoint {
 
     //method for calling special hiscores(ironman,ultimate,hardcore) I don't plan on adding support for seasonal initially anyway (used in constructor)
     static public String buildUrlString(String hiscoreName,String displayName){
-        String urlString = String.format("https://services.runescape.com/m=hiscore_oldschool%1$s/index_lite.ws?player=%2$s",hiscoreName,displayName);
+
+        String urlString = String.format("https://services.runescape.com/m=hiscore_oldschool%1$s/index_lite.ws?player=%2$s",hiscoreName,displayName.replaceAll(" ", "_"));
         System.out.println(urlString);
         return urlString;
     }
