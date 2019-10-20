@@ -38,7 +38,7 @@ public class DataPoint {
     //constructor if just display name is given (defaults to default hiscores)
     public DataPoint(String displayName, String hiscoreName, HttpsURLConnection connection) {
 
-        ArrayList<Integer> dataArrayInts = new ArrayList<Integer>();
+        ArrayList<Long> dataArrayLongs = new ArrayList<Long>();
 
         try {
             int responseCode = connection.getResponseCode();
@@ -53,19 +53,19 @@ public class DataPoint {
                     StringBuffer response = new StringBuffer(inputLine);
                     String[] dataArray = response.toString().split(",");
                     for (int i = 0; i < dataArray.length; i++) {
-                        dataArrayInts.add(Integer.parseInt(dataArray[i]));
+                        dataArrayLongs.add(Long.parseLong(dataArray[i]));
                     }
                 }
 
                 in.close();
 
                 //test
-                System.out.println(dataArrayInts.get(0));
-                System.out.println(dataArrayInts.get(1));
-                System.out.println(dataArrayInts.get(2));
-                System.out.println(dataArrayInts.get(3));
-                System.out.println(dataArrayInts.get(4));
-                System.out.println(dataArrayInts.get(5));
+                System.out.println(dataArrayLongs.get(0));
+                System.out.println(dataArrayLongs.get(1));
+                System.out.println(dataArrayLongs.get(2));
+                System.out.println(dataArrayLongs.get(3));
+                System.out.println(dataArrayLongs.get(4));
+                System.out.println(dataArrayLongs.get(5));
                 //end test
 
                 //rank
@@ -75,7 +75,7 @@ public class DataPoint {
 
                 int i = 0;
                 for (skillNames skill : skillNames.values()){
-                    skillInfo.add(new skillData(dataArrayInts.get(i),dataArrayInts.get(i+1),dataArrayInts.get(i+2),skill.getSkillName()));
+                    skillInfo.add(new skillData(dataArrayLongs.get(i), dataArrayLongs.get(i+1), dataArrayLongs.get(i+2),skill.getSkillName()));
                     i += 3;
                 }
 

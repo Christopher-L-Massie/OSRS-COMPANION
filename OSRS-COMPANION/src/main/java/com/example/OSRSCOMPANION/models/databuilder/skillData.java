@@ -13,15 +13,15 @@ public class skillData {
 
     private String skillName;
 
-    private int rank;
+    private long rank;
 
-    private int experience;
+    private long experience;
 
-    private int level;
+    private long level;
 
     public skillData(){}
 
-    public skillData(int rank, int experience, int level, String skillName){
+    public skillData(long rank, long experience, long level, String skillName){
         this.rank = rank;
         this.experience = experience;
         this.level = level;
@@ -36,15 +36,15 @@ public class skillData {
         return skillName;
     }
 
-    public int getRank() {
+    public long getRank() {
         return rank;
     }
 
-    public int getExperience() {
+    public long getExperience() {
         return experience;
     }
 
-    public int getLevel() {
+    public long getLevel() {
         return level;
     }
 }
