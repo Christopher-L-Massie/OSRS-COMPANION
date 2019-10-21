@@ -23,7 +23,7 @@ public class HomeController {
     private PlayerDao playerDao;
 
     @RequestMapping(value = "")
-    public String index(Model model){
+    public String index(){
 
         return "home/index";
     }
@@ -37,13 +37,13 @@ public class HomeController {
     }
 
     @RequestMapping(value = "search",method = RequestMethod.GET)
-    public String searchPlayer(Model model){
-        model.addAttribute("Search",new Search());
+    public String searchPlayer(){
+
         return "home/search";
     }
 
     @RequestMapping(value = "search",method = RequestMethod.POST)
-    public String processSearchPlayer(@ModelAttribute @Valid Search newSearch, Errors errors, Model model,@RequestParam String displayName){
+    public String processSearchPlayer(Model model,@RequestParam String displayName){
 
         String searchedName = displayName;
 
