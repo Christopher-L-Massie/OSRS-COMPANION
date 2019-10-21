@@ -9,8 +9,15 @@
 <div>
     <nav th:replace="fragments :: navigation"></nav>
 </div>
+
 <br>
 <br>
+
+<div class=".text-center">
+    <p th:text="${player.displayName}"></p>
+    <p th:text="${player.lastUpdated}"></p>
+</div>
+
 <div >
     <div >
         <div class="container body-content">

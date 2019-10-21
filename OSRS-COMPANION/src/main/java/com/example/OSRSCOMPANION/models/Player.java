@@ -8,6 +8,8 @@ import org.hibernate.annotations.NaturalId;
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.*;
 
 @Entity
@@ -35,6 +37,9 @@ public class Player {
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> hardcoreData = new ArrayList<>();
 
+    @Column(name="lastUpdated")
+    private Timestamp lastUpdated = new Timestamp(System.currentTimeMillis());;
+
     //create constructor
     public Player(){}
 
@@ -55,6 +60,7 @@ public class Player {
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         hardcoreData.add(new hardcoreData(displayName, hiscore.getHiscore(), connection));
                     }
+                    this.lastUpdated = new Timestamp(System.currentTimeMillis());
                 }
             }
         } catch (IOException e){
@@ -66,6 +72,8 @@ public class Player {
     public int getId(){return this.id;}
 
     public String getDisplayName(){return this.displayName;}
+
+    public Timestamp getLastUpdated() {return lastUpdated;}
 
     public List getNormalData(){return this.normalData;}
 
