@@ -40,10 +40,12 @@
                 </thead>
                 <tbody th:each="skillData : ${player.normalData}">
                 <tr th:each="skill : ${skillData.skillInfo}">
-                    <td th:text="${skill.skillName}"></td>
-                    <td th:text="${skill.experience}"></td>
-                    <td th:text="${skill.rank}"></td>
-                    <td th:text="${skill.level}"></td>
+                    <div th:if="${skillData.isRecent}">
+                        <td th:text="${skill.skillName}"></td>
+                        <td th:text="${skill.experience}"></td>
+                        <td th:text="${skill.rank}"></td>
+                        <td th:text="${skill.level}"></td>
+                    </div>
                 </tr>
                 </tbody>
             </table>
