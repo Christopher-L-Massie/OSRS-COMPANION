@@ -72,6 +72,24 @@ public class HomeController {
     }
 
 
+    @RequestMapping(value = "update",method = RequestMethod.GET)
+    public String processUpdatePlayer(Model model,@RequestParam String displayName){
+        if (playerDao.count() > 0){
+            for (Player player : playerDao.findAll()){
+                if (player.getDisplayName().equals(displayName)){
+                    player.updateData();
+                    model.addAttribute("player",playerDao.findById(player.getId()).get());
+                    return "home/player";
+                } else {
+                    continue;
+                }
+            }
+        }
+        return "home/index";
+
+    }
+
+
 
 
 }
