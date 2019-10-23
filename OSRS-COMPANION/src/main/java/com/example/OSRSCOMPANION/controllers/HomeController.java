@@ -45,13 +45,11 @@ public class HomeController {
     @RequestMapping(value = "search",method = RequestMethod.POST)
     public String processSearchPlayer(Model model,@RequestParam String displayName){
 
-        String searchedName = displayName;
-
         Boolean isFound = false;
 
         if (playerDao.count() > 0){
             for (Player player : playerDao.findAll()){
-                if (player.getDisplayName().equals(searchedName) & (!isFound)){
+                if (player.getDisplayName().equals(displayName) & (!isFound)){
                     model.addAttribute("player",playerDao.findById(player.getId()).get());
                     return "home/player";
                 } else {
@@ -61,10 +59,10 @@ public class HomeController {
         }
 
         if (!isFound){
-            Player testPlayer = new Player(searchedName);
-            testPlayer.updateData();
-            playerDao.save(testPlayer);
-            model.addAttribute("player",testPlayer);
+            Player newPlayer = new Player(displayName);
+            newPlayer.updateData();
+            playerDao.save(newPlayer);
+            model.addAttribute("player",newPlayer);
             return "home/player";
         }
 
@@ -78,6 +76,7 @@ public class HomeController {
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName)){
                     player.updateData();
+                    playerDao.save(player);
                     model.addAttribute("player",playerDao.findById(player.getId()).get());
                     return "home/player";
                 } else {
