@@ -45,6 +45,26 @@ public class Player {
 
     public Player(String displayName){this.displayName = displayName;}
 
+    public void setNotRecent(String dataType){
+        if (dataType.equals("")) {
+            for (DataPoint data : this.normalData) {
+                data.setIsRecent(false);
+            }
+        } else if (dataType.equals("_ironman")) {
+            for (DataPoint data : this.ironmanData) {
+                data.setIsRecent(false);
+            }
+        } else if (dataType.equals("_ultimate")) {
+            for (DataPoint data : this.ultimateData) {
+                data.setIsRecent(false);
+            }
+        } else if (dataType.equals("_hardcore_ironman")) {
+            for (DataPoint data : this.hardcoreData) {
+                data.setIsRecent(false);
+            }
+        }
+    }
+
     public void updateData(){
         try{
             for (hiscoreTypes hiscore : hiscoreTypes.values()){
@@ -52,12 +72,16 @@ public class Player {
                 int responseCode = connection.getResponseCode();
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
+                        setNotRecent(hiscore.getHiscore());
                         normalData.add(new normalData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
+                        setNotRecent(hiscore.getHiscore());
                         ironmanData.add(new ironmanData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
+                        setNotRecent(hiscore.getHiscore());
                         ultimateData.add(new ultimateData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
+                        setNotRecent(hiscore.getHiscore());
                         hardcoreData.add(new hardcoreData(displayName, hiscore.getHiscore(), connection));
                     }
                     this.lastUpdated = new Timestamp(System.currentTimeMillis());

@@ -23,6 +23,8 @@ public class DataPoint {
 
     //not currently used
     //kept if I decide to use at some point
+    private boolean isRecent = true;
+
     private boolean isNormal;
 
     private boolean isHardcore;
@@ -126,6 +128,10 @@ public class DataPoint {
     }
 
     //accessors
+
+    public void setIsRecent(Boolean isRecent){this.isRecent = isRecent;}
+
+    public boolean getIsRecent(){return this.isRecent;}
 
     public int getId() {
         return id;
