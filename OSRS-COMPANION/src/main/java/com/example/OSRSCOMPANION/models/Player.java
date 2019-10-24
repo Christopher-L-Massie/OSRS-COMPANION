@@ -38,7 +38,15 @@ public class Player {
     private List<DataPoint> hardcoreData = new ArrayList<>();
 
     @Column(name="lastUpdated")
-    private Timestamp lastUpdated = new Timestamp(System.currentTimeMillis());;
+    private Timestamp lastUpdated = new Timestamp(System.currentTimeMillis());
+
+    private boolean isNormal;
+
+    private boolean isHardcore;
+
+    private boolean isIronman;
+
+    private boolean isUltimate;
 
     //create constructor
     public Player(){}
@@ -72,15 +80,19 @@ public class Player {
                 int responseCode = connection.getResponseCode();
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
+                        isNormal = true;
                         setNotRecent(hiscore.getHiscore());
                         normalData.add(new normalData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
+                        isIronman = true;
                         setNotRecent(hiscore.getHiscore());
                         ironmanData.add(new ironmanData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
+                        isUltimate = true;
                         setNotRecent(hiscore.getHiscore());
                         ultimateData.add(new ultimateData(displayName, hiscore.getHiscore(), connection));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
+                        isHardcore = true;
                         setNotRecent(hiscore.getHiscore());
                         hardcoreData.add(new hardcoreData(displayName, hiscore.getHiscore(), connection));
                     }
@@ -106,6 +118,14 @@ public class Player {
     public List getUltimateData(){return this.ultimateData;}
 
     public List getHardcoreData(){return this.hardcoreData;}
+
+    public boolean getIsNormal(){return this.isNormal;}
+
+    public boolean getIsIronman(){return this.isIronman;}
+
+    public boolean getIsUltimate(){return this.isUltimate;}
+
+    public boolean getIsHardcore(){return this.isHardcore;}
 }
 
 
