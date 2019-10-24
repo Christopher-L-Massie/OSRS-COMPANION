@@ -90,7 +90,7 @@ public class Player {
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
                         isUltimate = true;
                         setNotRecent(hiscore.getHiscore());
-                        ultimateData.add(new ultimateData(displayName, hiscore.getHiscore(), connection,false,true,false,false));
+                        ultimateData.add(new ultimateData(displayName, hiscore.getHiscore(), connection,false,false,true,false));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         isHardcore = true;
                         setNotRecent(hiscore.getHiscore());

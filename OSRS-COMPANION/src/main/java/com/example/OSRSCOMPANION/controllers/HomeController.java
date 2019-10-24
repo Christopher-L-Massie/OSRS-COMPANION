@@ -44,24 +44,28 @@ public class HomeController {
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName)){
                     if(hiscoreType.equals("normal")) {
+                        model.addAttribute("title",player.getDisplayName());
                         model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getNormalData().get(0));
                         model.addAttribute("displayName", player.getDisplayName());
                         model.addAttribute("data",player.getNormalData());
                         return "home/player";
                     } else if (hiscoreType.equals("ironman")){
+                        model.addAttribute("title",player.getDisplayName());
                         model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getIronmanData().get(0));
                         model.addAttribute("displayName",player.getDisplayName());
                         model.addAttribute("data",player.getIronmanData());
                         return "home/player";
                     } else if (hiscoreType.equals("ultimate")){
+                        model.addAttribute("title",player.getDisplayName());
                         model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getUltimateData().get(0));
                         model.addAttribute("displayName",player.getDisplayName());
                         model.addAttribute("data",player.getUltimateData());
                         return "home/player";
                     } else if (hiscoreType.equals("hardcore")){
+                        model.addAttribute("title",player.getDisplayName());
                         model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getHardcoreData().get(0));
                         model.addAttribute("displayName",player.getDisplayName());
@@ -93,6 +97,7 @@ public class HomeController {
         if (playerDao.count() > 0){
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName) & (!isFound)){
+                    model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
                     model.addAttribute("dataPoint",player.getNormalData().get(0));
                     model.addAttribute("displayName", player.getDisplayName());
@@ -108,6 +113,7 @@ public class HomeController {
             Player newPlayer = new Player(displayName);
             newPlayer.updateData();
             playerDao.save(newPlayer);
+            model.addAttribute("title",newPlayer.getDisplayName());
             model.addAttribute("player",newPlayer);
             model.addAttribute("dataPoint",newPlayer.getNormalData().get(0));
             model.addAttribute("displayName",newPlayer.getDisplayName());
@@ -126,6 +132,7 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)){
                     player.updateData();
                     playerDao.save(player);
+                    model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
                     model.addAttribute("dataPoint",player.getNormalData().get(0));
                     model.addAttribute("data",player.getNormalData());
