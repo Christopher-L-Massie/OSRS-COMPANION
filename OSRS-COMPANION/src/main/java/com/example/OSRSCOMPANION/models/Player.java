@@ -1,15 +1,14 @@
 package com.example.OSRSCOMPANION.models;
 
+import com.example.OSRSCOMPANION.models.ProgressionTracking.Progression;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.NaturalId;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.*;
 
 @Entity
@@ -22,6 +21,9 @@ public class Player {
     @NaturalId
     @Column(name="displayname")
     private String displayName;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Progression playerProgression;
 
     //all will be one-to-many or many-to-one <
 
