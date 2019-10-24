@@ -44,20 +44,24 @@ public class HomeController {
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName)){
                     if(hiscoreType.equals("normal")) {
-                        model.addAttribute("displayName", playerDao.findById(player.getId()).get().getDisplayName());
-                        model.addAttribute("data",playerDao.findById(player.getId()).get().getNormalData());
+                        model.addAttribute("player",player);
+                        model.addAttribute("displayName", player.getDisplayName());
+                        model.addAttribute("data",player.getNormalData());
                         return "home/player";
                     } else if (hiscoreType.equals("ironman")){
-                        model.addAttribute("displayName",playerDao.findById(player.getId()).get().getDisplayName());
-                        model.addAttribute("data",playerDao.findById(player.getId()).get().getIronmanData());
+                        model.addAttribute("player",player);
+                        model.addAttribute("displayName",player.getDisplayName());
+                        model.addAttribute("data",player.getIronmanData());
                         return "home/player";
                     } else if (hiscoreType.equals("ultimate")){
-                        model.addAttribute("displayName",playerDao.findById(player.getId()).get().getDisplayName());
-                        model.addAttribute("data",playerDao.findById(player.getId()).get().getUltimateData());
+                        model.addAttribute("player",player);
+                        model.addAttribute("displayName",player.getDisplayName());
+                        model.addAttribute("data",player.getUltimateData());
                         return "home/player";
                     } else if (hiscoreType.equals("hardcore")){
-                        model.addAttribute("displayName",playerDao.findById(player.getId()).get().getDisplayName());
-                        model.addAttribute("data",playerDao.findById(player.getId()).get().getHardcoreData());
+                        model.addAttribute("player",player);
+                        model.addAttribute("displayName",player.getDisplayName());
+                        model.addAttribute("data",player.getHardcoreData());
                         return "home/player";
                     }
 
@@ -85,7 +89,9 @@ public class HomeController {
         if (playerDao.count() > 0){
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName) & (!isFound)){
-                    model.addAttribute("player",playerDao.findById(player.getId()).get());
+                    model.addAttribute("player",player);
+                    model.addAttribute("displayName", player.getDisplayName());
+                    model.addAttribute("data",player.getNormalData());
                     return "home/player";
                 } else {
                     continue;
@@ -98,6 +104,8 @@ public class HomeController {
             newPlayer.updateData();
             playerDao.save(newPlayer);
             model.addAttribute("player",newPlayer);
+            model.addAttribute("displayName",newPlayer.getDisplayName());
+            model.addAttribute("data",newPlayer.getNormalData());
             return "home/player";
         }
 
@@ -112,7 +120,9 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)){
                     player.updateData();
                     playerDao.save(player);
-                    model.addAttribute("player",playerDao.findById(player.getId()).get());
+                    model.addAttribute("player",player);
+                    model.addAttribute("data",player.getNormalData());
+                    model.addAttribute("displayName",player.getDisplayName());
                     return "home/player";
                 } else {
                     continue;
