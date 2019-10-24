@@ -10,7 +10,7 @@ public class ironmanData extends DataPoint {
 
     public ironmanData(){}
 
-    public ironmanData(String displayName,String hiscoreName, HttpsURLConnection connection){
-        super(displayName,hiscoreName,connection);
+    public ironmanData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){
+        super(displayName,hiscoreName,connection,isNormal,isIronman,isUltimate,isHardcore);
     }
 }

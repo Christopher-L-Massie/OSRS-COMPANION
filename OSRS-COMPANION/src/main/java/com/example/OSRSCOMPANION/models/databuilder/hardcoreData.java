@@ -10,8 +10,8 @@ public class hardcoreData extends DataPoint {
 
     public hardcoreData(){}
 
-    public hardcoreData(String displayName, String hiscoreName, HttpsURLConnection connection){
-        super(displayName,hiscoreName,connection);
+    public hardcoreData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){
+        super(displayName,hiscoreName,connection,isNormal,isIronman,isUltimate,isHardcore);
     }
 
 }

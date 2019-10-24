@@ -20,17 +20,18 @@
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid ">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="" th:text="${player.displayName}"></a>
+                            <a  class="navbar-brand active" href="" th:text="${displayName}"></a>
                         </div>
 
                         <ul class="nav navbar-nav">
-                            <li class="active"><a th:href="@{/fetch?hiscoreType=normal(displayName=${player.displayName})}">Normal Hiscores</a></li>
-                            <li th:if="${player.isIronman}" ><a th:href="@{/fetch?hiscoreType=ironman(displayName=${player.displayName})}">Ironman Hiscores</a></li>
-                            <li th:if="${player.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${player.displayName})}">Ultimate Hiscores</a></li>
-                            <li th:if="${player.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${player.displayName})}">Hardcore Hiscores</a></li>
+                            
+                            <li><a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Normal Hiscores</a></li>
+                            <li th:if="${player.isIronman}" ><a th:href="@{/fetch?hiscoreType=ironman(displayName=${displayName})}">Ironman Hiscores</a></li>
+                            <li th:if="${player.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${displayName})}">Ultimate Hiscores</a></li>
+                            <li th:if="${player.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${displayName})}">Hardcore Hiscores</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a th:href="@{/update(displayName=${player.displayName})}">Update Player</a></li>
+                            <li class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
                         </ul>
 
                     </div>
@@ -45,7 +46,7 @@
                         <th scope="col">Experience</th>
                     </tr>
                 </thead>
-                <tbody th:each="skillData : ${player.normalData}">
+                <tbody th:each="skillData : ${data}">
                     <tr th:each="skill : ${skillData.skillInfo}">
                         <div th:if="${skillData.isRecent}">
                             <td th:text="${skill.skillName}"></td>

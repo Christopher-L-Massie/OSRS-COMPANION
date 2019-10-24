@@ -25,22 +25,28 @@ public class DataPoint {
     //kept if I decide to use at some point
     private boolean isRecent = true;
 
-    private boolean isNormal;
+    private boolean isNormal = false;
 
-    private boolean isHardcore;
+    private boolean isHardcore = false;
 
-    private boolean isIronman;
+    private boolean isIronman = false;
 
-    private boolean isUltimate;
+    private boolean isUltimate = false;
 
     private Timestamp dataTimeStamp = new Timestamp(System.currentTimeMillis());
     //constructors
     //empty
     public DataPoint(){ }
     //constructor if just display name is given (defaults to default hiscores)
-    public DataPoint(String displayName, String hiscoreName, HttpsURLConnection connection) {
+    public DataPoint(String displayName, String hiscoreName, HttpsURLConnection connection,Boolean isNormal,Boolean isIronman,Boolean isUltimate, Boolean isHardcore) {
 
         ArrayList<Long> dataArrayLongs = new ArrayList<Long>();
+
+        this.isNormal = isNormal;
+        this.isIronman = isIronman;
+        this.isUltimate = isUltimate;
+        this.isHardcore = isHardcore;
+
 
         try {
             int responseCode = connection.getResponseCode();
@@ -128,6 +134,39 @@ public class DataPoint {
     }
 
     //accessors
+
+
+    public boolean isNormal() {
+        return isNormal;
+    }
+
+    public void setNormal(boolean normal) {
+        isNormal = normal;
+    }
+
+    public boolean isHardcore() {
+        return isHardcore;
+    }
+
+    public void setHardcore(boolean hardcore) {
+        isHardcore = hardcore;
+    }
+
+    public boolean isIronman() {
+        return isIronman;
+    }
+
+    public void setIronman(boolean ironman) {
+        isIronman = ironman;
+    }
+
+    public boolean isUltimate() {
+        return isUltimate;
+    }
+
+    public void setUltimate(boolean ultimate) {
+        isUltimate = ultimate;
+    }
 
     public void setIsRecent(Boolean isRecent){this.isRecent = isRecent;}
 

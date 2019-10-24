@@ -10,7 +10,7 @@ public class ultimateData extends DataPoint {
 
     ultimateData(){}
 
-    public ultimateData(String displayName,String hiscoreName, HttpsURLConnection connection){
-        super(displayName,hiscoreName,connection);
+    public ultimateData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){
+        super(displayName,hiscoreName,connection,isNormal,isIronman,isUltimate,isHardcore);
     }
 }

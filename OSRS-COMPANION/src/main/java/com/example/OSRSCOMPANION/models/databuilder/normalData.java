@@ -10,7 +10,7 @@ public class normalData extends DataPoint {
 
     public normalData(){}
 
-    public normalData(String displayName, String hiscoreName, HttpsURLConnection connection){
-        super(displayName,hiscoreName,connection);
+    public normalData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){
+        super(displayName,hiscoreName,connection,isNormal,isIronman,isUltimate,isHardcore);
     }
 }
