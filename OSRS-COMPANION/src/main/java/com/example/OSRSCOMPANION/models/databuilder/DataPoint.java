@@ -136,15 +136,15 @@ public class DataPoint {
     //accessors
 
 
-    public boolean isNormal() {
-        return isNormal;
+    public boolean getIsNormal() {
+        return this.isNormal;
     }
 
     public void setNormal(boolean normal) {
         isNormal = normal;
     }
 
-    public boolean isHardcore() {
+    public boolean getIsHardcore() {
         return isHardcore;
     }
 
@@ -152,7 +152,7 @@ public class DataPoint {
         isHardcore = hardcore;
     }
 
-    public boolean isIronman() {
+    public boolean getIsIronman() {
         return isIronman;
     }
 
@@ -160,7 +160,7 @@ public class DataPoint {
         isIronman = ironman;
     }
 
-    public boolean isUltimate() {
+    public boolean getIsUltimate() {
         return isUltimate;
     }
 

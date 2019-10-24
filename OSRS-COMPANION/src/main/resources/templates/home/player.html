@@ -24,11 +24,17 @@
                         </div>
 
                         <ul class="nav navbar-nav">
-                            
-                            <li><a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Normal Hiscores</a></li>
-                            <li th:if="${player.isIronman}" ><a th:href="@{/fetch?hiscoreType=ironman(displayName=${displayName})}">Ironman Hiscores</a></li>
-                            <li th:if="${player.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${displayName})}">Ultimate Hiscores</a></li>
-                            <li th:if="${player.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${displayName})}">Hardcore Hiscores</a></li>
+                            <li class="active" th:if="${dataPoint.isNormal}"><a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Normal Hiscores</a></li>
+                            <li th:unless="${dataPoint.IsNormal}"><a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Normal Hiscores</a></li>
+
+                            <li class="active" th:if="${player.isIronman} and ${dataPoint.isIronman}"><a th:href="@{/fetch?hiscoreType=ironman(displayName=${displayName})}">Ironman Hiscores</a></li>
+                            <li th:if="${player.isIronman}" th:unless="${dataPoint.IsIronman}"><a th:href="@{/fetch?hiscoreType=ironman(displayName=${displayName})}">Ironman Hiscores</a></li>
+
+                            <li class="active" th:if="${player.isUltimate} and ${dataPoint.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${displayName})}">Ultimate Hiscores</a></li>
+                            <li th:if="${player.isUltimate}" th:unless="${dataPoint.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${displayName})}">Ultimate Hiscores</a></li>
+
+                            <li class="active" th:if="${player.isHardcore} and ${dataPoint.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${displayName})}">Hardcore Hiscores</a></li>
+                            <li th:if="${player.isHardcore}" th:unless="${dataPoint.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${displayName})}">Hardcore Hiscores</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
