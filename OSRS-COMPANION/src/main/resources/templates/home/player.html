@@ -22,8 +22,15 @@
                         <div class="navbar-header">
                             <a class="navbar-brand" href="" th:text="${player.displayName}"></a>
                         </div>
+
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/top">Normal Hiscores</a></li>
+                            <li th:if="${player.isIronman}" ><a href="/top">Ironman Hiscores</a></li>
+                            <li th:if="${player.isUltimate}"><a href="/top">Ultimate Hiscores</a></li>
+                            <li th:if="${player.isHardcore}"><a href="/top">Hardcore Hiscores</a></li>
+                        </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a th:href="@{/update(displayName=${player.displayName})}">Update Player</a></li>
+                            <li><a th:href="@{/update(displayName=${player.displayName})}">Update Player</a></li>
                         </ul>
 
                     </div>
@@ -39,14 +46,14 @@
                     </tr>
                 </thead>
                 <tbody th:each="skillData : ${player.normalData}">
-                <tr th:each="skill : ${skillData.skillInfo}">
-                    <div th:if="${skillData.isRecent}">
-                        <td th:text="${skill.skillName}"></td>
-                        <td th:text="${skill.experience}"></td>
-                        <td th:text="${skill.rank}"></td>
-                        <td th:text="${skill.level}"></td>
-                    </div>
-                </tr>
+                    <tr th:each="skill : ${skillData.skillInfo}">
+                        <div th:if="${skillData.isRecent}">
+                            <td th:text="${skill.skillName}"></td>
+                            <td th:text="${skill.experience}"></td>
+                            <td th:text="${skill.rank}"></td>
+                            <td th:text="${skill.level}"></td>
+                        </div>
+                    </tr>
                 </tbody>
             </table>
         </div>
