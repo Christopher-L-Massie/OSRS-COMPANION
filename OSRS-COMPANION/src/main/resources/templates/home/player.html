@@ -24,10 +24,10 @@
                         </div>
 
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="/top">Normal Hiscores</a></li>
-                            <li th:if="${player.isIronman}" ><a href="/top">Ironman Hiscores</a></li>
-                            <li th:if="${player.isUltimate}"><a href="/top">Ultimate Hiscores</a></li>
-                            <li th:if="${player.isHardcore}"><a href="/top">Hardcore Hiscores</a></li>
+                            <li class="active"><a th:href="@{/fetch?hiscoreType=normal(displayName=${player.displayName})}">Normal Hiscores</a></li>
+                            <li th:if="${player.isIronman}" ><a th:href="@{/fetch?hiscoreType=ironman(displayName=${player.displayName})}">Ironman Hiscores</a></li>
+                            <li th:if="${player.isUltimate}"><a th:href="@{/fetch?hiscoreType=ultimate(displayName=${player.displayName})}">Ultimate Hiscores</a></li>
+                            <li th:if="${player.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${player.displayName})}">Hardcore Hiscores</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a th:href="@{/update(displayName=${player.displayName})}">Update Player</a></li>
