@@ -74,6 +74,19 @@ public class DataPoint {
                 System.out.println(dataArrayLongs.get(3));
                 System.out.println(dataArrayLongs.get(4));
                 System.out.println(dataArrayLongs.get(5));
+                //time test
+                System.out.println("Time Test:");
+                Timestamp now = new Timestamp(System.currentTimeMillis());
+                long day = 86400000;
+                long days = 365;
+                Timestamp check = new Timestamp(System.currentTimeMillis() - (days*day));
+                System.out.println(now);
+                System.out.println(check);
+                System.out.println(now==now);
+                System.out.println(now==check);
+                System.out.println(check.before(now));
+                System.out.println(now.after(check));
+                System.out.println("End Time Test!");
                 //end test
 
                 //rank
