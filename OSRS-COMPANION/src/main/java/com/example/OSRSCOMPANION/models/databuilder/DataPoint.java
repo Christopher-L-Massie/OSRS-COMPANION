@@ -13,7 +13,9 @@ import java.util.*;
 
 @Entity
 public class DataPoint {
-    //properties
+
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     private int id;
@@ -21,8 +23,6 @@ public class DataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillData> skillInfo = new ArrayList<>();
 
-    //not currently used
-    //kept if I decide to use at some point
     private boolean isRecent = true;
 
     private boolean isNormal = false;
@@ -34,7 +34,9 @@ public class DataPoint {
     private boolean isUltimate = false;
 
     private Timestamp dataTimeStamp = new Timestamp(System.currentTimeMillis());
-    //constructors
+
+    //|||CONSTRUCTORS|||
+
     //empty
     public DataPoint(){ }
     //constructor if just display name is given (defaults to default hiscores)
@@ -137,8 +139,7 @@ public class DataPoint {
         return null;
     }
 
-    //accessors
-
+    //|||ACCESSORS|||
 
     public boolean getIsNormal() {
         return this.isNormal;

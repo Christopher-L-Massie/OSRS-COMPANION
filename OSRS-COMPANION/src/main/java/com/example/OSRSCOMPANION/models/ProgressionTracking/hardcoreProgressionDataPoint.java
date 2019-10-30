@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class hardcoreProgressionDataPoint extends ProgressionDataPoint {
 
-    //constructors
+    //|||CONSTRUCTORS|||
 
     //empty for database functionality
     public hardcoreProgressionDataPoint(){}

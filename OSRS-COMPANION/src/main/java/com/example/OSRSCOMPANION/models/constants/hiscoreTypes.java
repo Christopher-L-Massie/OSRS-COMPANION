@@ -7,7 +7,11 @@ public enum hiscoreTypes {
     ULTIMATE("_ultimate"),
     HARDCORE("_hardcore_ironman");
 
+    //|||PROPERTIES|||
+
     public String hiscore;
+
+    //|||CONSTRUCTORS|||
 
     private hiscoreTypes(String hiscore){
         this.hiscore = hiscore;

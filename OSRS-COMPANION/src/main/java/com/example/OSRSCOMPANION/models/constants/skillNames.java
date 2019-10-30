@@ -28,19 +28,19 @@ public enum skillNames {
     CONSTRUCTION("construction",23);
 
 
-    //properties
+    //|||PROPERTIES|||
 
     private String skillName;
     private int skillNumber;
 
-    //constructors
+    //|||CONSTRUCTORS|||
 
     private skillNames(String skillName, int skillNumber){
         this.skillName = skillName;
         this.skillNumber = skillNumber;
     }
 
-    //accessors
+    //|||ACCESSORS|||
 
     public String getSkillName(){
         return skillName;

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class skillData {
 
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     private int id;
@@ -19,6 +21,8 @@ public class skillData {
 
     private long level;
 
+    //|||CONSTRUCTORS|||
+
     public skillData(){}
 
     public skillData(long rank, long experience, long level, String skillName){
@@ -27,6 +31,8 @@ public class skillData {
         this.level = level;
         this.skillName = skillName;
     }
+
+    //|||ACCESSORS|||
 
     public int getId() {
         return id;

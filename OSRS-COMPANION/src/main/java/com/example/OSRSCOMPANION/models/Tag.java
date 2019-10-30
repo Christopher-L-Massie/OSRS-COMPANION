@@ -8,6 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Tag {
 
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     int id;

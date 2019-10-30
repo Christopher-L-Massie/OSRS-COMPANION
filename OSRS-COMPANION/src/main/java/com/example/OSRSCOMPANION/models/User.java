@@ -10,6 +10,8 @@ import java.util.List;
 @Table(uniqueConstraints=@UniqueConstraint(columnNames = {"userName"}))
 public class User {
 
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     int id;

@@ -1,48 +1,74 @@
 package com.example.OSRSCOMPANION.models.ProgressionTracking;
+
 import com.example.OSRSCOMPANION.models.Player;
-import com.example.OSRSCOMPANION.models.constants.timeValues;
+import org.hibernate.annotations.Cascade;
 
-import com.example.OSRSCOMPANION.models.data.PlayerDao;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "progression")
 public class Progression {
 
-    @Autowired
-    private PlayerDao playerDao;
-
-    //properties
+    //|||PROPERTIES|||
 
     @Id
     @GeneratedValue
     private int id;
 
+    /*
+    Links the Progression object with the player object that owns it.
+    */
     @OneToOne
-    private normalProgressionDataPoint normalProgression;
+    @MapsId
+    private Player player;
 
-    @OneToOne
-    private ironmanProgressionDataPoint ironmanProgression;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<normalProgressionDataPoint> normalProgression;
 
-    @OneToOne
-    private ultimateProgressionDataPoint ultimateProgession;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ironmanProgressionDataPoint> ironmanProgression;
 
-    @OneToOne
-    private hardcoreProgressionDataPoint hardcoreProgression;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ultimateProgressionDataPoint> ultimateProgession;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<hardcoreProgressionDataPoint> hardcoreProgression;
 
 
-    //methods
+    //|||METHODS|||
 
 
-
-    //constructors
+    //|||CONSTRUCTORS|||
 
     //empty for database functionality
     public Progression(){}
 
+    //|||ACCESSORS|||
+
+    public int getId() {
+        return id;
+    }
+
+    public List getNormalProgression() {
+        return normalProgression;
+    }
+
+    public List getIronmanProgression() {
+        return ironmanProgression;
+    }
+
+    public List getUltimateProgession() {
+        return ultimateProgession;
+    }
+
+    public List getHardcoreProgression() {
+        return hardcoreProgression;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
 }

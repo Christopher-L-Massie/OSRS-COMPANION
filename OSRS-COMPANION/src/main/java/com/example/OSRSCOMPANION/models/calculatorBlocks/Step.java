@@ -19,6 +19,8 @@ public class Step {
 
     private int stepResult;
 
+    //|||CONSTRUCTORS|||
+
     public Step(){}
 
     public Step(int firstValue,int secondValue,String operator){

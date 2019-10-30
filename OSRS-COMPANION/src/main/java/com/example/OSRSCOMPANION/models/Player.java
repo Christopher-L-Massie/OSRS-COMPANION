@@ -1,4 +1,5 @@
 package com.example.OSRSCOMPANION.models;
+import com.example.OSRSCOMPANION.models.ProgressionTracking.ProgressionDataPoint;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
 
@@ -14,7 +15,10 @@ import java.sql.Timestamp;
 import java.util.*;
 
 @Entity
+@Table(name = "player")
 public class Player {
+
+    //|||PROPERTIES|||
 
     @Id
     @GeneratedValue
@@ -24,10 +28,12 @@ public class Player {
     @Column(name="displayname")
     private String displayName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Progression playerProgression;
+    /*
+    Associates a Progression object to a Player object
+    */
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
+    private Progression progression;
 
-    //all will be one-to-many or many-to-one <
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> normalData = new ArrayList<>();
@@ -41,9 +47,17 @@ public class Player {
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> hardcoreData = new ArrayList<>();
 
+    /*
+    The last time this player was updated in the database
+    */
     @Column(name="lastUpdated")
     private Timestamp lastUpdated = new Timestamp(System.currentTimeMillis());
 
+
+    /*
+    Theese four boolean variables determine what boards the player appears on
+    They cannot currently tell if the player has been removed from that board.
+    */
     private boolean isNormal;
 
     private boolean isHardcore;
@@ -52,7 +66,9 @@ public class Player {
 
     private boolean isUltimate;
 
-    //create constructor
+    //|||CONSTRUCTORS|||
+
+    //empty for database setup
     public Player(){}
 
     public Player(String displayName){this.displayName = displayName;}
@@ -109,14 +125,19 @@ public class Player {
         }
     }
 
-    //this triggers the progression system
-    //there is only 1 set of data for the player that ever exist for progression
-    //whatever the most recent progression search was is the saved one
+    /*
+    this method calls for an update in the Progression object of the Player
+    each time this method is called it creates new datapoints in the ProgressionDataPoint subclasses (normal,ironman,ultimate,hardcore)
+    these datapoints will be easily referencable for future use
+    */
     public void checkProgression(long days){
 
         long day = timeValues.DAY.getMilliseconds();
         List<DataPoint> pointsInTimeRange = new ArrayList<>();
 
+        /*
+
+        */
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
         if (this.normalData.size() > 2) {
@@ -135,13 +156,16 @@ public class Player {
         List currentDataPoint = normalData.get(normalData.size()-1).getSkillInfo();
 
         int i = 0;
-        //stopped working here
+
+
         for(skillNames skill :skillNames.values()){
 
         }
 
 
     }
+
+    //|||ACCESSORS|||
 
     public int getId(){return this.id;}
 
@@ -164,6 +188,8 @@ public class Player {
     public boolean getIsUltimate(){return this.isUltimate;}
 
     public boolean getIsHardcore(){return this.isHardcore;}
+
+    public Progression getProgression(){return this.progression;}
 }
 
 

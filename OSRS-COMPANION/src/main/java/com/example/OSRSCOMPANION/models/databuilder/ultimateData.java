@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 @Entity
 public class ultimateData extends DataPoint {
 
-    ultimateData(){}
+    //|||CONSTRUCTORS|||
+
+    public ultimateData(){}
 
     public ultimateData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){
         super(displayName,hiscoreName,connection,isNormal,isIronman,isUltimate,isHardcore);

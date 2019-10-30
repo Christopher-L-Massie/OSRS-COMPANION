@@ -7,6 +7,8 @@ import java.util.List;
 @Entity
 public class Tournament {
 
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     int id;

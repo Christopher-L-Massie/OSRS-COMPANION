@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class skillProgressionData {
 
-    //properties
+    //|||PROPERTIES|||
 
     @Id
     @GeneratedValue

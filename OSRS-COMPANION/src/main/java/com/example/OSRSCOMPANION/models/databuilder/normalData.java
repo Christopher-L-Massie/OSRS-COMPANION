@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 @Entity
 public class normalData extends DataPoint {
 
+    //|||CONSTRUCTORS|||
+
     public normalData(){}
 
     public normalData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){

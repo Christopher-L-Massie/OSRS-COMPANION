@@ -8,6 +8,8 @@ import java.util.List;
 @Entity
 public class Calculator {
 
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     int id;

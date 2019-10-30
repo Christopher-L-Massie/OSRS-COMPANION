@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 @Entity
 public class hardcoreData extends DataPoint {
 
+    //|||CONSTRUCTORS|||
+
     public hardcoreData(){}
 
     public hardcoreData(String displayName, String hiscoreName, HttpsURLConnection connection, Boolean isNormal,Boolean isIronman,Boolean isUltimate,Boolean isHardcore){

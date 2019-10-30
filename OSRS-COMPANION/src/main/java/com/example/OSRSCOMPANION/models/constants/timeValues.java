@@ -8,12 +8,17 @@ public enum timeValues {
     DAY(86400000),
     WEEK(604800000);
 
+    //|||PROPERTIES|||
 
     private long milliseconds;
+
+    //|||CONSTRUCTORS|||
 
     private timeValues(long milliseconds){
         this.milliseconds = milliseconds;
     }
+
+    //|||ACCESSORS|||
 
     public long getMilliseconds(){
         return milliseconds;
