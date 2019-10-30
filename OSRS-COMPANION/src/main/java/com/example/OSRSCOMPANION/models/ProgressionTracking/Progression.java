@@ -1,4 +1,6 @@
 package com.example.OSRSCOMPANION.models.ProgressionTracking;
+import com.example.OSRSCOMPANION.models.Player;
+import com.example.OSRSCOMPANION.models.constants.timeValues;
 
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class Progression {
 
     @Autowired
     private PlayerDao playerDao;
+
+    //creates a day variable with correct number of milliseconds in a day
+    private long day = timeValues.DAY.getMilliseconds();
 
     //properties
 
@@ -39,9 +44,13 @@ public class Progression {
     //methods
 
     public void checkProgression(long days){
-        Timestamp now = new Timestamp(System.currentTimeMillis());
 
-        Timestamp check = new Timestamp(System.currentTimeMillis()-(days * 86400000));
+
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        Timestamp check = new Timestamp(System.currentTimeMillis()-(days * day));
+
+
+
 
     }
 

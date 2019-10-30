@@ -1,4 +1,6 @@
 package com.example.OSRSCOMPANION.models;
+import com.example.OSRSCOMPANION.models.constants.skillNames;
+import com.example.OSRSCOMPANION.models.constants.timeValues;
 
 import com.example.OSRSCOMPANION.models.ProgressionTracking.Progression;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
@@ -105,6 +107,40 @@ public class Player {
             e.printStackTrace();
         } finally {
         }
+    }
+
+    //this triggers the progression system
+    //there is only 1 set of data for the player that ever exist for progression
+    //whatever the most recent progression search was is the saved one
+    public void checkProgression(long days){
+
+        long day = timeValues.DAY.getMilliseconds();
+        List<DataPoint> pointsInTimeRange = new ArrayList<>();
+
+        Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
+
+        if (this.normalData.size() > 2) {
+            for (DataPoint datapoint : this.normalData) {
+                if (datapoint.getDataTimeStamp().after(earliestDate)) {
+                    pointsInTimeRange.add(datapoint);
+                } else {
+                    continue;
+                }
+            }
+        } else {
+            return;
+        }
+
+        DataPoint oldestDataPoint = pointsInTimeRange.get(0);
+        List currentDataPoint = normalData.get(normalData.size()-1).getSkillInfo();
+
+        int i= 0;
+        //stopped working here
+        for(skillNames skill :skillNames.values()){
+
+        }
+
+
     }
 
     public int getId(){return this.id;}
