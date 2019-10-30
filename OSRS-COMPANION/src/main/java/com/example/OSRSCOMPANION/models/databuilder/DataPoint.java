@@ -74,6 +74,10 @@ public class DataPoint {
                 System.out.println(dataArrayLongs.get(3));
                 System.out.println(dataArrayLongs.get(4));
                 System.out.println(dataArrayLongs.get(5));
+                Timestamp now = new Timestamp(System.currentTimeMillis());
+                Timestamp check = new Timestamp(System.currentTimeMillis()-(365 * 86400000));
+                System.out.println(now);
+                System.out.println(check);
                 //end test
 
                 //rank

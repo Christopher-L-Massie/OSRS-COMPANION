@@ -1,12 +1,10 @@
 package com.example.OSRSCOMPANION.models.ProgressionTracking;
 
-import javax.persistence.CascadeType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class ProgressionDataPoint {
 
     @Id
@@ -23,6 +21,11 @@ public class ProgressionDataPoint {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillProgressionData> progressionData = new ArrayList<>();
+
+    //constructors
+
+    //empty constructor for database functionality
+    public ProgressionDataPoint(){}
 
 
 }
