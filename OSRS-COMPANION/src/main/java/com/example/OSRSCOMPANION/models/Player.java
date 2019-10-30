@@ -134,7 +134,7 @@ public class Player {
         DataPoint oldestDataPoint = pointsInTimeRange.get(0);
         List currentDataPoint = normalData.get(normalData.size()-1).getSkillInfo();
 
-        int i= 0;
+        int i = 0;
         //stopped working here
         for(skillNames skill :skillNames.values()){
 

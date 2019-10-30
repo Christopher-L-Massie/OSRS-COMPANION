@@ -4,5 +4,9 @@ import javax.persistence.Entity;
 
 @Entity
 public class ultimateProgressionDataPoint extends ProgressionDataPoint {
-    super();
+
+    //constructors
+
+    //empty for database functionality
+    public ultimateProgressionDataPoint(){}
 }

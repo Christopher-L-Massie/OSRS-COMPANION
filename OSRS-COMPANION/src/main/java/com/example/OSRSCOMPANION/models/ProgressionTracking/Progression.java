@@ -17,9 +17,6 @@ public class Progression {
     @Autowired
     private PlayerDao playerDao;
 
-    //creates a day variable with correct number of milliseconds in a day
-    private long day = timeValues.DAY.getMilliseconds();
-
     //properties
 
     @Id
@@ -38,22 +35,14 @@ public class Progression {
     @OneToOne
     private hardcoreProgressionDataPoint hardcoreProgression;
 
-    //constructors
-
 
     //methods
 
-    public void checkProgression(long days){
 
-
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-        Timestamp check = new Timestamp(System.currentTimeMillis()-(days * day));
-
-
-
-
-    }
 
     //constructors
+
+    //empty for database functionality
+    public Progression(){}
 
 }
