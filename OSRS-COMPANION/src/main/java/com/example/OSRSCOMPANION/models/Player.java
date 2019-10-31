@@ -153,7 +153,7 @@ public class Player {
         }
 
         DataPoint oldestDataPoint = pointsInTimeRange.get(0);
-        List currentDataPoint = normalData.get(normalData.size()-1).getSkillInfo();
+        DataPoint currentDataPoint = normalData.get(normalData.size()-1);
 
         int i = 0;
 

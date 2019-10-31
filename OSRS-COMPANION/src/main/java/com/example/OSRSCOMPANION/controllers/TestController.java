@@ -19,6 +19,28 @@ public class TestController {
     @Autowired
     private PlayerDao playerDao;
 
+    @RequestMapping(value = "progression")
+    public String progressionTest(){
+
+        String searchedName = "franquito";
+        long days = 14;
+        Boolean isFound = false;
+
+        if (playerDao.count() > 0){
+            for (Player player : playerDao.findAll()){
+                if (player.getDisplayName().equals(searchedName) & (!isFound)){
+                    player.checkProgression(days);
+                    System.out.println(player.getProgression().getNormalProgression().get(0));
+                    return "home/player";
+                } else {
+                    continue;
+                }
+            }
+        }
+
+        return "home/index";
+    }
+
     @RequestMapping(value = "playerscore")
     public String index(Model model){
 
