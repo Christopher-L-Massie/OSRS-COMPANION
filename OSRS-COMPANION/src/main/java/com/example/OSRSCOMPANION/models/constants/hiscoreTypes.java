@@ -13,7 +13,7 @@ public enum hiscoreTypes {
 
     //|||CONSTRUCTORS|||
 
-    private hiscoreTypes(String hiscore){
+    hiscoreTypes(String hiscore){
         this.hiscore = hiscore;
     }
 

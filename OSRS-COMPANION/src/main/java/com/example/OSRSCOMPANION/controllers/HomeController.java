@@ -131,6 +131,7 @@ public class HomeController {
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName)){
                     player.updateData();
+                    player.checkAchievements();
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);

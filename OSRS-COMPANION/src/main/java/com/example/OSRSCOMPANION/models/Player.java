@@ -1,5 +1,7 @@
 package com.example.OSRSCOMPANION.models;
+import com.example.OSRSCOMPANION.models.Achievements.Achievement;
 import com.example.OSRSCOMPANION.models.ProgressionTracking.ProgressionDataPoint;
+import com.example.OSRSCOMPANION.models.constants.playerAchievements;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
 
@@ -31,18 +33,41 @@ public class Player {
     /*
     Associates a Progression object to a Player object
     */
+
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     private Progression progression;
 
+    /*
+    Associates Achievement objects to a Player
+    */
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Achievement> achievements = new ArrayList<>();
+
+    /*
+    Associates normalDataPoint (super of DataPoint) objects to a Player object
+    */
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> normalData = new ArrayList<>();
 
+    /*
+    Associates ironmanDataPoint (super of DataPoint) objects to a Player object
+    */
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> ironmanData = new ArrayList<>();
 
+    /*
+    Associates ultimateDataPoint (super of DataPoint) objects to a Player object
+    */
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> ultimateData = new ArrayList<>();
+
+    /*
+    Associates hardcoreDataPoint (super of DataPoint) objects to a Player object
+    */
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> hardcoreData = new ArrayList<>();
@@ -50,14 +75,16 @@ public class Player {
     /*
     The last time this player was updated in the database
     */
+
     @Column(name="lastUpdated")
     private Timestamp lastUpdated = new Timestamp(System.currentTimeMillis());
 
 
     /*
-    Theese four boolean variables determine what boards the player appears on
+    These four boolean variables determine what boards the player appears on
     They cannot currently tell if the player has been removed from that board.
     */
+
     private boolean isNormal;
 
     private boolean isHardcore;
@@ -122,6 +149,14 @@ public class Player {
         } catch (IOException e){
             e.printStackTrace();
         } finally {
+            /*
+            Populates the achievements associated with the Player object  so that is has all the achievements
+             */
+            if(this.achievements.size() < playerAchievements.values().length ){
+                for(playerAchievements achievement : playerAchievements.values()){
+                    achievements.add(new Achievement(achievement.getName(),achievement.getDescription(),false,achievement.getId()));
+                }
+            }
         }
     }
 
@@ -146,6 +181,7 @@ public class Player {
                     pointsInTimeRange.add(datapoint);
                 } else {
                     continue;
+
                 }
             }
         } else {
@@ -162,6 +198,49 @@ public class Player {
 
         }
 
+
+    }
+
+    public void checkAchievements(){
+
+        List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
+
+        for(Achievement achievement : this.achievements){
+            if(achievement.getAchievementNumber() == 0 & !achievement.isHasAchieved()){
+                for (skillData skillData : dataList){
+                    if (skillData.getLevel() >= 10){
+                        achievement.setHasAchieved(true);
+                        continue;
+                    } else {
+                        achievement.setHasAchieved(false);
+                        break;
+                    }
+
+
+                }
+
+            }else if (achievement.getAchievementNumber() == 1 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 2 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 3 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 4 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 5 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 6 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 7 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 8 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 9 & !achievement.isHasAchieved()){
+
+            }else if (achievement.getAchievementNumber() == 10 & !achievement.isHasAchieved()){
+
+            }
+        }
 
     }
 
