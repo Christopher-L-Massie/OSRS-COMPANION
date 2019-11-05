@@ -201,44 +201,50 @@ public class Player {
 
     }
 
+    /*
+    used to check if achievements that require a base level in all skills have been completed
+    */
+
+    public void checkBaseLevelAchievement(Achievement achievement,List<skillData> dataList,int baseLevel){
+        for(skillData skillData : dataList){
+            if(skillData.getLevel() >= baseLevel){
+                achievement.setHasAchieved(true);
+                continue;
+            } else {
+                achievement.setHasAchieved(false);
+                break;
+            }
+        }
+
+    }
+
     public void checkAchievements(){
 
         List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
 
         for(Achievement achievement : this.achievements){
             if(achievement.getAchievementNumber() == 0 & !achievement.isHasAchieved()){
-                for (skillData skillData : dataList){
-                    if (skillData.getLevel() >= 10){
-                        achievement.setHasAchieved(true);
-                        continue;
-                    } else {
-                        achievement.setHasAchieved(false);
-                        break;
-                    }
-
-
-                }
-
+                checkBaseLevelAchievement(achievement,dataList,10);
             }else if (achievement.getAchievementNumber() == 1 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,20);
             }else if (achievement.getAchievementNumber() == 2 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,30);
             }else if (achievement.getAchievementNumber() == 3 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,40);
             }else if (achievement.getAchievementNumber() == 4 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,50);
             }else if (achievement.getAchievementNumber() == 5 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,60);
             }else if (achievement.getAchievementNumber() == 6 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,70);
             }else if (achievement.getAchievementNumber() == 7 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,80);
             }else if (achievement.getAchievementNumber() == 8 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,90);
             }else if (achievement.getAchievementNumber() == 9 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,92);
             }else if (achievement.getAchievementNumber() == 10 & !achievement.isHasAchieved()){
-
+                checkBaseLevelAchievement(achievement,dataList,99);
             }
         }
 
