@@ -155,8 +155,9 @@ public class Player {
             Populates the achievements associated with the Player object  so that is has all the achievements
              */
             if(this.achievements.size() < playerAchievements.values().length ){
+                this.achievements.clear();
                 for(playerAchievements achievement : playerAchievements.values()){
-                    achievements.add(new Achievement(achievement.getName(),achievement.getDescription(),false,achievement.getId()));
+                    this.achievements.add(new Achievement(achievement.getName(),achievement.getDescription(),false,achievement.getId()));
                 }
             }
         }
@@ -222,6 +223,17 @@ public class Player {
 
     }
 
+    public void checkTotalExperienceAchievement(Achievement achievement,List<skillData> dataList,int experienceAmount){
+        skillData skilldata = dataList.get(0);
+        if(skilldata.getExperience()>=experienceAmount){
+            achievement.setHasAchieved(true);
+            achievement.setDateAchieved(new Timestamp(System.currentTimeMillis()));
+        } else {
+            achievement.setHasAchieved(false);
+        }
+
+    }
+
     public void checkAchievements(){
 
         List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
@@ -249,6 +261,26 @@ public class Player {
                 checkBaseLevelAchievement(achievement,dataList,92);
             }else if (achievement.getAchievementNumber() == 10 & !achievement.isHasAchieved()){
                 checkBaseLevelAchievement(achievement,dataList,99);
+            }else if (achievement.getAchievementNumber() == 11 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,10000000);
+            }else if (achievement.getAchievementNumber() == 12 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,20000000);
+            }else if (achievement.getAchievementNumber() == 13 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,30000000);
+            }else if (achievement.getAchievementNumber() == 14 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,40000000);
+            }else if (achievement.getAchievementNumber() == 15 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,50000000);
+            }else if (achievement.getAchievementNumber() == 16 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,60000000);
+            }else if (achievement.getAchievementNumber() == 17 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,70000000);
+            }else if (achievement.getAchievementNumber() == 18 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,80000000);
+            }else if (achievement.getAchievementNumber() == 19 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,90000000);
+            }else if (achievement.getAchievementNumber() == 20 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,100000000);
             }
         }
 

@@ -19,7 +19,17 @@ public enum playerAchievements {
     BASEEIGHTY(7,"Base 80 skills","Have level 80 or higher in all skills."),
     BASENINETY(8,"Base 90 skills","Have level 90 or higher in all skills."),
     HALFWAY(9,"Halfway there!","At least 92 in all skills."),
-    MAXED(10,"Maxed Out!","Reach level 99 in all skills.");
+    MAXED(10,"Maxed Out!","Reach level 99 in all skills."),
+    TENMILLTOTAL(11,"Ten Million!","Have 10,000,000 or more total experience."),
+    TWENTYMILLTOTAL(12,"Twenty Million!","Have 20,000,000 or more total experience."),
+    THIRTYMILLTOTAL(13,"Thirty Million!","Have 30,000,000 or more total experience."),
+    FOURTYMILLTOTAL(14,"Fourty Million!","Have 40,000,000 or more total experience."),
+    FIFTYMILLTOTAL(15,"Fifty Million!","Have 50,000,000 or more total experience."),
+    SIXTYMILLTOTAL(16,"Sixty Million!","Have 60,000,000 or more total experience."),
+    SEVENTYMILLTOTAL(17,"Seventy Million!","Have 70,000,000 or more total experience."),
+    EIGHTYMILLTOTAL(18,"Eighty Million!","Have 80,000,000 or more total experience."),
+    NINETYMILLTOTAL(19,"Ninety Million!","Have 90,000,000 or more total experience."),
+    ONEHUNDREDMILLTOTAL(20,"One Hundred Million!","Have 100,000,000 or more total experience.");
 
     //||Properties||
 
