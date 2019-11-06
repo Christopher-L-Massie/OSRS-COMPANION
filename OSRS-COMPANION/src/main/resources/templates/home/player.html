@@ -63,20 +63,22 @@
                     </tr>
                 </tbody>
             </table>
+            <h1 class="text-center">Achievements</h1>
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Achieved</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Day Achieved</th>
                     </tr>
                 </thead>
                 <tbody th:each="achievement : ${achievements}">
                     <div th:if="${achievement.HasAchieved}">
-                        <td  class="glyphicon glyphicon-star"></td>
+                        <td  title="Achieved" class="glyphicon glyphicon-star"></td>
                     </div>
                     <div th:unless="${achievement.HasAchieved}">
-                        <td class="glyphicon glyphicon-star-empty"></td>
+                        <td title="Not Achieved" class="glyphicon glyphicon-star-empty"></td>
                     </div>
                     <td th:text="${achievement.name}"></td>
                     <td th:text="${achievement.description}"></td>
