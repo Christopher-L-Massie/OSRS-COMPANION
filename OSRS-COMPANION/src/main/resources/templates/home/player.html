@@ -82,6 +82,12 @@
                     </div>
                     <td th:text="${achievement.name}"></td>
                     <td th:text="${achievement.description}"></td>
+                    <div th:if="${achievement.HasAchieved}">
+                        <td th:text="${achievement.dateAchieved}"></td>
+                    </div>
+                    <div th:unless="${achievement.HasAchieved}">
+                        <td></td>
+                    </div>
                 </tbody>
             </table>
         </div>
