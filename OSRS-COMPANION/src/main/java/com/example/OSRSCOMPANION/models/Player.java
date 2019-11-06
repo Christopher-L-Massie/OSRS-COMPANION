@@ -223,7 +223,7 @@ public class Player {
 
     }
 
-    public void checkTotalExperienceAchievement(Achievement achievement,List<skillData> dataList,int experienceAmount){
+    public void checkTotalExperienceAchievement(Achievement achievement,List<skillData> dataList,long experienceAmount){
         skillData skilldata = dataList.get(0);
         if(skilldata.getExperience()>=experienceAmount){
             achievement.setHasAchieved(true);
@@ -281,6 +281,28 @@ public class Player {
                 checkTotalExperienceAchievement(achievement,dataList,90000000);
             }else if (achievement.getAchievementNumber() == 20 & !achievement.isHasAchieved()){
                 checkTotalExperienceAchievement(achievement,dataList,100000000);
+            }else if (achievement.getAchievementNumber() == 21 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,200000000);
+            }else if (achievement.getAchievementNumber() == 22 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,300000000);
+            }else if (achievement.getAchievementNumber() == 23 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,400000000);
+            }else if (achievement.getAchievementNumber() == 24 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,500000000);
+            }else if (achievement.getAchievementNumber() == 25 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,600000000);
+            }else if (achievement.getAchievementNumber() == 26 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,700000000);
+            }else if (achievement.getAchievementNumber() == 27 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,800000000);
+            }else if (achievement.getAchievementNumber() == 28 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,900000000);
+            }else if (achievement.getAchievementNumber() == 29 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,1000000000);
+            }else if (achievement.getAchievementNumber() == 30 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,2000000000);
+            }else if (achievement.getAchievementNumber() == 31 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,2400000000L);
             }
         }
 
