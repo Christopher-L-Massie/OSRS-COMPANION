@@ -138,6 +138,7 @@ public class HomeController {
                     model.addAttribute("dataPoint",player.getNormalData().get(0));
                     model.addAttribute("data",player.getNormalData());
                     model.addAttribute("displayName",player.getDisplayName());
+                    model.addAttribute("achievements",player.getAchievements());
                     return "home/player";
                 } else {
                     continue;

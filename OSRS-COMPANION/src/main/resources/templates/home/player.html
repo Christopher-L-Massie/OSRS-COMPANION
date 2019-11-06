@@ -63,6 +63,18 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Achievements</th>
+                    </tr>
+                </thead>
+                <tbody th:each="achievement : ${achievements}">
+                    <div th:if="${achievement.HasAchieved}">
+                        <td th:text="${achievement.name}"></td>
+                    </div>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

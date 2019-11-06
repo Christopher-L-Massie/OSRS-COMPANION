@@ -277,6 +277,8 @@ public class Player {
     public boolean getIsHardcore(){return this.isHardcore;}
 
     public Progression getProgression(){return this.progression;}
+
+    public List<Achievement> getAchievements(){return this.achievements;}
 }
 
 
