@@ -211,9 +211,11 @@ public class Player {
         for(skillData skillData : dataList){
             if(skillData.getLevel() >= baseLevel){
                 achievement.setHasAchieved(true);
+                achievement.setDateAchieved(new Timestamp(System.currentTimeMillis()));
                 continue;
             } else {
                 achievement.setHasAchieved(false);
+                achievement.setDateAchieved(null);
                 break;
             }
         }

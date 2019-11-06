@@ -3,6 +3,7 @@ package com.example.OSRSCOMPANION.models.Achievements;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity
 public class Achievement {
@@ -20,6 +21,8 @@ public class Achievement {
     private String description;
 
     private boolean hasAchieved;
+
+    private Timestamp dateAchieved;
 
     //||Constructors||
 
@@ -57,7 +60,11 @@ public class Achievement {
         return hasAchieved;
     }
 
+    public Timestamp getDateAchieved(){return dateAchieved;}
+
     public void setHasAchieved(boolean hasAchieved) {
         this.hasAchieved = hasAchieved;
     }
+
+    public void setDateAchieved(Timestamp dateAchieved){ this.dateAchieved = dateAchieved;}
 }
