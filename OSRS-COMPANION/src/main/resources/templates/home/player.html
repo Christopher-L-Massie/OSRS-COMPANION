@@ -56,9 +56,9 @@
                     <tr th:each="skill : ${skillData.skillInfo}">
                         <div th:if="${skillData.isRecent}">
                             <td th:text="${skill.skillName}"></td>
-                            <td th:text="${skill.experience}"></td>
-                            <td th:text="${skill.rank}"></td>
                             <td th:text="${skill.level}"></td>
+                            <td th:text="${skill.rank}"></td>
+                            <td th:text="${skill.experience}"></td>
                         </div>
                     </tr>
                 </tbody>

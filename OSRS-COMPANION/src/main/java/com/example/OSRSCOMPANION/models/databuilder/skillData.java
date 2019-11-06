@@ -25,7 +25,7 @@ public class skillData {
 
     public skillData(){}
 
-    public skillData(long rank, long experience, long level, String skillName){
+    public skillData(long rank, long level, long experience, String skillName){
         this.rank = rank;
         this.experience = experience;
         this.level = level;

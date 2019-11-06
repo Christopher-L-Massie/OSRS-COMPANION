@@ -70,6 +70,7 @@ public class DataPoint {
                 in.close();
 
                 //test
+                System.out.println(dataArrayLongs);
                 System.out.println(dataArrayLongs.get(0));
                 System.out.println(dataArrayLongs.get(1));
                 System.out.println(dataArrayLongs.get(2));

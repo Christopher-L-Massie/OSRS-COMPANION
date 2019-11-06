@@ -100,6 +100,8 @@ public class Player {
 
     public Player(String displayName){this.displayName = displayName;}
 
+    //||METHODS||
+
     public void setNotRecent(String dataType){
         if (dataType.equals("")) {
             for (DataPoint data : this.normalData) {
