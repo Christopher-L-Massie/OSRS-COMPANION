@@ -302,7 +302,11 @@ public class Player {
             }else if (achievement.getAchievementNumber() == 30 & !achievement.isHasAchieved()){
                 checkTotalExperienceAchievement(achievement,dataList,2000000000);
             }else if (achievement.getAchievementNumber() == 31 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,2400000000L);
+                checkTotalExperienceAchievement(achievement,dataList,3000000000L);
+            }else if (achievement.getAchievementNumber() == 32 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,4000000000L);
+            }else if (achievement.getAchievementNumber() == 33 & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,4600000000L);
             }
         }
 
