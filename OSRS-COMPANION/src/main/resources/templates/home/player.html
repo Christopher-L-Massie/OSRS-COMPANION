@@ -37,7 +37,7 @@
                             <li th:if="${player.isHardcore}" th:unless="${dataPoint.isHardcore}"><a th:href="@{/fetch?hiscoreType=hardcore(displayName=${displayName})}">Hardcore Hiscores</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
+                            <li th:title="${player.LastUpdated}" class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
                         </ul>
 
                     </div>
