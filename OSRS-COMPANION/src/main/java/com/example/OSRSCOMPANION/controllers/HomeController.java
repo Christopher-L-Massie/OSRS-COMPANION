@@ -117,6 +117,7 @@ public class HomeController {
         if (!isFound){
             Player newPlayer = new Player(displayName);
             newPlayer.updateData();
+            newPlayer.checkAchievements();
             playerDao.save(newPlayer);
             model.addAttribute("title",newPlayer.getDisplayName());
             model.addAttribute("player",newPlayer);
