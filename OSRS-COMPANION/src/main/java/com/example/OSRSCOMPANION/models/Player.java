@@ -157,7 +157,7 @@ public class Player {
             if(this.achievements.size() < playerAchievements.values().length ){
                 this.achievements.clear();
                 for(playerAchievements achievement : playerAchievements.values()){
-                    this.achievements.add(new Achievement(achievement.getName(),achievement.getDescription(),false,achievement.getId()));
+                    this.achievements.add(new Achievement(achievement.getName(),achievement.getDescription(),false,achievement.getId(),achievement.getTestValue()));
                 }
             }
         }
@@ -210,7 +210,7 @@ public class Player {
     used to check if achievements that require a base level in all skills have been completed
     */
 
-    public void checkBaseLevelAchievement(Achievement achievement,List<skillData> dataList,int baseLevel){
+    public void checkBaseLevelAchievement(Achievement achievement,List<skillData> dataList,long baseLevel){
         for(skillData skillData : dataList){
             if(skillData.getLevel() >= baseLevel){
                 achievement.setHasAchieved(true);
@@ -222,18 +222,16 @@ public class Player {
                 break;
             }
         }
-
     }
 
     public void checkTotalExperienceAchievement(Achievement achievement,List<skillData> dataList,long experienceAmount){
         skillData skilldata = dataList.get(0);
-        if(skilldata.getExperience()>=experienceAmount){
+        if(skilldata.getExperience() >= experienceAmount){
             achievement.setHasAchieved(true);
             achievement.setDateAchieved(new Timestamp(System.currentTimeMillis()));
         } else {
             achievement.setHasAchieved(false);
         }
-
     }
 
     public void checkAchievements(){
@@ -241,77 +239,12 @@ public class Player {
         List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
 
         for(Achievement achievement : this.achievements){
-            if(achievement.getAchievementNumber() == 0 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,10);
-            }else if (achievement.getAchievementNumber() == 1 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,20);
-            }else if (achievement.getAchievementNumber() == 2 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,30);
-            }else if (achievement.getAchievementNumber() == 3 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,40);
-            }else if (achievement.getAchievementNumber() == 4 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,50);
-            }else if (achievement.getAchievementNumber() == 5 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,60);
-            }else if (achievement.getAchievementNumber() == 6 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,70);
-            }else if (achievement.getAchievementNumber() == 7 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,80);
-            }else if (achievement.getAchievementNumber() == 8 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,90);
-            }else if (achievement.getAchievementNumber() == 9 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,92);
-            }else if (achievement.getAchievementNumber() == 10 & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,99);
-            }else if (achievement.getAchievementNumber() == 11 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,10000000);
-            }else if (achievement.getAchievementNumber() == 12 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,20000000);
-            }else if (achievement.getAchievementNumber() == 13 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,30000000);
-            }else if (achievement.getAchievementNumber() == 14 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,40000000);
-            }else if (achievement.getAchievementNumber() == 15 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,50000000);
-            }else if (achievement.getAchievementNumber() == 16 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,60000000);
-            }else if (achievement.getAchievementNumber() == 17 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,70000000);
-            }else if (achievement.getAchievementNumber() == 18 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,80000000);
-            }else if (achievement.getAchievementNumber() == 19 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,90000000);
-            }else if (achievement.getAchievementNumber() == 20 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,100000000);
-            }else if (achievement.getAchievementNumber() == 21 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,200000000);
-            }else if (achievement.getAchievementNumber() == 22 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,300000000);
-            }else if (achievement.getAchievementNumber() == 23 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,400000000);
-            }else if (achievement.getAchievementNumber() == 24 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,500000000);
-            }else if (achievement.getAchievementNumber() == 25 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,600000000);
-            }else if (achievement.getAchievementNumber() == 26 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,700000000);
-            }else if (achievement.getAchievementNumber() == 27 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,800000000);
-            }else if (achievement.getAchievementNumber() == 28 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,900000000);
-            }else if (achievement.getAchievementNumber() == 29 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,1000000000);
-            }else if (achievement.getAchievementNumber() == 30 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,2000000000);
-            }else if (achievement.getAchievementNumber() == 31 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,3000000000L);
-            }else if (achievement.getAchievementNumber() == 32 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,4000000000L);
-            }else if (achievement.getAchievementNumber() == 33 & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,4600000000L);
+            if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
+                checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
+            }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
+                checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
             }
         }
-
     }
 
     //|||ACCESSORS|||

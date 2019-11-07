@@ -22,6 +22,8 @@ public class Achievement {
 
     private boolean hasAchieved;
 
+    private long testValue;
+
     private Timestamp dateAchieved;
 
     //||Constructors||
@@ -29,11 +31,12 @@ public class Achievement {
     //empty for Database
     public Achievement(){}
 
-    public Achievement(String name, String description, boolean hasAchieved, int achievementNumber){
+    public Achievement(String name, String description, boolean hasAchieved, int achievementNumber, long testValue){
         this.name = name;
         this.description = description;
         this.hasAchieved = hasAchieved;
         this.achievementNumber = achievementNumber;
+        this.testValue = testValue;
     }
 
     //||Methods||
@@ -45,22 +48,24 @@ public class Achievement {
     }
 
     public int getAchievementNumber() {
-        return achievementNumber;
+        return this.achievementNumber;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public boolean isHasAchieved() {
-        return hasAchieved;
+        return this.hasAchieved;
     }
 
-    public Timestamp getDateAchieved(){return dateAchieved;}
+    public Timestamp getDateAchieved(){return this.dateAchieved;}
+
+    public long getTestValue(){return this.testValue;}
 
     public void setHasAchieved(boolean hasAchieved) {
         this.hasAchieved = hasAchieved;
