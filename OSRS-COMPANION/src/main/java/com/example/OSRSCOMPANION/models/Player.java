@@ -194,6 +194,8 @@ public class Player {
         DataPoint oldestDataPoint = pointsInTimeRange.get(0);
         DataPoint currentDataPoint = normalData.get(normalData.size()-1);
 
+        System.out.println(oldestDataPoint);
+
         int i = 0;
 
 

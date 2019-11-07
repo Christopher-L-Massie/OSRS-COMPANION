@@ -40,7 +40,9 @@ public enum playerAchievements {
     NINEHUNDREDMILLTOTAL(28,"Nine Hundred Million!","Have 900,000,000 or more total experience."),
     ONEBILLIONTOTAL(29,"One Billion!","Have 1,000,000,000 or more total experience."),
     TWOBILLIONTOTAL(30,"Two Billion!","Have 2,000,000,000 or more total experience."),
-    MAXTOTALEXPERIENCE(31,"Maxed Experience!","Have 2,400,000,000 total experience.");
+    THREEBILLIONTOTAL(31,"Three Billion!","Have 3,000,000,000 or more total experience."),
+    FOURBILLIONTOTAL(32,"Four Billion!","Have 4,000,000,000 or more total experience."),
+    MAXTOTALEXPERIENCE(33,"Maxed Experience!","Have 4,600,000,000 total experience.");
 
 
 
@@ -57,6 +59,8 @@ public enum playerAchievements {
         this.name = name;
         this.description = description;
     }
+
+    //||METHODS||
 
     //|||ACCESSORS||
 
