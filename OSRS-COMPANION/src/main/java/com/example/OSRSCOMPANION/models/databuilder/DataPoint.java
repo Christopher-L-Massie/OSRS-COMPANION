@@ -172,7 +172,7 @@ public class DataPoint {
         return dataTimeStamp;
     }
 
-    public List getSkillInfo(){
+    public List<skillData> getSkillInfo(){
         return skillInfo;
     }
 }

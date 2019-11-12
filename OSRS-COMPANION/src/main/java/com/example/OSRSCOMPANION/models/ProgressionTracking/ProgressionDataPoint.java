@@ -28,31 +28,41 @@ public class ProgressionDataPoint {
     //empty constructor for database functionality
     public ProgressionDataPoint(){}
 
+    public ProgressionDataPoint(skillProgressionData skillProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate){
+        this.progressionData.add(skillProgressionData);
+        this.isNormal = isNormal;
+        this.isIronman = isIronman;
+        this.isHardcore = isHardcore;
+        this.isUltimate = isUltimate;
+    }
+
     //|||METHODS|||
 
     //|||ACCESSORS|||
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public boolean isNormal() {
-        return isNormal;
+        return this.isNormal;
     }
 
     public boolean isHardcore() {
-        return isHardcore;
+        return this.isHardcore;
     }
 
     public boolean isIronman() {
-        return isIronman;
+        return this.isIronman;
     }
 
     public boolean isUltimate() {
-        return isUltimate;
+        return this.isUltimate;
     }
 
     public List<skillProgressionData> getProgressionData() {
-        return progressionData;
+        return this.progressionData;
     }
+
+
 }
