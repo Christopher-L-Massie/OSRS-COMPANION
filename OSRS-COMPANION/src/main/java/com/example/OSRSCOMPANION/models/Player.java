@@ -1,6 +1,7 @@
 package com.example.OSRSCOMPANION.models;
 import com.example.OSRSCOMPANION.models.Achievements.Achievement;
 import com.example.OSRSCOMPANION.models.ProgressionTracking.ProgressionDataPoint;
+import com.example.OSRSCOMPANION.models.ProgressionTracking.skillProgressionData;
 import com.example.OSRSCOMPANION.models.constants.playerAchievements;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
@@ -194,13 +195,34 @@ public class Player {
         DataPoint oldestDataPoint = pointsInTimeRange.get(0);
         DataPoint currentDataPoint = normalData.get(normalData.size()-1);
 
+
+
         System.out.println(oldestDataPoint);
 
-        int i = 0;
+        long i = 0;
+
+
 
 
         for(skillNames skill :skillNames.values()){
+            skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
+            skillData oldSkillDataPoint = oldestDataPoint.getSkillInfo().get(skill.getSkillNumber());
 
+
+
+            long rankDifference = newSkillDataPoint.getRank() - oldSkillDataPoint.getRank();
+            long experienceDifference = newSkillDataPoint.getExperience() - oldSkillDataPoint.getExperience();
+            long levelDifference = newSkillDataPoint.getLevel() - oldSkillDataPoint.getLevel();
+
+            skillProgressionData progressionData = new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName());
+
+            this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
+
+            /*
+            this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(currentDataPoint.getSkillInfo().get(skill.getSkillNumber()))));
+
+             */
+            return;
         }
 
 
