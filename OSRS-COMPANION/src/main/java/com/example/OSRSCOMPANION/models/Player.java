@@ -1,12 +1,10 @@
 package com.example.OSRSCOMPANION.models;
 import com.example.OSRSCOMPANION.models.Achievements.Achievement;
-import com.example.OSRSCOMPANION.models.ProgressionTracking.ProgressionDataPoint;
-import com.example.OSRSCOMPANION.models.ProgressionTracking.skillProgressionData;
+import com.example.OSRSCOMPANION.models.ProgressionTracking.*;
 import com.example.OSRSCOMPANION.models.constants.playerAchievements;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
 
-import com.example.OSRSCOMPANION.models.ProgressionTracking.Progression;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
 import org.hibernate.annotations.NaturalId;
@@ -32,11 +30,20 @@ public class Player {
     private String displayName;
 
     /*
-    Associates a Progression object to a Player object
+    Associates different progression objects to the player
     */
 
-    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
-    private Progression progression;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProgressionDataPoint> normalProgression = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProgressionDataPoint> ironmanProgression = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProgressionDataPoint> ultimateProgression = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProgressionDataPoint> hardcoreProgression = new ArrayList<>();
 
     /*
     Associates Achievement objects to a Player
@@ -171,6 +178,12 @@ public class Player {
     */
     public void checkProgression(long days){
 
+
+        this.normalProgression.clear();
+        this.ironmanProgression.clear();
+        this.ultimateProgression.clear();
+        this.hardcoreProgression.clear();
+
         long day = timeValues.DAY.getMilliseconds();
         List<DataPoint> pointsInTimeRange = new ArrayList<>();
 
@@ -214,9 +227,11 @@ public class Player {
             long experienceDifference = newSkillDataPoint.getExperience() - oldSkillDataPoint.getExperience();
             long levelDifference = newSkillDataPoint.getLevel() - oldSkillDataPoint.getLevel();
 
-            skillProgressionData progressionData = new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName());
 
-            this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
+
+            //(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false))
+
+            this.normalProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
 
             /*
             this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(currentDataPoint.getSkillInfo().get(skill.getSkillNumber()))));
@@ -293,9 +308,25 @@ public class Player {
 
     public boolean getIsHardcore(){return this.isHardcore;}
 
-    public Progression getProgression(){return this.progression;}
-
     public List<Achievement> getAchievements(){return this.achievements;}
+
+    public List<ProgressionDataPoint> getNormalProgression() {
+        return normalProgression;
+    }
+
+    public List<ProgressionDataPoint> getIronmanProgression() {
+        return ironmanProgression;
+    }
+
+    public List<ProgressionDataPoint> getUltimateProgression() {
+        return ultimateProgression;
+    }
+
+    public List<ProgressionDataPoint> getHardcoreProgression() {
+        return hardcoreProgression;
+    }
+
+
 }
 
 

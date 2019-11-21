@@ -31,8 +31,8 @@ public class TestController {
                 if (player.getDisplayName().equals(searchedName) & (!isFound)){
                     player.checkProgression(days);
                     playerDao.save(player);
-                    System.out.println(player.getProgression().getNormalProgression().get(0));
-                    return "home/player";
+
+                    return "home/index";
                 } else {
                     continue;
                 }
