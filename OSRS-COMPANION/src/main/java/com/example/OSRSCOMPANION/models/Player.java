@@ -221,13 +221,9 @@ public class Player {
             skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
             skillData oldSkillDataPoint = oldestDataPoint.getSkillInfo().get(skill.getSkillNumber());
 
-
-
             long rankDifference = newSkillDataPoint.getRank() - oldSkillDataPoint.getRank();
             long experienceDifference = newSkillDataPoint.getExperience() - oldSkillDataPoint.getExperience();
             long levelDifference = newSkillDataPoint.getLevel() - oldSkillDataPoint.getLevel();
-
-
 
             //(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false))
 
@@ -237,7 +233,7 @@ public class Player {
             this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(currentDataPoint.getSkillInfo().get(skill.getSkillNumber()))));
 
              */
-            return;
+
         }
 
 
