@@ -195,9 +195,9 @@ public class Player {
         if (this.normalData.size() > 2) {
             for (DataPoint datapoint : this.normalData) {
                 if (datapoint.getDataTimeStamp().after(earliestDate)) {
-                    pointsInTimeRange.add(datapoint);
-                } else {
-                    continue;
+                        pointsInTimeRange.add(datapoint);
+                    } else {
+                        continue;
 
                 }
             }
@@ -205,7 +205,20 @@ public class Player {
             return;
         }
 
-        DataPoint oldestDataPoint = pointsInTimeRange.get(0);
+
+        DataPoint oldestDataPoint = new DataPoint();
+
+        for (DataPoint dataPoint : pointsInTimeRange){
+            if(oldestDataPoint.getDataTimeStamp() == null){
+                oldestDataPoint = dataPoint;
+            }
+
+            if(dataPoint.getDataTimeStamp().before(oldestDataPoint.getDataTimeStamp())){
+                oldestDataPoint = dataPoint;
+            }
+
+        }
+
         DataPoint currentDataPoint = normalData.get(normalData.size()-1);
 
 
