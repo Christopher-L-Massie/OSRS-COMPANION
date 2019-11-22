@@ -171,6 +171,8 @@ public class Player {
         }
     }
 
+    //||Progression System||
+
     /*
     this method calls for an update in the Progression object of the Player
     each time this method is called it creates new datapoints in the ProgressionDataPoint subclasses (normal,ironman,ultimate,hardcore)
@@ -178,18 +180,9 @@ public class Player {
     */
     public void checkProgression(long days){
 
-
-        this.normalProgression.clear();
-        this.ironmanProgression.clear();
-        this.ultimateProgression.clear();
-        this.hardcoreProgression.clear();
-
         long day = timeValues.DAY.getMilliseconds();
         List<DataPoint> pointsInTimeRange = new ArrayList<>();
 
-        /*
-
-        */
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
         if (this.normalData.size() > 2) {
@@ -198,38 +191,15 @@ public class Player {
                         pointsInTimeRange.add(datapoint);
                     } else {
                         continue;
-
                 }
             }
         } else {
             return;
         }
 
-
-        DataPoint oldestDataPoint = new DataPoint();
-
-        for (DataPoint dataPoint : pointsInTimeRange){
-            if(oldestDataPoint.getDataTimeStamp() == null){
-                oldestDataPoint = dataPoint;
-            }
-
-            if(dataPoint.getDataTimeStamp().before(oldestDataPoint.getDataTimeStamp())){
-                oldestDataPoint = dataPoint;
-            }
-
-        }
+        DataPoint oldestDataPoint = findOldestDataPoint(pointsInTimeRange);
 
         DataPoint currentDataPoint = normalData.get(normalData.size()-1);
-
-
-
-        System.out.println(oldestDataPoint);
-
-        long i = 0;
-
-
-
-
         for(skillNames skill :skillNames.values()){
             skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
             skillData oldSkillDataPoint = oldestDataPoint.getSkillInfo().get(skill.getSkillNumber());
@@ -238,20 +208,30 @@ public class Player {
             long experienceDifference = newSkillDataPoint.getExperience() - oldSkillDataPoint.getExperience();
             long levelDifference = newSkillDataPoint.getLevel() - oldSkillDataPoint.getLevel();
 
-            //(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false))
-
             this.normalProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
-
-            /*
-            this.progression.getNormalProgression().add(new ProgressionDataPoint(new skillProgressionData(currentDataPoint.getSkillInfo().get(skill.getSkillNumber()))));
-
-             */
-
         }
-
-
     }
 
+    /*
+    ||Progression helper methods||
+    */
+
+    public DataPoint findOldestDataPoint(List<DataPoint> dataPoints){
+
+        DataPoint oldestDataPoint = new DataPoint();
+
+        for (DataPoint dataPoint : dataPoints){
+            if(oldestDataPoint.getDataTimeStamp() == null){
+                oldestDataPoint = dataPoint;
+            }
+            if(dataPoint.getDataTimeStamp().before(oldestDataPoint.getDataTimeStamp())){
+                oldestDataPoint = dataPoint;
+            }
+        }
+        return oldestDataPoint;
+    }
+
+    //||End Progression System||
     /*
     used to check if achievements that require a base level in all skills have been completed
     */
