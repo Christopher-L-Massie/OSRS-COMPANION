@@ -193,13 +193,19 @@ public class Player {
                         continue;
                 }
             }
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),normalData.get(normalData.size()-1),"normal");
         } else {
             return;
         }
 
-        DataPoint oldestDataPoint = findOldestDataPoint(pointsInTimeRange);
+    }
 
-        DataPoint currentDataPoint = normalData.get(normalData.size()-1);
+    /*
+    ||Progression helper methods||
+    */
+
+    public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,String hiscoreType){
+
         for(skillNames skill :skillNames.values()){
             skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
             skillData oldSkillDataPoint = oldestDataPoint.getSkillInfo().get(skill.getSkillNumber());
@@ -207,14 +213,19 @@ public class Player {
             long rankDifference = newSkillDataPoint.getRank() - oldSkillDataPoint.getRank();
             long experienceDifference = newSkillDataPoint.getExperience() - oldSkillDataPoint.getExperience();
             long levelDifference = newSkillDataPoint.getLevel() - oldSkillDataPoint.getLevel();
+            if(hiscoreType.equals("normal")){
+                this.normalProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
+            }else if(hiscoreType.equals("ironman")){
+                this.ironmanProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),false,true,false,false));
+            }else if(hiscoreType.equals("ultimate")){
+                this.ultimateProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),false,false,false,true));
+            }else if(hiscoreType.equals("hardcore")){
+                this.hardcoreProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),false,false,true,false));
+            }
 
-            this.normalProgression.add(new ProgressionDataPoint(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),true,false,false,false));
         }
-    }
 
-    /*
-    ||Progression helper methods||
-    */
+    }
 
     public DataPoint findOldestDataPoint(List<DataPoint> dataPoints){
 
