@@ -191,6 +191,18 @@ public class Player {
         } else {
             return;
         }
+        if (this.ironmanData.size() > 2){
+            pointsInTimeRange = findPointsInTimeRange(this.ironmanData,earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),ironmanData.get(ironmanData.size()-1),"ironman");
+        }
+        if (this.ultimateData.size() > 2){
+            pointsInTimeRange = findPointsInTimeRange(this.ultimateData,earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),ultimateData.get(ultimateData.size()-1),"ultimate");
+        }
+        if (this.hardcoreData.size() > 2){
+            pointsInTimeRange = findPointsInTimeRange(this.hardcoreData,earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),hardcoreData.get(hardcoreData.size()-1),"hardcore");
+        }
     }
 
     /*
