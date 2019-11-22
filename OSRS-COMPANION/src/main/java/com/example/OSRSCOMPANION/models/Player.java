@@ -186,23 +186,28 @@ public class Player {
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
         if (this.normalData.size() > 2) {
-            for (DataPoint datapoint : this.normalData) {
-                if (datapoint.getDataTimeStamp().after(earliestDate)) {
-                        pointsInTimeRange.add(datapoint);
-                    } else {
-                        continue;
-                }
-            }
+            pointsInTimeRange = findPointsInTimeRange(this.normalData,earliestDate);
             addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),normalData.get(normalData.size()-1),"normal");
         } else {
             return;
         }
-
     }
 
     /*
     ||Progression helper methods||
     */
+
+    public List<DataPoint> findPointsInTimeRange(List<DataPoint> allDataPoints, Timestamp earliestDate){
+        List<DataPoint> pointsInTimeRange = new ArrayList<>();
+        for (DataPoint datapoint : allDataPoints){
+            if(datapoint.getDataTimeStamp().after(earliestDate)){
+                pointsInTimeRange.add(datapoint);
+            } else {
+                continue;
+            }
+        }
+        return pointsInTimeRange;
+    }
 
     public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,String hiscoreType){
 
