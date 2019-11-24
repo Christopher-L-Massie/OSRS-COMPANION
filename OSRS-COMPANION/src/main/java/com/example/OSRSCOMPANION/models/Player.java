@@ -110,6 +110,23 @@ public class Player {
 
     //||METHODS||
 
+    public void setProgressionNotRecent(){
+
+        for (ProgressionDataPoint data : this.normalProgression) {
+            data.setIsRecent(false);
+        }
+        for (ProgressionDataPoint data : this.ironmanProgression){
+            data.setIsRecent(false);
+        }
+        for (ProgressionDataPoint data : this.ultimateProgression){
+                data.setIsRecent(false);
+            }
+        for (ProgressionDataPoint data : this.hardcoreProgression){
+            data.setIsRecent(false);
+        }
+
+    }
+
     public void setNotRecent(String dataType){
         if (dataType.equals("")) {
             for (DataPoint data : this.normalData) {
@@ -185,24 +202,27 @@ public class Player {
 
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
+       setProgressionNotRecent();
+
         if (this.normalData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.normalData,earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),normalData.get(normalData.size()-1),"normal");
+            pointsInTimeRange = findPointsInTimeRange(this.normalData, earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), normalData.get(normalData.size() - 1), "normal");
         } else {
             return;
         }
-        if (this.ironmanData.size() > 2){
-            pointsInTimeRange = findPointsInTimeRange(this.ironmanData,earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),ironmanData.get(ironmanData.size()-1),"ironman");
+        if (this.ironmanData.size() > 2) {
+            pointsInTimeRange = findPointsInTimeRange(this.ironmanData, earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ironmanData.get(ironmanData.size() - 1), "ironman");
         }
-        if (this.ultimateData.size() > 2){
-            pointsInTimeRange = findPointsInTimeRange(this.ultimateData,earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),ultimateData.get(ultimateData.size()-1),"ultimate");
+        if (this.ultimateData.size() > 2) {
+            pointsInTimeRange = findPointsInTimeRange(this.ultimateData, earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ultimateData.get(ultimateData.size() - 1), "ultimate");
         }
-        if (this.hardcoreData.size() > 2){
-            pointsInTimeRange = findPointsInTimeRange(this.hardcoreData,earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange),hardcoreData.get(hardcoreData.size()-1),"hardcore");
+        if (this.hardcoreData.size() > 2) {
+            pointsInTimeRange = findPointsInTimeRange(this.hardcoreData, earliestDate);
+            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), hardcoreData.get(hardcoreData.size() - 1), "hardcore");
         }
+
     }
 
     /*
