@@ -110,6 +110,44 @@ public class Player {
 
     //||METHODS||
 
+    public List<ProgressionDataPoint>  findRecentProgression(String hiscoreType){
+
+
+        List<ProgressionDataPoint> recentDataPoint = new ArrayList<>();
+
+        if (hiscoreType.equals("normal")){
+            for (ProgressionDataPoint dataPoint : this.normalProgression) {
+                if (dataPoint.isRecent()) {
+                    recentDataPoint.add(dataPoint);
+                }
+            }
+            return recentDataPoint;
+        } else if (hiscoreType.equals("ironman")){
+            for (ProgressionDataPoint dataPoint : this.ironmanProgression) {
+                if (dataPoint.isRecent()) {
+                    recentDataPoint.add(dataPoint);
+                }
+            }
+            return recentDataPoint;
+        } else if (hiscoreType.equals("ultimate")){
+            for (ProgressionDataPoint dataPoint : this.ultimateProgression) {
+                if (dataPoint.isRecent()) {
+                    recentDataPoint.add(dataPoint);
+                }
+            }
+            return recentDataPoint;
+        }else if (hiscoreType.equals("hardcore")) {
+            for (ProgressionDataPoint dataPoint : this.hardcoreProgression) {
+                if (dataPoint.isRecent()) {
+                    recentDataPoint.add(dataPoint);
+                }
+            }
+            return recentDataPoint;
+        }
+        //shouldn't be reached
+        return recentDataPoint;
+    }
+
     public void setProgressionNotRecent(){
 
         for (ProgressionDataPoint data : this.normalProgression) {
