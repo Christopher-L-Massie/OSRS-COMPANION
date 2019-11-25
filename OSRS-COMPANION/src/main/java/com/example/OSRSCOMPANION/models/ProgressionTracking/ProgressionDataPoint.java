@@ -40,6 +40,10 @@ public class ProgressionDataPoint {
 
     //|||METHODS|||
 
+    public void addSkillProgressionData(skillProgressionData skillProgressionData){
+        this.progressionData.add(skillProgressionData);
+    }
+
     //|||ACCESSORS|||
 
     public int getId() {
