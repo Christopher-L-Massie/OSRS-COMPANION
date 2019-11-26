@@ -43,40 +43,31 @@ public class HomeController {
         if (playerDao.count() > 0){
             for (Player player : playerDao.findAll()){
                 if (player.getDisplayName().equals(displayName)){
+                    model.addAttribute("title",player.getDisplayName());
+                    model.addAttribute("player",player);
+                    model.addAttribute("displayName", player.getDisplayName());
+                    model.addAttribute("achievements",player.getAchievements());
                     if(hiscoreType.equals("normal")) {
-                        model.addAttribute("title",player.getDisplayName());
-                        model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getNormalData().get(0));
-                        model.addAttribute("displayName", player.getDisplayName());
                         model.addAttribute("data",player.getNormalData());
-                        model.addAttribute("achievements",player.getAchievements());
+                        model.addAttribute("progressionData",player.findRecentProgression("normal"));
                         return "home/player";
                     } else if (hiscoreType.equals("ironman")){
-                        model.addAttribute("title",player.getDisplayName());
-                        model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getIronmanData().get(0));
-                        model.addAttribute("displayName",player.getDisplayName());
                         model.addAttribute("data",player.getIronmanData());
-                        model.addAttribute("achievements",player.getAchievements());
+                        model.addAttribute("progressionData",player.findRecentProgression("ironman"));
                         return "home/player";
                     } else if (hiscoreType.equals("ultimate")){
-                        model.addAttribute("title",player.getDisplayName());
-                        model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getUltimateData().get(0));
-                        model.addAttribute("displayName",player.getDisplayName());
                         model.addAttribute("data",player.getUltimateData());
-                        model.addAttribute("achievements",player.getAchievements());
+                        model.addAttribute("progressionData",player.findRecentProgression("ultimate"));
                         return "home/player";
                     } else if (hiscoreType.equals("hardcore")){
-                        model.addAttribute("title",player.getDisplayName());
-                        model.addAttribute("player",player);
                         model.addAttribute("dataPoint",player.getHardcoreData().get(0));
-                        model.addAttribute("displayName",player.getDisplayName());
                         model.addAttribute("data",player.getHardcoreData());
-                        model.addAttribute("achievements",player.getAchievements());
+                        model.addAttribute("progressionData",player.findRecentProgression("hardcore"));
                         return "home/player";
                     }
-
                 } else {
                     continue;
                 }
@@ -107,6 +98,8 @@ public class HomeController {
                     model.addAttribute("displayName", player.getDisplayName());
                     model.addAttribute("data",player.getNormalData());
                     model.addAttribute("achievements",player.getAchievements());
+                    model.addAttribute("progressionData",player.findRecentProgression("normal"));
+                    System.out.println(player.getNormalProgression().get(player.getNormalData().size()-1).getProgressionData());
                     return "home/player";
                 } else {
                     continue;
@@ -125,6 +118,7 @@ public class HomeController {
             model.addAttribute("displayName",newPlayer.getDisplayName());
             model.addAttribute("data",newPlayer.getNormalData());
             model.addAttribute("achievements",newPlayer.getAchievements());
+            model.addAttribute("progressionData",newPlayer.findRecentProgression("normal"));
             return "home/player";
         }
 
@@ -146,6 +140,7 @@ public class HomeController {
                     model.addAttribute("data",player.getNormalData());
                     model.addAttribute("displayName",player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
+                    model.addAttribute("progressionData",player.findRecentProgression("normal"));
                     return "home/player";
                 } else {
                     continue;

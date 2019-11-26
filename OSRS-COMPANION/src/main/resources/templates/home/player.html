@@ -57,16 +57,20 @@
                         <th scope="col">Experience</th>
                     </tr>
                 </thead>
-                <tbody th:each="skillData : ${data}">
-                    <tr th:each="skill : ${skillData.skillInfo}">
-                        <div th:if="${skillData.isRecent}">
-                            <td th:text="${skill.skillName}"></td>
-                            <td th:text="${skill.level}"></td>
-                            <td th:text="${skill.rank}"></td>
-                            <td th:text="${skill.experience}"></td>
-                        </div>
-                    </tr>
-                </tbody>
+
+                    <tbody th:each="skillData : ${data}">
+                        <tr th:each="skill : ${skillData.skillInfo}">
+                            <div th:if="${skillData.isRecent}">
+
+                                <td th:text="${skill.skillName}"></td>
+                                <td th:title="${progressionData}" th:text="${skill.level}"></td>
+                                <td th:text="${skill.rank}"></td>
+                                <td th:text="${skill.experience}"></td>
+
+                            </div>
+                        </tr>
+                    </tbody>
+
             </table>
             <h1 class="text-center">Achievements</h1>
             <table class="table">

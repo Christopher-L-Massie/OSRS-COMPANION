@@ -20,6 +20,8 @@ public class ProgressionDataPoint {
 
     private boolean isUltimate = false;
 
+    private boolean isRecent = true;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillProgressionData> progressionData = new ArrayList<>();
 
@@ -37,6 +39,10 @@ public class ProgressionDataPoint {
     }
 
     //|||METHODS|||
+
+    public void addSkillProgressionData(skillProgressionData skillProgressionData){
+        this.progressionData.add(skillProgressionData);
+    }
 
     //|||ACCESSORS|||
 
@@ -59,6 +65,10 @@ public class ProgressionDataPoint {
     public boolean isUltimate() {
         return this.isUltimate;
     }
+
+    public boolean isRecent(){return this.isRecent;}
+
+    public void setIsRecent(boolean isRecent){ this.isRecent = isRecent;}
 
     public List<skillProgressionData> getProgressionData() {
         return this.progressionData;
