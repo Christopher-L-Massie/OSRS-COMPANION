@@ -20,6 +20,10 @@
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
+<p th:text="${progression}"></p>
+<div th:each="skill : ${progression.progressionData}">
+    <p th:text="${skill.experienceDifference}"></p>
+</div>
 
 </body>
 </html>
