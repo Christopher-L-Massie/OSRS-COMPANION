@@ -20,7 +20,7 @@ public class TestController {
     private PlayerDao playerDao;
 
     @RequestMapping(value = "progression")
-    public String progressionTest(){
+    public String progressionTest(Model model){
 
         String searchedName = "franquito";
         long days = 14;
@@ -31,8 +31,8 @@ public class TestController {
                 if (player.getDisplayName().equals(searchedName) & (!isFound)){
                     player.checkProgression(days);
                     playerDao.save(player);
-
-                    return "home/index";
+                    model.addAttribute("progression",player.findRecentProgression("normal"));
+                    return "home/search";
                 } else {
                     continue;
                 }

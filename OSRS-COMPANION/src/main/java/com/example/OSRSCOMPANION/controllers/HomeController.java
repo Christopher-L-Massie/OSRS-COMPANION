@@ -99,7 +99,7 @@ public class HomeController {
                     model.addAttribute("data",player.getNormalData());
                     model.addAttribute("achievements",player.getAchievements());
                     model.addAttribute("progressionData",player.findRecentProgression("normal"));
-                    System.out.println(player.getNormalProgression().get(player.getNormalData().size()-1).getProgressionData());
+                    System.out.println(player.findRecentProgression("normal"));
                     return "home/player";
                 } else {
                     continue;
