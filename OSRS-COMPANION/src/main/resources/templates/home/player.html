@@ -60,13 +60,13 @@
 
 
                     <tbody th:each="skillData : ${data}">
-                        <tr th:each="skill : ${skillData.skillInfo}" th:each="skillProgression : ${progressionData.progressionData}">
+                        <tr th:each="skill,iter : ${skillData.skillInfo}">
                             <div th:if="${skillData.isRecent}">
 
                                     <td th:text="${skill.skillName}"></td>
-                                    <td th:title="${skillProgression.levelDifference}" th:text="${skill.level}"></td>
-                                    <td th:text="${skill.rank}"></td>
-                                    <td th:text="${skill.experience}"></td>
+                                    <td th:title="${progressionData[iter.index].levelDifference}" th:text="${skill.level}"></td>
+                                    <td th:title="${progressionData[iter.index].rankDifference}" th:text="${skill.rank}"></td>
+                                    <td th:title="${progressionData[iter.index].experienceDifference}" th:text="${skill.experience}"></td>
 
                             </div>
                         </tr>

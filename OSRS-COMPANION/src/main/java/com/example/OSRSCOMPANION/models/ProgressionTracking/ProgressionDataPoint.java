@@ -12,6 +12,8 @@ public class ProgressionDataPoint {
     @GeneratedValue
     private int id;
 
+    private long days;
+
     private boolean isNormal = false;
 
     private boolean isHardcore = false;
@@ -40,8 +42,9 @@ public class ProgressionDataPoint {
 
     //|||METHODS|||
 
-    public void addSkillProgressionData(skillProgressionData skillProgressionData){
+    public void addSkillProgressionData(skillProgressionData skillProgressionData, long days){
         this.progressionData.add(skillProgressionData);
+        this.days = days;
     }
 
     //|||ACCESSORS|||
@@ -49,6 +52,8 @@ public class ProgressionDataPoint {
     public int getId() {
         return this.id;
     }
+
+    public long getDays() {return this.days;}
 
     public boolean isNormal() {
         return this.isNormal;
