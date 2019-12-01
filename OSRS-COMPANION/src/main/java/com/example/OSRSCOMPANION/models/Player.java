@@ -203,7 +203,7 @@ public class Player {
             pointsInTimeRange = findPointsInTimeRange(this.normalData, earliestDate);
             addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), normalData.get(normalData.size() - 1), "normal",days);
         } else {
-            addProgressionDataPoint(new DataPoint(),new DataPoint(),"normal",days);
+            addProgressionDataPoint(this.normalData.get(0),this.normalData.get(0),"normal",days);
             return;
         }
         if (this.ironmanData.size() > 2) {
