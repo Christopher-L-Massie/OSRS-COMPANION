@@ -4,6 +4,8 @@ package com.example.OSRSCOMPANION.controllers;
 import com.example.OSRSCOMPANION.models.Player;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
+import com.example.OSRSCOMPANION.models.databuilder.DataPoint;
+import com.example.OSRSCOMPANION.models.databuilder.normalData;
 import com.example.OSRSCOMPANION.models.forms.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,16 @@ public class HomeController {
 
 
     @RequestMapping(value = "")
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("players",playerDao.count());
+
+        long dataPoints = 0;
+        for(Player player: playerDao.findAll()){
+            for(DataPoint dataPoint : player.getNormalData()){
+                dataPoints += 1;
+            }
+        }
+        model.addAttribute("dataPoints", dataPoints);
 
         return "home/index";
     }
