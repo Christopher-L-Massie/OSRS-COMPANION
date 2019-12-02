@@ -45,7 +45,7 @@
                                 <button class="dropbtn">Options</button>
                                 <div class="dropdown-content">
                                     <a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Statistics</a>
-                                    <a href="#">Achievements</a>
+                                    <a href="@{/achievements?(displayName=${displayName})}">Achievements</a>
                                     <a href="#">Progression</a>
                                 </div>
                             </div>
