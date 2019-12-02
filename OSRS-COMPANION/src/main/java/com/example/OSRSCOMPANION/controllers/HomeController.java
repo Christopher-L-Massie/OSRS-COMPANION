@@ -35,6 +35,15 @@ public class HomeController {
             for(DataPoint dataPoint : player.getNormalData()){
                 dataPoints += 1;
             }
+            for(DataPoint dataPoint : player.getIronmanData()){
+                dataPoints += 1;
+            }
+            for(DataPoint dataPoint : player.getUltimateData()){
+                dataPoints += 1;
+            }
+            for(DataPoint dataPoint : player.getHardcoreData()){
+                dataPoints += 1;
+            }
         }
         model.addAttribute("dataPoints", dataPoints);
 
