@@ -3,6 +3,7 @@
 }
 
 .dropbtn {
+  border-radius: 25px;
   background-color: rgb(18, 18, 18);
   color: white;
   margin-right: 8px;
