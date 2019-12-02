@@ -38,6 +38,28 @@ public class HomeController {
         return "home/player";
     }
 
+    @RequestMapping(value = "achievements")
+    public String displayAchievements(Model model, @RequestParam String displayName){
+        if (playerDao.count() > 0) {
+            for (Player player : playerDao.findAll()) {
+                if (player.getDisplayName().equals(displayName)) {
+                    model.addAttribute("title",player.getDisplayName());
+                    model.addAttribute("player",player);
+                    model.addAttribute("displayName", player.getDisplayName());
+                    model.addAttribute("achievements",player.getAchievements());
+                    model.addAttribute("dataPoint",player.getNormalData().get(0));
+                    model.addAttribute("data",player.getNormalData());
+                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    return "home/achievements";
+                }
+            }
+        }
+
+        processSearchPlayer(model,displayName);
+        return "home/achievements";
+
+    }
+
     @RequestMapping(value = "fetch")
     public String fetchHiscore(Model model, @RequestParam String displayName, @RequestParam String hiscoreType){
         if (playerDao.count() > 0){
