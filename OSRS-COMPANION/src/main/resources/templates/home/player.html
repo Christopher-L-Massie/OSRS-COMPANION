@@ -41,14 +41,17 @@
                             <li th:title="${player.LastUpdated}" class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
                         </ul>
                         <form method="post" class="navbar-form navbar-right" action="/search">
-                            <select name="options" class="btn btn-default">
-                                <option value="apple">Achievements</option>
-                                <option value="banana">Progression</option>
-                                <option value="orange">Orange</option>
-                                <option value="pear">Pear</option>
-                            </select>
+                            <div class="dropdown">
+                                <button class="dropbtn">Options</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Statistics</a>
+                                    <a href="#">Achievements</a>
+                                    <a href="#">Progression</a>
+                                </div>
+                            </div>
+
                             <div class="form-group">
-                                <input class="form-control" type="number" name="days" placeholder="Days" min="1" max="10000">
+                                <input class="form-control" type="number" name="days" placeholder="Days" min="1" max="20000">
                             </div>
                                 <button type="submit" class="btn btn-default">Check Progression</button>
                         </form>
