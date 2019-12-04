@@ -4,6 +4,8 @@ package com.example.OSRSCOMPANION.controllers;
 import com.example.OSRSCOMPANION.models.Player;
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
+import com.example.OSRSCOMPANION.models.databuilder.DataPoint;
+import com.example.OSRSCOMPANION.models.databuilder.normalData;
 import com.example.OSRSCOMPANION.models.forms.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,25 @@ public class HomeController {
 
 
     @RequestMapping(value = "")
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("players",playerDao.count());
+
+        long dataPoints = 0;
+        for(Player player: playerDao.findAll()){
+            for(DataPoint dataPoint : player.getNormalData()){
+                dataPoints += 1;
+            }
+            for(DataPoint dataPoint : player.getIronmanData()){
+                dataPoints += 1;
+            }
+            for(DataPoint dataPoint : player.getUltimateData()){
+                dataPoints += 1;
+            }
+            for(DataPoint dataPoint : player.getHardcoreData()){
+                dataPoints += 1;
+            }
+        }
+        model.addAttribute("dataPoints", dataPoints);
 
         return "home/index";
     }
@@ -36,6 +56,28 @@ public class HomeController {
         //temp test for building table
         model.addAttribute("player",playerDao.findById(0).get());
         return "home/player";
+    }
+
+    @RequestMapping(value = "achievements")
+    public String displayAchievements(Model model, @RequestParam String displayName){
+        if (playerDao.count() > 0) {
+            for (Player player : playerDao.findAll()) {
+                if (player.getDisplayName().equals(displayName)) {
+                    model.addAttribute("title",player.getDisplayName());
+                    model.addAttribute("player",player);
+                    model.addAttribute("displayName", player.getDisplayName());
+                    model.addAttribute("achievements",player.getAchievements());
+                    model.addAttribute("dataPoint",player.getNormalData().get(0));
+                    model.addAttribute("data",player.getNormalData());
+                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    return "home/achievements";
+                }
+            }
+        }
+
+        processSearchPlayer(model,displayName);
+        return "home/achievements";
+
     }
 
     @RequestMapping(value = "fetch")
@@ -68,8 +110,6 @@ public class HomeController {
                         model.addAttribute("progressionData",player.findRecentProgression("hardcore").getProgressionData());
                         return "home/player";
                     }
-                } else {
-                    continue;
                 }
             }
         } else {
@@ -87,42 +127,35 @@ public class HomeController {
     @RequestMapping(value = "search",method = RequestMethod.POST)
     public String processSearchPlayer(Model model,@RequestParam String displayName){
 
-        Boolean isFound = false;
-
-        if (playerDao.count() > 0){
-            for (Player player : playerDao.findAll()){
-                if (player.getDisplayName().equals(displayName) & (!isFound)){
-                    model.addAttribute("title",player.getDisplayName());
-                    model.addAttribute("player",player);
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
+        if (playerDao.count() > 0) {
+            for (Player player : playerDao.findAll()) {
+                if (player.getDisplayName().equals(displayName)) {
+                    model.addAttribute("title", player.getDisplayName());
+                    model.addAttribute("player", player);
+                    model.addAttribute("dataPoint", player.getNormalData().get(0));
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("data",player.getNormalData());
-                    model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("data", player.getNormalData());
+                    model.addAttribute("achievements", player.getAchievements());
+                    model.addAttribute("progressionData", player.findRecentProgression("normal").getProgressionData());
                     System.out.println(player.findRecentProgression("normal"));
                     return "home/player";
-                } else {
-                    continue;
                 }
             }
         }
 
-        if (!isFound){
-            Player newPlayer = new Player(displayName);
-            newPlayer.updateData();
-            newPlayer.checkAchievements();
-            playerDao.save(newPlayer);
-            model.addAttribute("title",newPlayer.getDisplayName());
-            model.addAttribute("player",newPlayer);
-            model.addAttribute("dataPoint",newPlayer.getNormalData().get(0));
-            model.addAttribute("displayName",newPlayer.getDisplayName());
-            model.addAttribute("data",newPlayer.getNormalData());
-            model.addAttribute("achievements",newPlayer.getAchievements());
-            model.addAttribute("progressionData",newPlayer.findRecentProgression("normal").getProgressionData());
-            return "home/player";
-        }
-
-        return "home/index";
+        Player newPlayer = new Player(displayName);
+        newPlayer.updateData();
+        newPlayer.checkAchievements();
+        newPlayer.checkProgression(1);
+        playerDao.save(newPlayer);
+        model.addAttribute("title",newPlayer.getDisplayName());
+        model.addAttribute("player",newPlayer);
+        model.addAttribute("dataPoint",newPlayer.getNormalData().get(0));
+        model.addAttribute("displayName",newPlayer.getDisplayName());
+        model.addAttribute("data",newPlayer.getNormalData());
+        model.addAttribute("achievements",newPlayer.getAchievements());
+        model.addAttribute("progressionData",newPlayer.findRecentProgression("normal").getProgressionData());
+        return "home/player";
     }
 
 
@@ -133,6 +166,7 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)){
                     player.updateData();
                     player.checkAchievements();
+                    player.checkProgression(1);
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);

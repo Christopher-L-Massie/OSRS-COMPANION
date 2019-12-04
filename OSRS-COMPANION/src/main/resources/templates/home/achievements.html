@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<div>
+    <nav th:replace="fragments :: navigation"></nav>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div >
+    <div >
+        <div class="container body-content">
+            <div>
+                <nav th:replace="fragments :: player-navigation"></nav>
+            </div>
+            <h1 title="Black stars indicate completed achievements!" class="text-center">Achievements</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Day Achieved</th>
+                </tr>
+                </thead>
+                <tbody th:each="achievement : ${achievements}">
+                <div th:if="${achievement.HasAchieved}">
+                    <td  title="Achieved" class="glyphicon glyphicon-star"></td>
+                </div>
+                <div th:unless="${achievement.HasAchieved}">
+                    <td title="Not Achieved" class="glyphicon glyphicon-star-empty"></td>
+                </div>
+                <td th:text="${achievement.name}"></td>
+                <td th:text="${achievement.description}"></td>
+                <div th:if="${achievement.HasAchieved}">
+                    <td th:text="${achievement.dateAchieved}"></td>
+                </div>
+                <div th:unless="${achievement.HasAchieved}">
+                    <td></td>
+                </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

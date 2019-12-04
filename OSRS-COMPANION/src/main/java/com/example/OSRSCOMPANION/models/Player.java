@@ -203,6 +203,7 @@ public class Player {
             pointsInTimeRange = findPointsInTimeRange(this.normalData, earliestDate);
             addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), normalData.get(normalData.size() - 1), "normal",days);
         } else {
+            addProgressionDataPoint(this.normalData.get(0),this.normalData.get(0),"normal",days);
             return;
         }
         if (this.ironmanData.size() > 2) {
@@ -383,13 +384,13 @@ public class Player {
 
     public Timestamp getLastUpdated() {return lastUpdated;}
 
-    public List getNormalData(){return this.normalData;}
+    public List<DataPoint> getNormalData(){return this.normalData;}
 
-    public List getIronmanData(){return this.ironmanData;}
+    public List<DataPoint> getIronmanData(){return this.ironmanData;}
 
-    public List getUltimateData(){return this.ultimateData;}
+    public List<DataPoint> getUltimateData(){return this.ultimateData;}
 
-    public List getHardcoreData(){return this.hardcoreData;}
+    public List<DataPoint> getHardcoreData(){return this.hardcoreData;}
 
     public boolean getIsNormal(){return this.isNormal;}
 
