@@ -50,6 +50,24 @@ public class HomeController {
         return "home/index";
     }
 
+    @RequestMapping(value = "progression")
+    public String displayProgression(Model model, @RequestParam String displayName, @RequestParam String hiscoreType,@RequestParam long days){
+        if (playerDao.count() > 0) {
+            for (Player player : playerDao.findAll()) {
+                if (player.getDisplayName().equals(displayName)) {
+                    model.addAttribute("title",player.getDisplayName());
+                    model.addAttribute("player",player);
+                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("displayName", player.getDisplayName());
+                    model.addAttribute("dataPoint",player.getNormalData().get(0));
+                    model.addAttribute("currentData",player.getRecentNormalDataPoint());
+                    return "home/progression";
+                }
+            }
+        }
+        return "index/home";
+    }
+
     @RequestMapping(value = "player")
     public String playerStats(Model model){
 
