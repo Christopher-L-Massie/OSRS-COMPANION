@@ -36,13 +36,13 @@
         <ul class="nav navbar-nav navbar-right">
             <li th:title="${player.LastUpdated}" class="active"><a th:href="@{/update(displayName=${displayName})}">Update Player</a></li>
         </ul>
-        <form method="post" class="navbar-form navbar-right" action="/search">
+        <form method="post" class="navbar-form navbar-right" th:action="@{/progression?hiscoreType=normal(days=days)(displayName=${displayName})}">
             <div class="dropdown">
                 <button class="dropbtn">Options</button>
                 <div class="dropdown-content">
                     <a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Statistics</a>
                     <a th:href="@{/achievements?(displayName=${displayName})}">Achievements</a>
-                    <a th:href="@{/progression?(displayName=${displayName})}">Progression</a>
+                    <a th:href="@{/progression?hiscoreType=normal&days=1(displayName=${displayName})}">Progression</a>
                 </div>
             </div>
 

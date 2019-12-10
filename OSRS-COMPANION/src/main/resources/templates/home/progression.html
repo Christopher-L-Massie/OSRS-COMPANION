@@ -25,20 +25,20 @@
                 <tr>
                     <th scope="col">Skill</th>
                     <th scope="col">Levels Gained</th>
-                    <th scope="col">Rank Change</th>
+                    <th title="Negative rank indicates an increase in position on the hiscores." scope="col">Rank Change</th>
                     <th scope="col">Experience Gained</th>
                 </tr>
                 </thead>
 
 
-                <tbody th:each="skillData : ${progressionData}">
-                <tr th:each="skill,iter : ${skillData.skillInfo}">
-                    <div th:if="${skillData.isRecent}">
+                <tbody>
+                <tr th:each="skill,iter : ${progressionData}">
+                    <div >
 
                         <td th:text="${skill.skillName}"></td>
-                        <td th:title="${currentData[iter.index].levelDifference}" th:text="${skill.level}"></td>
-                        <td th:title="${currentData[iter.index].rankDifference}" th:text="${skill.rank}"></td>
-                        <td th:title="${currentData[iter.index].experienceDifference}" th:text="${skill.experience}"></td>
+                        <td th:title="${currentData[iter.index].level}" th:text="${skill.levelDifference}"></td>
+                        <td th:title="${currentData[iter.index].rank}" th:text="${skill.rankDifference}"></td>
+                        <td th:title="${currentData[iter.index].experience}" th:text="${skill.experienceDifference}"></td>
 
                     </div>
                 </tr>
