@@ -13,12 +13,17 @@ public class Tournament {
     @GeneratedValue
     int id;
 
+    /*
+    //will be added back once account system is added later
     @OneToOne
     private Player owner;
+    */
 
     private String tournamentName;
 
     private String skill;
+
+    private int editCode;
 
 
     @ManyToMany
@@ -31,12 +36,10 @@ public class Tournament {
 
     public Tournament(){}
 
-    public Tournament(Player owner, String tournamentName, String skill,boolean isPublic, String tag){
-        this.owner = owner;
+    public Tournament(String tournamentName, String skill,boolean isPublic, String tag){
         this.tournamentName = tournamentName;
         this.skill = skill;
         this.isPublic = isPublic;
-
     }
 
     public void addTag(Tag tag){
