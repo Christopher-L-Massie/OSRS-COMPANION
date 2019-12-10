@@ -42,7 +42,7 @@
                 <div class="dropdown-content">
                     <a th:href="@{/fetch?hiscoreType=normal(displayName=${displayName})}">Statistics</a>
                     <a th:href="@{/achievements?(displayName=${displayName})}">Achievements</a>
-                    <a th:href="@{/progression?(displayName=${displayName})}">Progression</a>
+                    <a th:href="@{/progression?hiscoreType=normal&days=1(displayName=${displayName})}">Progression</a>
                 </div>
             </div>
 
