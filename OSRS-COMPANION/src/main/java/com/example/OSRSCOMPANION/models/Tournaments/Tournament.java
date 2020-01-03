@@ -1,7 +1,11 @@
-package com.example.OSRSCOMPANION.models;
+package com.example.OSRSCOMPANION.models.Tournaments;
 
+
+import com.example.OSRSCOMPANION.models.Player;
+import com.example.OSRSCOMPANION.models.Tag;
 
 import javax.persistence.*;
+import java.security.Timestamp;
 import java.util.List;
 
 @Entity
@@ -23,7 +27,11 @@ public class Tournament {
 
     private String skill;
 
-    private int editCode;
+    private String editCode;
+
+    private Timestamp tournamentStartTime;
+
+    private Timestamp tournamentEndTime;
 
 
     @ManyToMany
@@ -45,5 +53,11 @@ public class Tournament {
     public void addTag(Tag tag){
         this.tags.add(tag);
     }
+
+    public void addContestant(Player player){
+        this.contestants.add(player);
+    }
+
+
 
 }
