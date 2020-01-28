@@ -2,21 +2,14 @@ package com.example.OSRSCOMPANION.controllers;
 
 
 import com.example.OSRSCOMPANION.models.Player;
-import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
 import com.example.OSRSCOMPANION.models.databuilder.DataPoint;
-import com.example.OSRSCOMPANION.models.databuilder.normalData;
-import com.example.OSRSCOMPANION.models.forms.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "")
