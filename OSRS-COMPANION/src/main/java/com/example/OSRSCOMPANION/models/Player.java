@@ -170,33 +170,39 @@ public class Player {
 
     //should help me clean up other code
     public List<DataPoint> getType(String hiscoreType){
+
         List<DataPoint> typeData = new ArrayList<>();
-        if (hiscoreType.equals("")){
-            for(DataPoint datapoint: this.data){
-                if (datapoint.getIsNormal()){
-                    typeData.add(datapoint);
+
+        switch(hiscoreType){
+            case "":
+                for(DataPoint datapoint: this.data) {
+                    if (datapoint.getIsNormal()) {
+                        typeData.add(datapoint);
+                    }
                 }
-            }
-            return typeData;
-        } else if(hiscoreType.equals("_ironman")){
-            for(DataPoint datapoint: this.data){
-                if (datapoint.getIsIronman()){
-                    typeData.add(datapoint);
+                return typeData;
+            case "_ironman":
+                for(DataPoint datapoint: this.data) {
+                    if (datapoint.getIsIronman()) {
+                        typeData.add(datapoint);
+                    }
                 }
-            }
-            return typeData;
-        } else if(hiscoreType.equals("_ultimate")){
-            for(DataPoint datapoint: this.data){
-                if (datapoint.getIsIronman()){
-                    typeData.add(datapoint);
+                return typeData;
+            case "_ultimate":
+                for(DataPoint datapoint: this.data) {
+                    if (datapoint.getIsUltimate()) {
+                        typeData.add(datapoint);
+                    }
                 }
-            }
-        } else if(hiscoreType.equals("_hardcore_ironman")){
-            for(DataPoint datapoint: this.data){
-                if (datapoint.getIsHardcore()){
-                    typeData.add(datapoint);
+                return typeData;
+            case "_hardcore_ironman":
+                for(DataPoint datapoint: this.data){
+                    if (datapoint.getIsUltimate()){
+                        typeData.add(datapoint);
+                    }
                 }
-            }
+            default:
+                return this.data;
         }
 
     }
