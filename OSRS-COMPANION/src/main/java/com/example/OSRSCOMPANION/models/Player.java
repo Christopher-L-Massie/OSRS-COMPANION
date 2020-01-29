@@ -168,6 +168,8 @@ public class Player {
         }
     }
 
+
+
     //||Progression System||
 
     /*
@@ -371,14 +373,6 @@ public class Player {
     public String getDisplayName(){return this.displayName;}
 
     public Timestamp getLastUpdated() {return lastUpdated;}
-
-    public List<DataPoint> getNormalData(){return this.normalData;}
-
-    public List<DataPoint> getIronmanData(){return this.ironmanData;}
-
-    public List<DataPoint> getUltimateData(){return this.ultimateData;}
-
-    public List<DataPoint> getHardcoreData(){return this.hardcoreData;}
 
     public boolean getIsNormal(){return this.isNormal;}
 
