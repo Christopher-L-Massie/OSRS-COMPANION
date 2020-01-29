@@ -117,22 +117,6 @@ public class Player {
 
     }
 
-    public DataPoint getRecentNormalDataPoint() {
-        return getRecentDataPoint(this.normalData);
-    }
-
-    public DataPoint getRecentIronmanDataPoint(){
-        return getRecentDataPoint(this.ironmanData);
-    }
-
-    public DataPoint getRecentUltimateDataPoint(){
-        return getRecentDataPoint(this.ultimateData);
-    }
-
-    public DataPoint getRecentHardcoreDataPoint(){
-        return getRecentDataPoint(this.hardcoreData);
-    }
-
     //helper method
     public DataPoint getRecentDataPoint(List<DataPoint> dataPoints){
         for (DataPoint data : dataPoints){
