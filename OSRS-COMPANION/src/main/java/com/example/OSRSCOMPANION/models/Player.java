@@ -74,7 +74,7 @@ public class Player {
     */
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> Data = new ArrayList<>();
+    private List<DataPoint> data = new ArrayList<>();
 
     /*
     Recent Datapoints - the most recent datapoint making various things easier for frontend
@@ -111,7 +111,7 @@ public class Player {
     //||METHODS||
 
     public void setNotRecent(){
-        for (DataPoint data : this.Data) {
+        for (DataPoint data : this.data) {
             data.setIsRecent(false);
         }
 
