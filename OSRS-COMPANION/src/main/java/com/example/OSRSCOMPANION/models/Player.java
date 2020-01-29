@@ -75,7 +75,7 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> Data = new ArrayList<>();
-    
+
     /*
     Recent Datapoints - the most recent datapoint making various things easier for frontend
     */
@@ -110,24 +110,11 @@ public class Player {
 
     //||METHODS||
 
-    public void setNotRecent(String dataType){
-        if (dataType.equals("")) {
-            for (DataPoint data : this.normalData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_ironman")) {
-            for (DataPoint data : this.ironmanData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_ultimate")) {
-            for (DataPoint data : this.ultimateData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_hardcore_ironman")) {
-            for (DataPoint data : this.hardcoreData) {
-                data.setIsRecent(false);
-            }
+    public void setNotRecent(){
+        for (DataPoint data : this.Data) {
+            data.setIsRecent(false);
         }
+
     }
 
     public DataPoint getRecentNormalDataPoint() {
