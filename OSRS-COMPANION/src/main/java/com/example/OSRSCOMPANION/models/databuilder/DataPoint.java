@@ -35,12 +35,14 @@ public class DataPoint {
 
     private Timestamp dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
+    private int type;
+
     //|||CONSTRUCTORS|||
 
     //empty
     public DataPoint(){ }
     //constructor if just display name is given (defaults to default hiscores)
-    public DataPoint(String displayName, String hiscoreName, HttpsURLConnection connection,Boolean isNormal,Boolean isIronman,Boolean isUltimate, Boolean isHardcore) {
+    public DataPoint(String displayName, String hiscoreName, HttpsURLConnection connection,Boolean isNormal,Boolean isIronman,Boolean isUltimate, Boolean isHardcore,int type) {
 
         ArrayList<Long> dataArrayLongs = new ArrayList<Long>();
 
@@ -48,6 +50,7 @@ public class DataPoint {
         this.isIronman = isIronman;
         this.isUltimate = isUltimate;
         this.isHardcore = isHardcore;
+        this.type = type;
 
 
         try {
@@ -174,5 +177,13 @@ public class DataPoint {
 
     public List<skillData> getSkillInfo(){
         return skillInfo;
+    }
+
+    public int getType(){
+        return this.type;
+    }
+
+    private void setType(int type){
+        this.type = type;
     }
 }
