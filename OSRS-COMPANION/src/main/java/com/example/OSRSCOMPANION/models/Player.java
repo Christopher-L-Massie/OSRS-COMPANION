@@ -136,19 +136,19 @@ public class Player {
                     if (hiscore.getHiscore().equals("")) {
                         isNormal = true;
                         setNotRecent();
-                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
                         isIronman = true;
                         setNotRecent();
-                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
                         isUltimate = true;
                         setNotRecent();
-                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         isHardcore = true;
                         setNotRecent();
-                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true,hiscore.getTypeNumber()));
                     }
                     this.lastUpdated = new Timestamp(System.currentTimeMillis());
                 }
