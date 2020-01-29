@@ -10,11 +10,11 @@ public enum hiscoreTypes {
     //|||PROPERTIES|||
 
     public String hiscore;
-    private int typeNumber;
+    private Integer typeNumber;
 
     //|||CONSTRUCTORS|||
 
-    hiscoreTypes(String hiscore,int typeNumber){
+    hiscoreTypes(String hiscore,Integer typeNumber){
         this.hiscore = hiscore;
         this.typeNumber = typeNumber;
     }
@@ -29,7 +29,7 @@ public enum hiscoreTypes {
         this.hiscore = hiscore;
     }
 
-    public int getTypeNumber(){
+    public Integer getTypeNumber(){
         return this.typeNumber;
     }
 
