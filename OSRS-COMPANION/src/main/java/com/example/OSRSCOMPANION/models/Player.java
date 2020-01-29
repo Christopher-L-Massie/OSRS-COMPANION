@@ -74,17 +74,8 @@ public class Player {
     */
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> normalData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> ironmanData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> ultimateData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> hardcoreData = new ArrayList<>();
-
+    private List<DataPoint> Data = new ArrayList<>();
+    
     /*
     Recent Datapoints - the most recent datapoint making various things easier for frontend
     */
