@@ -19,6 +19,8 @@ public enum hiscoreTypes {
         this.typeNumber = typeNumber;
     }
 
+    //|||ACCESSORS|||
+
     public String getHiscore() {
         return this.hiscore;
     }
@@ -26,7 +28,7 @@ public enum hiscoreTypes {
     public void setHiscore(String hiscore){
         this.hiscore = hiscore;
     }
-    
+
     public int getTypeNumber(){
         return this.typeNumber;
     }
