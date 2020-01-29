@@ -169,33 +169,33 @@ public class Player {
     }
 
     //should help me clean up other code
-    public List<DataPoint> getType(String hiscoreType){
+    public List<DataPoint> getType(int hiscoreTypeNumber){
 
         List<DataPoint> typeData = new ArrayList<>();
 
-        switch(hiscoreType){
-            case "":
+        switch(hiscoreTypeNumber){
+            case 0:
                 for(DataPoint datapoint: this.data) {
                     if (datapoint.getIsNormal()) {
                         typeData.add(datapoint);
                     }
                 }
                 return typeData;
-            case "_ironman":
+            case 1:
                 for(DataPoint datapoint: this.data) {
                     if (datapoint.getIsIronman()) {
                         typeData.add(datapoint);
                     }
                 }
                 return typeData;
-            case "_ultimate":
+            case 2:
                 for(DataPoint datapoint: this.data) {
                     if (datapoint.getIsUltimate()) {
                         typeData.add(datapoint);
                     }
                 }
                 return typeData;
-            case "_hardcore_ironman":
+            case 3:
                 for(DataPoint datapoint: this.data){
                     if (datapoint.getIsUltimate()){
                         typeData.add(datapoint);
