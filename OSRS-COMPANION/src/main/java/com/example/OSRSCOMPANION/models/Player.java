@@ -135,20 +135,20 @@ public class Player {
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
                         isNormal = true;
-                        setNotRecent(hiscore.getHiscore());
-                        normalData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false));
+                        setNotRecent();
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
                         isIronman = true;
-                        setNotRecent(hiscore.getHiscore());
-                        ironmanData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false));
+                        setNotRecent();
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
                         isUltimate = true;
-                        setNotRecent(hiscore.getHiscore());
-                        ultimateData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false));
+                        setNotRecent();
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         isHardcore = true;
-                        setNotRecent(hiscore.getHiscore());
-                        hardcoreData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true));
+                        setNotRecent();
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true));
                     }
                     this.lastUpdated = new Timestamp(System.currentTimeMillis());
                 }
