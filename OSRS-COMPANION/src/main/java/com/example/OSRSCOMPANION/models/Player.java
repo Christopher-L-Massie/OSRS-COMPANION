@@ -168,39 +168,30 @@ public class Player {
         }
     }
 
+    public List<DataPoint> scanDataPoints(Integer typeNumber){
+        List<DataPoint> typeData = new ArrayList<>();
+        for(DataPoint datapoint: this.data) {
+            if (datapoint.getType().equals(typeNumber)) {
+                typeData.add(datapoint);
+            }
+        }
+        return typeData;
+    }
+
     //should help me clean up other code
-    public List<DataPoint> getType(int hiscoreTypeNumber){
+    public List<DataPoint> getType(Integer hiscoreTypeNumber){
 
         List<DataPoint> typeData = new ArrayList<>();
 
         switch(hiscoreTypeNumber){
             case 0:
-                for(DataPoint datapoint: this.data) {
-                    if (datapoint.getIsNormal()) {
-                        typeData.add(datapoint);
-                    }
-                }
-                return typeData;
+                return scanDataPoints(hiscoreTypeNumber);
             case 1:
-                for(DataPoint datapoint: this.data) {
-                    if (datapoint.getIsIronman()) {
-                        typeData.add(datapoint);
-                    }
-                }
-                return typeData;
+                return scanDataPoints(hiscoreTypeNumber);
             case 2:
-                for(DataPoint datapoint: this.data) {
-                    if (datapoint.getIsUltimate()) {
-                        typeData.add(datapoint);
-                    }
-                }
-                return typeData;
+                return scanDataPoints(hiscoreTypeNumber);
             case 3:
-                for(DataPoint datapoint: this.data){
-                    if (datapoint.getIsUltimate()){
-                        typeData.add(datapoint);
-                    }
-                }
+                return scanDataPoints(hiscoreTypeNumber);
             default:
                 return this.data;
         }
