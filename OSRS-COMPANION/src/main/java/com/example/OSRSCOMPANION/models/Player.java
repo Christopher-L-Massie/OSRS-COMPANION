@@ -36,11 +36,7 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ProgressionDataPoint> normalProgression = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> ironmanProgression = new ArrayList<>();
     
-
     /*
     Recent Progression Objects
     */
