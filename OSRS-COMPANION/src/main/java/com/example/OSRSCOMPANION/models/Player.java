@@ -401,23 +401,10 @@ public class Player {
 
     public List<Achievement> getAchievements(){return this.achievements;}
 
-    public List<ProgressionDataPoint> getNormalProgression() {
-        return normalProgression;
+    public List<ProgressionDataPoint> getProgression() {
+        return this.progression;
     }
-
-    public List<ProgressionDataPoint> getIronmanProgression() {
-        return ironmanProgression;
-    }
-
-    public List<ProgressionDataPoint> getUltimateProgression() {
-        return ultimateProgression;
-    }
-
-    public List<ProgressionDataPoint> getHardcoreProgression() {
-        return hardcoreProgression;
-    }
-
-
+    
 }
 
 
