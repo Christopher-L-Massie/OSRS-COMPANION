@@ -268,20 +268,9 @@ public class Player {
     }
 
     public void setProgressionNotRecent(){
-
-        for (ProgressionDataPoint data : this.normalProgression) {
+        for (ProgressionDataPoint data : this.progression) {
             data.setIsRecent(false);
         }
-        for (ProgressionDataPoint data : this.ironmanProgression){
-            data.setIsRecent(false);
-        }
-        for (ProgressionDataPoint data : this.ultimateProgression){
-            data.setIsRecent(false);
-        }
-        for (ProgressionDataPoint data : this.hardcoreProgression){
-            data.setIsRecent(false);
-        }
-
     }
 
     public List<DataPoint> findPointsInTimeRange(List<DataPoint> allDataPoints, Timestamp earliestDate){
@@ -404,7 +393,7 @@ public class Player {
     public List<ProgressionDataPoint> getProgression() {
         return this.progression;
     }
-    
+
 }
 
 
