@@ -129,25 +129,22 @@ public class Player {
 
     public void updateData(){
         try{
+            setNotRecent();
             for (hiscoreTypes hiscore : hiscoreTypes.values()){
                 HttpsURLConnection connection = DataPoint.buildResponse(displayName, hiscore.getHiscore());
                 int responseCode = connection.getResponseCode();
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
                         isNormal = true;
-                        setNotRecent();
                         data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
                         isIronman = true;
-                        setNotRecent();
                         data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
                         isUltimate = true;
-                        setNotRecent();
                         data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         isHardcore = true;
-                        setNotRecent();
                         data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true,hiscore.getTypeNumber()));
                     }
                     this.lastUpdated = new Timestamp(System.currentTimeMillis());
