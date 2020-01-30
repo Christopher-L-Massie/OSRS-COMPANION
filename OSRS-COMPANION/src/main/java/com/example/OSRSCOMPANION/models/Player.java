@@ -185,13 +185,13 @@ public class Player {
 
         switch(hiscoreTypeNumber){
             case 0:
-                return scanDataPoints(hiscoreTypeNumber);
+                return scanDataPoints(hiscoreTypes.NORMAL.getTypeNumber());
             case 1:
-                return scanDataPoints(hiscoreTypeNumber);
+                return scanDataPoints(hiscoreTypes.IRON.getTypeNumber());
             case 2:
-                return scanDataPoints(hiscoreTypeNumber);
+                return scanDataPoints(hiscoreTypes.ULTIMATE.getTypeNumber());
             case 3:
-                return scanDataPoints(hiscoreTypeNumber);
+                return scanDataPoints(hiscoreTypes.HARDCORE.getTypeNumber());
             default:
                 return this.data;
         }
@@ -275,7 +275,7 @@ public class Player {
                 }
             }
         }
-        //shouldn't be reached
+        //shouldn't be reached (CHANGE THIS)
         return null;
     }
 
