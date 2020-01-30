@@ -285,11 +285,9 @@ public class Player {
         return pointsInTimeRange;
     }
 
-    public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,String hiscoreType,long days){
-
+    public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,Integer hiscoreType,long days){
 
         ProgressionDataPoint newDataPoint = new ProgressionDataPoint();
-
 
         for(skillNames skill :skillNames.values()){
             skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
@@ -300,20 +298,20 @@ public class Player {
             newDataPoint.addSkillProgressionData(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),days);
         }
 
-        if(hiscoreType.equals("normal")){
-            this.recentNormalProgression = newDataPoint;
-            this.normalProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("ironman")){
-            this.recentIronmanProgresion = newDataPoint;
-            this.ironmanProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("ultimate")){
-            this.recentUltimateProgression = newDataPoint;
-            this.ultimateProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("hardcore")){
-            this.recentHardcoreProgression = newDataPoint;
-            this.hardcoreProgression.add(newDataPoint);
+        this.progression.add(newDataPoint);
+        
+        switch(hiscoreType){
+            case 0:
+                this.recentNormalProgression = newDataPoint;
+            case 1:
+                this.recentIronmanProgresion = newDataPoint;
+            case 2:
+                this.recentUltimateProgression = newDataPoint;
+            case 3:
+                this.recentHardcoreProgression = newDataPoint;
+            default:
+                this.recentNormalProgression = newDataPoint;
         }
-
     }
 
     public DataPoint findOldestDataPoint(List<DataPoint> dataPoints){
