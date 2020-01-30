@@ -24,6 +24,8 @@ public class ProgressionDataPoint {
 
     private boolean isRecent = true;
 
+    private Integer type;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillProgressionData> progressionData = new ArrayList<>();
 
@@ -32,12 +34,13 @@ public class ProgressionDataPoint {
     //empty constructor for database functionality
     public ProgressionDataPoint(){}
 
-    public ProgressionDataPoint(skillProgressionData skillProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate){
+    public ProgressionDataPoint(skillProgressionData skillProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer Type){
         this.progressionData.add(skillProgressionData);
         this.isNormal = isNormal;
         this.isIronman = isIronman;
         this.isHardcore = isHardcore;
         this.isUltimate = isUltimate;
+        this.type = type;
     }
 
     //|||METHODS|||
@@ -78,6 +81,10 @@ public class ProgressionDataPoint {
     public List<skillProgressionData> getProgressionData() {
         return this.progressionData;
     }
+
+    public Integer getType(){return this.type;}
+
+    private void setType(Integer type){this.type = type;}
 
 
 }
