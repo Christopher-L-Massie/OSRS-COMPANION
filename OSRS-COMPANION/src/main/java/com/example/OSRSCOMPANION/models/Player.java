@@ -382,8 +382,7 @@ public class Player {
 
     public void checkAchievements(){
 
-        List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
-
+        List<skillData> dataList = getType(hiscoreTypes.NORMAL.getTypeNumber()).get(getType(hiscoreTypes.NORMAL.getTypeNumber()).size() -1).getSkillInfo();
         for(Achievement achievement : this.achievements){
             if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
                 checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
