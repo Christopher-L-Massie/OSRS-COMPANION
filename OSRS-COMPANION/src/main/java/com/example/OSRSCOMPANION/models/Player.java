@@ -70,7 +70,7 @@ public class Player {
     private List<Achievement> achievements = new ArrayList<>();
 
     /*
-    Associates various DataPoint objects to list for use in progression
+    Associates a DataPoint object to  a list for use in progression and current data
     */
 
     @OneToMany(cascade = CascadeType.ALL)
