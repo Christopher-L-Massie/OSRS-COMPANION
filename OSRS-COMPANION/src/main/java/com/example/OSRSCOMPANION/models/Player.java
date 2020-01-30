@@ -35,8 +35,8 @@ public class Player {
     */
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> normalProgression = new ArrayList<>();
-    
+    private List<ProgressionDataPoint> progression = new ArrayList<>();
+
     /*
     Recent Progression Objects
     */
