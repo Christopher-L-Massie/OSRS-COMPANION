@@ -202,31 +202,18 @@ public class Player {
 
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
-        if(normalProgression.size() > 0){
+        if(progression.size() > 0){
             setProgressionNotRecent();
         }
 
-
-        if (this.normalData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.normalData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), normalData.get(normalData.size() - 1), "normal",days);
-        } else {
-            addProgressionDataPoint(this.normalData.get(0),this.normalData.get(0),"normal",days);
-            return;
+        for (hiscoreTypes hiscore : hiscoreTypes.values()){
+            if (findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate).size() > 2){
+                pointsInTimeRange = findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate);
+                addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), getType(hiscore.getTypeNumber()).get(getType(hiscore.getTypeNumber()).size() - 1),hiscore.getTypeNumber(),days);
+            } else {
+                continue;
+            }
         }
-        if (this.ironmanData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.ironmanData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ironmanData.get(ironmanData.size() - 1), "ironman",days);
-        }
-        if (this.ultimateData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.ultimateData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ultimateData.get(ultimateData.size() - 1), "ultimate",days);
-        }
-        if (this.hardcoreData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.hardcoreData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), hardcoreData.get(hardcoreData.size() - 1), "hardcore",days);
-        }
-
     }
 
     /*
@@ -234,9 +221,6 @@ public class Player {
     */
 
     public ProgressionDataPoint  findRecentProgression(String hiscoreType){
-
-
-
 
         if (hiscoreType.equals("normal")){
             for (ProgressionDataPoint dataPoint : this.normalProgression) {
@@ -299,7 +283,7 @@ public class Player {
         }
 
         this.progression.add(newDataPoint);
-        
+
         switch(hiscoreType){
             case 0:
                 this.recentNormalProgression = newDataPoint;
