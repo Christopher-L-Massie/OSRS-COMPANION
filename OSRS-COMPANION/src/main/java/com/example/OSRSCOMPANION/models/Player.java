@@ -117,7 +117,6 @@ public class Player {
             setNotRecent();
             for (hiscoreTypes hiscore : hiscoreTypes.values()){
                 HttpsURLConnection connection = DataPoint.buildResponse(displayName, hiscore.getHiscore());
-                int responseCode = connection.getResponseCode();
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
                         isNormal = true;
