@@ -109,9 +109,9 @@ public class Player {
     }
 
     //helper method
-    public DataPoint getRecentDataPoint(List<DataPoint> dataPoints){
+    public DataPoint getRecentDataPoint(List<DataPoint> dataPoints,Integer typeNumber){
         for (DataPoint data : dataPoints){
-            if (data.getIsRecent()){
+            if (data.getIsRecent() & data.getType().equals(typeNumber)){
                 return data;
             }
         }
