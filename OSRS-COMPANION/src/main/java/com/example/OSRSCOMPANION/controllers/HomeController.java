@@ -19,6 +19,15 @@ public class HomeController {
     @Autowired
     private PlayerDao playerDao;
 
+    /*
+    Below help with readability
+     */
+
+    private Integer NORMAL = hiscoreTypes.NORMAL.getTypeNumber();
+    private Integer IRON = hiscoreTypes.IRON.getTypeNumber();
+    private Integer ULTIMATE = hiscoreTypes.ULTIMATE.getTypeNumber();
+    private Integer HARDCORE = hiscoreTypes.HARDCORE.getTypeNumber();
+
 
     @RequestMapping(value = "")
     public String index(Model model){
@@ -140,12 +149,12 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)) {
                     model.addAttribute("title", player.getDisplayName());
                     model.addAttribute("player", player);
-                    model.addAttribute("dataPoint",player.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("data", player.getType(hiscoreTypes.NORMAL.getTypeNumber()));
+                    model.addAttribute("data", player.getType(NORMAL));
                     model.addAttribute("achievements", player.getAchievements());
-                    model.addAttribute("progressionData", player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()).getProgressionData());
-                    System.out.println(player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()));
+                    model.addAttribute("progressionData", player.findRecentProgression(NORMAL).getProgressionData());
+                    System.out.println(player.findRecentProgression(NORMAL));
                     return "home/player";
                 }
             }
@@ -158,11 +167,11 @@ public class HomeController {
         playerDao.save(newPlayer);
         model.addAttribute("title",newPlayer.getDisplayName());
         model.addAttribute("player",newPlayer);
-        model.addAttribute("dataPoint",newPlayer.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
+        model.addAttribute("dataPoint",newPlayer.getType(NORMAL).get(0));
         model.addAttribute("displayName",newPlayer.getDisplayName());
-        model.addAttribute("data",newPlayer.getType(hiscoreTypes.NORMAL.getTypeNumber()));
+        model.addAttribute("data",newPlayer.getType(NORMAL));
         model.addAttribute("achievements",newPlayer.getAchievements());
-        model.addAttribute("progressionData",newPlayer.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()).getProgressionData());
+        model.addAttribute("progressionData",newPlayer.findRecentProgression(NORMAL).getProgressionData());
         return "home/player";
     }
 
@@ -178,11 +187,11 @@ public class HomeController {
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
-                    model.addAttribute("dataPoint",player.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
-                    model.addAttribute("data",player.getType(hiscoreTypes.NORMAL.getTypeNumber()));
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("data",player.getType(NORMAL));
                     model.addAttribute("displayName",player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("progressionData",player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()));
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL));
                     return "home/player";
                 } else {
                     continue;
