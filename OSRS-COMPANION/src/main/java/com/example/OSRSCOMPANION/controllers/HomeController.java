@@ -25,16 +25,7 @@ public class HomeController {
 
         long dataPoints = 0;
         for(Player player: playerDao.findAll()){
-            for(DataPoint dataPoint : player.getNormalData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getIronmanData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getUltimateData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getHardcoreData()){
+            for(DataPoint dataPoint : player.getData()){
                 dataPoints += 1;
             }
         }
