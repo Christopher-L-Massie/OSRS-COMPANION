@@ -107,24 +107,24 @@ public class HomeController {
                     model.addAttribute("displayName", player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
                     if(hiscoreType.equals("normal")) {
-                        model.addAttribute("dataPoint",player.getNormalData().get(0));
-                        model.addAttribute("data",player.getNormalData());
-                        model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                        model.addAttribute("data",player.getType(NORMAL));
+                        model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("ironman")){
-                        model.addAttribute("dataPoint",player.getIronmanData().get(0));
-                        model.addAttribute("data",player.getIronmanData());
-                        model.addAttribute("progressionData",player.findRecentProgression("ironman").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(IRON).get(0));
+                        model.addAttribute("data",player.getType(IRON));
+                        model.addAttribute("progressionData",player.findRecentProgression(IRON).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("ultimate")){
-                        model.addAttribute("dataPoint",player.getUltimateData().get(0));
-                        model.addAttribute("data",player.getUltimateData());
-                        model.addAttribute("progressionData",player.findRecentProgression("ultimate").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(ULTIMATE).get(0));
+                        model.addAttribute("data",player.getType(ULTIMATE));
+                        model.addAttribute("progressionData",player.findRecentProgression(ULTIMATE).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("hardcore")){
-                        model.addAttribute("dataPoint",player.getHardcoreData().get(0));
-                        model.addAttribute("data",player.getHardcoreData());
-                        model.addAttribute("progressionData",player.findRecentProgression("hardcore").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(HARDCORE).get(0));
+                        model.addAttribute("data",player.getType(HARDCORE));
+                        model.addAttribute("progressionData",player.findRecentProgression(HARDCORE).getProgressionData());
                         return "home/player";
                     }
                 }
