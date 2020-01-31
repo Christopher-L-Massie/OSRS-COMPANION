@@ -84,9 +84,9 @@ public class HomeController {
                     model.addAttribute("player",player);
                     model.addAttribute("displayName", player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("data",player.getNormalData());
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("data",player.getType(NORMAL));
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                     return "home/achievements";
                 }
             }
