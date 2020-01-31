@@ -169,7 +169,7 @@ public class Player {
     public void checkProgression(long days){
 
         long day = timeValues.DAY.getMilliseconds();
-        List<DataPoint> pointsInTimeRange = new ArrayList<>();
+        List<DataPoint> pointsInTimeRange;
 
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
