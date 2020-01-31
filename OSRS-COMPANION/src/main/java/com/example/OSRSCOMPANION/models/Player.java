@@ -220,34 +220,24 @@ public class Player {
     ||Progression helper methods||
     */
 
-    public ProgressionDataPoint  findRecentProgression(String hiscoreType){
-
-        if (hiscoreType.equals("normal")){
-            for (ProgressionDataPoint dataPoint : this.normalProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        } else if (hiscoreType.equals("ironman")){
-            for (ProgressionDataPoint dataPoint : this.ironmanProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        } else if (hiscoreType.equals("ultimate")){
-            for (ProgressionDataPoint dataPoint : this.ultimateProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        }else if (hiscoreType.equals("hardcore")) {
-            for (ProgressionDataPoint dataPoint : this.hardcoreProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
+    public List<ProgressionDataPoint> scanProgressionDataPoints(Integer typeNumber){
+        List<ProgressionDataPoint> typeData = new ArrayList<>();
+        for(ProgressionDataPoint datapoint: this.progression) {
+            if (datapoint.getType().equals(typeNumber)) {
+                typeData.add(datapoint);
             }
         }
-        //shouldn't be reached (CHANGE THIS)
+        return typeData;
+    }
+
+    public ProgressionDataPoint  findRecentProgression(Integer typeNumber){
+
+        for (ProgressionDataPoint datapoint : scanProgressionDataPoints(typeNumber)){
+            if (datapoint.isRecent() & datapoint.getType().equals(typeNumber)){
+                return datapoint;
+            }
+        }
+        //this needs to be rethought
         return null;
     }
 
