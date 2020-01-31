@@ -274,13 +274,14 @@ public class Player {
     }
 
     public void checkAchievements(){
-
-        List<skillData> dataList = getType(hiscoreTypes.NORMAL.getTypeNumber()).get(getType(hiscoreTypes.NORMAL.getTypeNumber()).size() -1).getSkillInfo();
-        for(Achievement achievement : this.achievements){
-            if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
-            }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
+        if(this.data.size() >= 1){
+            List<skillData> dataList = getType(hiscoreTypes.NORMAL.getTypeNumber()).get(getType(hiscoreTypes.NORMAL.getTypeNumber()).size() -1).getSkillInfo();
+            for(Achievement achievement : this.achievements){
+                if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
+                    checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
+                }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
+                    checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
+                }
             }
         }
     }
