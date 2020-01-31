@@ -56,10 +56,10 @@ public class HomeController {
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("currentData",player.getRecentNormalDataPoint().getSkillInfo());
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("currentData",player.getRecentDataPoint(player.getData(),NORMAL).getSkillInfo());
                     return "home/progression";
                 }
             }
