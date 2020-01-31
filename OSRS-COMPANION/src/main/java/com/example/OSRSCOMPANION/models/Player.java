@@ -33,22 +33,7 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ProgressionDataPoint> progression = new ArrayList<>();
-
-    /*
-    Recent Progression Objects
-    */
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentNormalProgression = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentIronmanProgresion = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentUltimateProgression = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentHardcoreProgression = new ProgressionDataPoint();
+    
 
     /*
     Associates Achievement objects to a Player
