@@ -140,12 +140,12 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)) {
                     model.addAttribute("title", player.getDisplayName());
                     model.addAttribute("player", player);
-                    model.addAttribute("dataPoint", player.getNormalData().get(0));
+                    model.addAttribute("dataPoint",player.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("data", player.getNormalData());
+                    model.addAttribute("data", player.getType(hiscoreTypes.NORMAL.getTypeNumber()));
                     model.addAttribute("achievements", player.getAchievements());
-                    model.addAttribute("progressionData", player.findRecentProgression("normal").getProgressionData());
-                    System.out.println(player.findRecentProgression("normal"));
+                    model.addAttribute("progressionData", player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()).getProgressionData());
+                    System.out.println(player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()));
                     return "home/player";
                 }
             }
@@ -158,11 +158,11 @@ public class HomeController {
         playerDao.save(newPlayer);
         model.addAttribute("title",newPlayer.getDisplayName());
         model.addAttribute("player",newPlayer);
-        model.addAttribute("dataPoint",newPlayer.getNormalData().get(0));
+        model.addAttribute("dataPoint",newPlayer.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
         model.addAttribute("displayName",newPlayer.getDisplayName());
-        model.addAttribute("data",newPlayer.getNormalData());
+        model.addAttribute("data",newPlayer.getType(hiscoreTypes.NORMAL.getTypeNumber()));
         model.addAttribute("achievements",newPlayer.getAchievements());
-        model.addAttribute("progressionData",newPlayer.findRecentProgression("normal").getProgressionData());
+        model.addAttribute("progressionData",newPlayer.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()).getProgressionData());
         return "home/player";
     }
 
