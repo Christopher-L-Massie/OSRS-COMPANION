@@ -201,14 +201,14 @@ public class Player {
     }
 
     public ProgressionDataPoint  findRecentProgression(Integer typeNumber){
-
+        ProgressionDataPoint dataPoint = new ProgressionDataPoint();
         for (ProgressionDataPoint datapoint : scanProgressionDataPoints(typeNumber)){
             if (datapoint.isRecent() & datapoint.getType().equals(typeNumber)){
-                return datapoint;
+                dataPoint = datapoint;
+                break;
             }
         }
-        //this needs to be rethought
-        return null;
+        return dataPoint;
     }
 
     public void setProgressionNotRecent(){
