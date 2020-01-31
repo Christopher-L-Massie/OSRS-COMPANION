@@ -242,19 +242,6 @@ public class Player {
         }
 
         this.progression.add(newDataPoint);
-
-        switch(hiscoreType){
-            case 0:
-                this.recentNormalProgression = newDataPoint;
-            case 1:
-                this.recentIronmanProgresion = newDataPoint;
-            case 2:
-                this.recentUltimateProgression = newDataPoint;
-            case 3:
-                this.recentHardcoreProgression = newDataPoint;
-            default:
-                this.recentNormalProgression = newDataPoint;
-        }
     }
 
     public DataPoint findOldestDataPoint(List<DataPoint> dataPoints){
