@@ -2,6 +2,7 @@ package com.example.OSRSCOMPANION.controllers;
 
 
 import com.example.OSRSCOMPANION.models.Player;
+import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class TestController {
     @Autowired
     private PlayerDao playerDao;
 
+    private Integer NORMAL = hiscoreTypes.NORMAL.getTypeNumber();
+    private Integer IRON = hiscoreTypes.IRON.getTypeNumber();
+    private Integer ULTIMATE = hiscoreTypes.ULTIMATE.getTypeNumber();
+    private Integer HARDCORE = hiscoreTypes.HARDCORE.getTypeNumber();
+
     @RequestMapping(value = "progression")
     public String progressionTest(Model model){
 
@@ -31,7 +37,7 @@ public class TestController {
                 if (player.getDisplayName().equals(searchedName) & (!isFound)){
                     player.checkProgression(days);
                     playerDao.save(player);
-                    model.addAttribute("progression",player.findRecentProgression("normal"));
+                    model.addAttribute("progression",player.findRecentProgression(NORMAL));
                     return "home/search";
                 } else {
                     continue;
