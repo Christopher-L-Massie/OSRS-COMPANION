@@ -28,7 +28,7 @@ public class Player {
     private String displayName;
 
     /*
-    Associates different progression objects to the player
+    Associates a List<> of progression objects to the player
     */
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -64,9 +64,6 @@ public class Player {
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> data = new ArrayList<>();
 
-    /*
-    Recent Datapoints - the most recent datapoint making various things easier for frontend
-    */
 
     /*
     The last time this player was updated in the database
@@ -153,7 +150,6 @@ public class Player {
         }
     }
 
-    //should help me clean up other code
     public List<DataPoint> getType(Integer hiscoreTypeNumber){
         List<DataPoint> typeData = new ArrayList<>();
         for(DataPoint datapoint: this.data) {
@@ -168,8 +164,8 @@ public class Player {
 
     /*
     this method calls for an update in the Progression object of the Player
-    each time this method is called it creates new datapoints in the ProgressionDataPoint subclasses (normal,ironman,ultimate,hardcore)
-    these datapoints will be easily referencable for future use
+    each time this method is called it creates new progression object for each
+    hiscore board that the player is featured on
     */
     public void checkProgression(long days){
 
