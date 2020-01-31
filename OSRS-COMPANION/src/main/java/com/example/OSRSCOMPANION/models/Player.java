@@ -156,38 +156,17 @@ public class Player {
         }
     }
 
-    public List<DataPoint> scanDataPoints(Integer typeNumber){
+    //should help me clean up other code
+    public List<DataPoint> getType(Integer hiscoreTypeNumber){
         List<DataPoint> typeData = new ArrayList<>();
         for(DataPoint datapoint: this.data) {
-            if (datapoint.getType().equals(typeNumber)) {
+            if (datapoint.getType().equals(hiscoreTypeNumber)) {
                 typeData.add(datapoint);
             }
         }
         return typeData;
     }
-
-    //should help me clean up other code
-    public List<DataPoint> getType(Integer hiscoreTypeNumber){
-
-        List<DataPoint> typeData = new ArrayList<>();
-
-        switch(hiscoreTypeNumber){
-            case 0:
-                return scanDataPoints(hiscoreTypes.NORMAL.getTypeNumber());
-            case 1:
-                return scanDataPoints(hiscoreTypes.IRON.getTypeNumber());
-            case 2:
-                return scanDataPoints(hiscoreTypes.ULTIMATE.getTypeNumber());
-            case 3:
-                return scanDataPoints(hiscoreTypes.HARDCORE.getTypeNumber());
-            default:
-                return this.data;
-        }
-
-    }
-
-
-
+    
     //||Progression System||
 
     /*
