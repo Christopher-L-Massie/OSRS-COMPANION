@@ -33,7 +33,7 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ProgressionDataPoint> progression = new ArrayList<>();
-    
+
 
     /*
     Associates Achievement objects to a Player
@@ -305,6 +305,10 @@ public class Player {
 
     public List<ProgressionDataPoint> getProgression() {
         return this.progression;
+    }
+
+    public List<DataPoint> getData(){
+        return this.data;
     }
 
 }
