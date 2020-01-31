@@ -210,8 +210,6 @@ public class Player {
             if (findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate).size() > 2){
                 pointsInTimeRange = findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate);
                 addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), getType(hiscore.getTypeNumber()).get(getType(hiscore.getTypeNumber()).size() - 1),hiscore.getTypeNumber(),days);
-            } else {
-                continue;
             }
         }
     }
