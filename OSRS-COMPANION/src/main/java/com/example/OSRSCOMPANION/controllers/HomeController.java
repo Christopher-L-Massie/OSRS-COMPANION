@@ -2,6 +2,7 @@ package com.example.OSRSCOMPANION.controllers;
 
 
 import com.example.OSRSCOMPANION.models.Player;
+import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
 import com.example.OSRSCOMPANION.models.databuilder.DataPoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -177,11 +178,11 @@ public class HomeController {
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("data",player.getNormalData());
+                    model.addAttribute("dataPoint",player.getType(hiscoreTypes.NORMAL.getTypeNumber()).get(0));
+                    model.addAttribute("data",player.getType(hiscoreTypes.NORMAL.getTypeNumber()));
                     model.addAttribute("displayName",player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("progressionData",player.findRecentProgression(hiscoreTypes.NORMAL.getTypeNumber()));
                     return "home/player";
                 } else {
                     continue;
