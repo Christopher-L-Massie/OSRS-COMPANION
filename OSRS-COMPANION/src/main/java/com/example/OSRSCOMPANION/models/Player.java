@@ -4,12 +4,9 @@ import com.example.OSRSCOMPANION.models.ProgressionTracking.*;
 import com.example.OSRSCOMPANION.models.constants.playerAchievements;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
-
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.NaturalId;
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
 import java.io.IOException;
@@ -166,7 +163,7 @@ public class Player {
         }
         return typeData;
     }
-    
+
     //||Progression System||
 
     /*
