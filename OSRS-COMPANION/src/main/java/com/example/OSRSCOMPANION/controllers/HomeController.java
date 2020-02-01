@@ -2,6 +2,7 @@ package com.example.OSRSCOMPANION.controllers;
 
 
 import com.example.OSRSCOMPANION.models.Player;
+import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.data.PlayerDao;
 import com.example.OSRSCOMPANION.models.databuilder.DataPoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,15 @@ public class HomeController {
     @Autowired
     private PlayerDao playerDao;
 
+    /*
+    Below help with readability
+     */
+
+    private Integer NORMAL = hiscoreTypes.NORMAL.getTypeNumber();
+    private Integer IRON = hiscoreTypes.IRON.getTypeNumber();
+    private Integer ULTIMATE = hiscoreTypes.ULTIMATE.getTypeNumber();
+    private Integer HARDCORE = hiscoreTypes.HARDCORE.getTypeNumber();
+
 
     @RequestMapping(value = "")
     public String index(Model model){
@@ -25,16 +35,7 @@ public class HomeController {
 
         long dataPoints = 0;
         for(Player player: playerDao.findAll()){
-            for(DataPoint dataPoint : player.getNormalData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getIronmanData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getUltimateData()){
-                dataPoints += 1;
-            }
-            for(DataPoint dataPoint : player.getHardcoreData()){
+            for(DataPoint dataPoint : player.getData()){
                 dataPoints += 1;
             }
         }
@@ -55,10 +56,10 @@ public class HomeController {
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("currentData",player.getRecentNormalDataPoint().getSkillInfo());
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("currentData",player.getRecentDataPoint(player.getData(),NORMAL).getSkillInfo());
                     return "home/progression";
                 }
             }
@@ -83,9 +84,9 @@ public class HomeController {
                     model.addAttribute("player",player);
                     model.addAttribute("displayName", player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("data",player.getNormalData());
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("data",player.getType(NORMAL));
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                     return "home/achievements";
                 }
             }
@@ -106,24 +107,24 @@ public class HomeController {
                     model.addAttribute("displayName", player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
                     if(hiscoreType.equals("normal")) {
-                        model.addAttribute("dataPoint",player.getNormalData().get(0));
-                        model.addAttribute("data",player.getNormalData());
-                        model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                        model.addAttribute("data",player.getType(NORMAL));
+                        model.addAttribute("progressionData",player.findRecentProgression(NORMAL).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("ironman")){
-                        model.addAttribute("dataPoint",player.getIronmanData().get(0));
-                        model.addAttribute("data",player.getIronmanData());
-                        model.addAttribute("progressionData",player.findRecentProgression("ironman").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(IRON).get(0));
+                        model.addAttribute("data",player.getType(IRON));
+                        model.addAttribute("progressionData",player.findRecentProgression(IRON).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("ultimate")){
-                        model.addAttribute("dataPoint",player.getUltimateData().get(0));
-                        model.addAttribute("data",player.getUltimateData());
-                        model.addAttribute("progressionData",player.findRecentProgression("ultimate").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(ULTIMATE).get(0));
+                        model.addAttribute("data",player.getType(ULTIMATE));
+                        model.addAttribute("progressionData",player.findRecentProgression(ULTIMATE).getProgressionData());
                         return "home/player";
                     } else if (hiscoreType.equals("hardcore")){
-                        model.addAttribute("dataPoint",player.getHardcoreData().get(0));
-                        model.addAttribute("data",player.getHardcoreData());
-                        model.addAttribute("progressionData",player.findRecentProgression("hardcore").getProgressionData());
+                        model.addAttribute("dataPoint",player.getType(HARDCORE).get(0));
+                        model.addAttribute("data",player.getType(HARDCORE));
+                        model.addAttribute("progressionData",player.findRecentProgression(HARDCORE).getProgressionData());
                         return "home/player";
                     }
                 }
@@ -148,12 +149,12 @@ public class HomeController {
                 if (player.getDisplayName().equals(displayName)) {
                     model.addAttribute("title", player.getDisplayName());
                     model.addAttribute("player", player);
-                    model.addAttribute("dataPoint", player.getNormalData().get(0));
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
                     model.addAttribute("displayName", player.getDisplayName());
-                    model.addAttribute("data", player.getNormalData());
+                    model.addAttribute("data", player.getType(NORMAL));
                     model.addAttribute("achievements", player.getAchievements());
-                    model.addAttribute("progressionData", player.findRecentProgression("normal").getProgressionData());
-                    System.out.println(player.findRecentProgression("normal"));
+                    model.addAttribute("progressionData", player.findRecentProgression(NORMAL).getProgressionData());
+                    System.out.println(player.findRecentProgression(NORMAL));
                     return "home/player";
                 }
             }
@@ -166,11 +167,11 @@ public class HomeController {
         playerDao.save(newPlayer);
         model.addAttribute("title",newPlayer.getDisplayName());
         model.addAttribute("player",newPlayer);
-        model.addAttribute("dataPoint",newPlayer.getNormalData().get(0));
+        model.addAttribute("dataPoint",newPlayer.getType(NORMAL).get(0));
         model.addAttribute("displayName",newPlayer.getDisplayName());
-        model.addAttribute("data",newPlayer.getNormalData());
+        model.addAttribute("data",newPlayer.getType(NORMAL));
         model.addAttribute("achievements",newPlayer.getAchievements());
-        model.addAttribute("progressionData",newPlayer.findRecentProgression("normal").getProgressionData());
+        model.addAttribute("progressionData",newPlayer.findRecentProgression(NORMAL).getProgressionData());
         return "home/player";
     }
 
@@ -186,11 +187,11 @@ public class HomeController {
                     playerDao.save(player);
                     model.addAttribute("title",player.getDisplayName());
                     model.addAttribute("player",player);
-                    model.addAttribute("dataPoint",player.getNormalData().get(0));
-                    model.addAttribute("data",player.getNormalData());
+                    model.addAttribute("dataPoint",player.getType(NORMAL).get(0));
+                    model.addAttribute("data",player.getType(NORMAL));
                     model.addAttribute("displayName",player.getDisplayName());
                     model.addAttribute("achievements",player.getAchievements());
-                    model.addAttribute("progressionData",player.findRecentProgression("normal").getProgressionData());
+                    model.addAttribute("progressionData",player.findRecentProgression(NORMAL));
                     return "home/player";
                 } else {
                     continue;

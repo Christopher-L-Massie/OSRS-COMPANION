@@ -4,12 +4,9 @@ import com.example.OSRSCOMPANION.models.ProgressionTracking.*;
 import com.example.OSRSCOMPANION.models.constants.playerAchievements;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 import com.example.OSRSCOMPANION.models.constants.timeValues;
-
 import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
 import com.example.OSRSCOMPANION.models.databuilder.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.NaturalId;
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
 import java.io.IOException;
@@ -31,36 +28,12 @@ public class Player {
     private String displayName;
 
     /*
-    Associates different progression objects to the player
+    Associates a List<> of progression objects to the player
     */
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> normalProgression = new ArrayList<>();
+    private List<ProgressionDataPoint> progression = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> ironmanProgression = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> ultimateProgression = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionDataPoint> hardcoreProgression = new ArrayList<>();
-
-    /*
-    Recent Progression Objects
-    */
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentNormalProgression = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentIronmanProgresion = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentUltimateProgression = new ProgressionDataPoint();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProgressionDataPoint recentHardcoreProgression = new ProgressionDataPoint();
 
     /*
     Associates Achievement objects to a Player
@@ -70,24 +43,12 @@ public class Player {
     private List<Achievement> achievements = new ArrayList<>();
 
     /*
-    Associates various DataPoint objects to list for use in progression
+    Associates a DataPoint object to  a list for use in progression and current data
     */
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> normalData = new ArrayList<>();
+    private List<DataPoint> data = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> ironmanData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> ultimateData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DataPoint> hardcoreData = new ArrayList<>();
-
-    /*
-    Recent Datapoints - the most recent datapoint making various things easier for frontend
-    */
 
     /*
     The last time this player was updated in the database
@@ -119,46 +80,17 @@ public class Player {
 
     //||METHODS||
 
-    public void setNotRecent(String dataType){
-        if (dataType.equals("")) {
-            for (DataPoint data : this.normalData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_ironman")) {
-            for (DataPoint data : this.ironmanData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_ultimate")) {
-            for (DataPoint data : this.ultimateData) {
-                data.setIsRecent(false);
-            }
-        } else if (dataType.equals("_hardcore_ironman")) {
-            for (DataPoint data : this.hardcoreData) {
-                data.setIsRecent(false);
-            }
+    public void setNotRecent(){
+        for (DataPoint data : this.data) {
+            data.setIsRecent(false);
         }
-    }
 
-    public DataPoint getRecentNormalDataPoint() {
-        return getRecentDataPoint(this.normalData);
-    }
-
-    public DataPoint getRecentIronmanDataPoint(){
-        return getRecentDataPoint(this.ironmanData);
-    }
-
-    public DataPoint getRecentUltimateDataPoint(){
-        return getRecentDataPoint(this.ultimateData);
-    }
-
-    public DataPoint getRecentHardcoreDataPoint(){
-        return getRecentDataPoint(this.hardcoreData);
     }
 
     //helper method
-    public DataPoint getRecentDataPoint(List<DataPoint> dataPoints){
+    public DataPoint getRecentDataPoint(List<DataPoint> dataPoints,Integer typeNumber){
         for (DataPoint data : dataPoints){
-            if (data.getIsRecent()){
+            if (data.getIsRecent() & data.getType().equals(typeNumber)){
                 return data;
             }
         }
@@ -167,26 +99,22 @@ public class Player {
 
     public void updateData(){
         try{
+            setNotRecent();
             for (hiscoreTypes hiscore : hiscoreTypes.values()){
                 HttpsURLConnection connection = DataPoint.buildResponse(displayName, hiscore.getHiscore());
-                int responseCode = connection.getResponseCode();
                 if (connection.getResponseCode() == 200) {
                     if (hiscore.getHiscore().equals("")) {
                         isNormal = true;
-                        setNotRecent(hiscore.getHiscore());
-                        normalData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,true,false,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ironman")) {
                         isIronman = true;
-                        setNotRecent(hiscore.getHiscore());
-                        ironmanData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,true,false,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_ultimate")) {
                         isUltimate = true;
-                        setNotRecent(hiscore.getHiscore());
-                        ultimateData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,true,false,hiscore.getTypeNumber()));
                     } else if (hiscore.getHiscore().equals("_hardcore_ironman")) {
                         isHardcore = true;
-                        setNotRecent(hiscore.getHiscore());
-                        hardcoreData.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true));
+                        data.add(new DataPoint(displayName, hiscore.getHiscore(), connection,false,false,false,true,hiscore.getTypeNumber()));
                     }
                     this.lastUpdated = new Timestamp(System.currentTimeMillis());
                 }
@@ -206,100 +134,71 @@ public class Player {
         }
     }
 
+    public List<DataPoint> getType(Integer hiscoreTypeNumber){
+        List<DataPoint> typeData = new ArrayList<>();
+        for(DataPoint datapoint: this.data) {
+            if (datapoint.getType().equals(hiscoreTypeNumber)) {
+                typeData.add(datapoint);
+            }
+        }
+        return typeData;
+    }
+
     //||Progression System||
 
     /*
     this method calls for an update in the Progression object of the Player
-    each time this method is called it creates new datapoints in the ProgressionDataPoint subclasses (normal,ironman,ultimate,hardcore)
-    these datapoints will be easily referencable for future use
+    each time this method is called it creates new progression object for each
+    hiscore board that the player is featured on
     */
     public void checkProgression(long days){
 
         long day = timeValues.DAY.getMilliseconds();
-        List<DataPoint> pointsInTimeRange = new ArrayList<>();
+        List<DataPoint> pointsInTimeRange;
 
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
 
-        if(normalProgression.size() > 0){
+        if(progression.size() > 0){
             setProgressionNotRecent();
         }
 
-
-        if (this.normalData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.normalData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), normalData.get(normalData.size() - 1), "normal",days);
-        } else {
-            addProgressionDataPoint(this.normalData.get(0),this.normalData.get(0),"normal",days);
-            return;
+        for (hiscoreTypes hiscore : hiscoreTypes.values()){
+            if (findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate).size() > 2){
+                pointsInTimeRange = findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate);
+                addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), getType(hiscore.getTypeNumber()).get(getType(hiscore.getTypeNumber()).size() - 1),hiscore.getTypeNumber(),days);
+            }
         }
-        if (this.ironmanData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.ironmanData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ironmanData.get(ironmanData.size() - 1), "ironman",days);
-        }
-        if (this.ultimateData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.ultimateData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), ultimateData.get(ultimateData.size() - 1), "ultimate",days);
-        }
-        if (this.hardcoreData.size() > 2) {
-            pointsInTimeRange = findPointsInTimeRange(this.hardcoreData, earliestDate);
-            addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), hardcoreData.get(hardcoreData.size() - 1), "hardcore",days);
-        }
-
     }
 
     /*
     ||Progression helper methods||
     */
 
-    public ProgressionDataPoint  findRecentProgression(String hiscoreType){
-
-
-
-
-        if (hiscoreType.equals("normal")){
-            for (ProgressionDataPoint dataPoint : this.normalProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        } else if (hiscoreType.equals("ironman")){
-            for (ProgressionDataPoint dataPoint : this.ironmanProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        } else if (hiscoreType.equals("ultimate")){
-            for (ProgressionDataPoint dataPoint : this.ultimateProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
-            }
-        }else if (hiscoreType.equals("hardcore")) {
-            for (ProgressionDataPoint dataPoint : this.hardcoreProgression) {
-                if (dataPoint.isRecent()) {
-                    return dataPoint;
-                }
+    public List<ProgressionDataPoint> scanProgressionDataPoints(Integer typeNumber){
+        List<ProgressionDataPoint> typeData = new ArrayList<>();
+        for(ProgressionDataPoint datapoint: this.progression) {
+            if (datapoint.getType().equals(typeNumber)) {
+                typeData.add(datapoint);
             }
         }
-        //shouldn't be reached
-        return null;
+        return typeData;
+    }
+
+    public ProgressionDataPoint  findRecentProgression(Integer typeNumber){
+        ProgressionDataPoint dataPoint = new ProgressionDataPoint();
+        for (ProgressionDataPoint datapoint : scanProgressionDataPoints(typeNumber)){
+            if (datapoint.isRecent() & datapoint.getType().equals(typeNumber)){
+                dataPoint = datapoint;
+                break;
+            }
+        }
+        return dataPoint;
     }
 
     public void setProgressionNotRecent(){
-
-        for (ProgressionDataPoint data : this.normalProgression) {
+        for (ProgressionDataPoint data : this.progression) {
             data.setIsRecent(false);
         }
-        for (ProgressionDataPoint data : this.ironmanProgression){
-            data.setIsRecent(false);
-        }
-        for (ProgressionDataPoint data : this.ultimateProgression){
-            data.setIsRecent(false);
-        }
-        for (ProgressionDataPoint data : this.hardcoreProgression){
-            data.setIsRecent(false);
-        }
-
     }
 
     public List<DataPoint> findPointsInTimeRange(List<DataPoint> allDataPoints, Timestamp earliestDate){
@@ -314,11 +213,9 @@ public class Player {
         return pointsInTimeRange;
     }
 
-    public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,String hiscoreType,long days){
-
+    public void addProgressionDataPoint(DataPoint oldestDataPoint,DataPoint currentDataPoint,Integer hiscoreType,long days){
 
         ProgressionDataPoint newDataPoint = new ProgressionDataPoint();
-
 
         for(skillNames skill :skillNames.values()){
             skillData newSkillDataPoint = currentDataPoint.getSkillInfo().get(skill.getSkillNumber());
@@ -329,20 +226,7 @@ public class Player {
             newDataPoint.addSkillProgressionData(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),days);
         }
 
-        if(hiscoreType.equals("normal")){
-            this.recentNormalProgression = newDataPoint;
-            this.normalProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("ironman")){
-            this.recentIronmanProgresion = newDataPoint;
-            this.ironmanProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("ultimate")){
-            this.recentUltimateProgression = newDataPoint;
-            this.ultimateProgression.add(newDataPoint);
-        }else if(hiscoreType.equals("hardcore")){
-            this.recentHardcoreProgression = newDataPoint;
-            this.hardcoreProgression.add(newDataPoint);
-        }
-
+        this.progression.add(newDataPoint);
     }
 
     public DataPoint findOldestDataPoint(List<DataPoint> dataPoints){
@@ -390,14 +274,15 @@ public class Player {
     }
 
     public void checkAchievements(){
-
-        List<skillData> dataList = this.normalData.get(this.normalData.size() -1).getSkillInfo();
-
-        for(Achievement achievement : this.achievements){
-            if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
-                checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
-            }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
-                checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
+        if(this.data.size() >= 1){
+            List<skillData> dataList = getType(hiscoreTypes.NORMAL.getTypeNumber()).get(getType(hiscoreTypes.NORMAL.getTypeNumber()).size() -1).getSkillInfo();
+            for(Achievement achievement : this.achievements){
+                if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
+                    checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
+                    //slight error with how this is working
+                }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
+                    checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
+                }
             }
         }
     }
@@ -410,14 +295,6 @@ public class Player {
 
     public Timestamp getLastUpdated() {return lastUpdated;}
 
-    public List<DataPoint> getNormalData(){return this.normalData;}
-
-    public List<DataPoint> getIronmanData(){return this.ironmanData;}
-
-    public List<DataPoint> getUltimateData(){return this.ultimateData;}
-
-    public List<DataPoint> getHardcoreData(){return this.hardcoreData;}
-
     public boolean getIsNormal(){return this.isNormal;}
 
     public boolean getIsIronman(){return this.isIronman;}
@@ -428,22 +305,13 @@ public class Player {
 
     public List<Achievement> getAchievements(){return this.achievements;}
 
-    public List<ProgressionDataPoint> getNormalProgression() {
-        return normalProgression;
+    public List<ProgressionDataPoint> getProgression() {
+        return this.progression;
     }
 
-    public List<ProgressionDataPoint> getIronmanProgression() {
-        return ironmanProgression;
+    public List<DataPoint> getData(){
+        return this.data;
     }
-
-    public List<ProgressionDataPoint> getUltimateProgression() {
-        return ultimateProgression;
-    }
-
-    public List<ProgressionDataPoint> getHardcoreProgression() {
-        return hardcoreProgression;
-    }
-
 
 }
 
