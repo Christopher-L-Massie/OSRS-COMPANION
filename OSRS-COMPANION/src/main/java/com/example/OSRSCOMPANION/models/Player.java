@@ -279,6 +279,7 @@ public class Player {
             for(Achievement achievement : this.achievements){
                 if((achievement.getAchievementNumber() <= 10) & !achievement.isHasAchieved()){
                     checkBaseLevelAchievement(achievement,dataList,achievement.getTestValue());
+                    //slight error with how this is working
                 }else if ((10  < (achievement.getAchievementNumber())) & !achievement.isHasAchieved()){
                     checkTotalExperienceAchievement(achievement,dataList,achievement.getTestValue());
                 }
