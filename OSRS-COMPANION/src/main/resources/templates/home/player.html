@@ -23,6 +23,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Icon</th>
                         <th scope="col">Skill</th>
                         <th scope="col">Level</th>
                         <th scope="col">Rank</th>
@@ -34,7 +35,7 @@
                     <tbody th:each="skillData : ${data}">
                         <tr th:each="skill,iter : ${skillData.skillInfo}">
                             <div th:if="${skillData.isRecent}">
-
+                                    <td></td>
                                     <td th:text="${skill.skillName}"></td>
                                     <td th:title="${progressionData[iter.index].levelDifference}" th:text="${skill.level}"></td>
                                     <td th:title="${progressionData[iter.index].rankDifference}" th:text="${skill.rank}"></td>
