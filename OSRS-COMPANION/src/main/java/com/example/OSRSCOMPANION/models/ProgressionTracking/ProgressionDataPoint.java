@@ -84,7 +84,7 @@ public class ProgressionDataPoint {
 
     public Integer getType(){return this.type;}
 
-    private void setType(Integer type){this.type = type;}
+    public void setType(Integer type){this.type = type;}
 
 
 }
