@@ -157,16 +157,25 @@ public class Player {
         List<DataPoint> pointsInTimeRange;
 
         Timestamp earliestDate = new Timestamp(System.currentTimeMillis()-(days * day));
-
-        if(progression.size() > 0){
-            setProgressionNotRecent();
-        }
-
-        for (hiscoreTypes hiscore : hiscoreTypes.values()){
-            if (findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate).size() > 2){
-                pointsInTimeRange = findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate);
-                addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), getType(hiscore.getTypeNumber()).get(getType(hiscore.getTypeNumber()).size() - 1),hiscore.getTypeNumber(),days);
+        if (getType(hiscoreTypes.NORMAL.getTypeNumber()).size() >= 2) {
+            if(progression.size() > 0){
+                setProgressionNotRecent();
             }
+
+            for (hiscoreTypes hiscore : hiscoreTypes.values()){
+                if (findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate).size() > 2){
+                    pointsInTimeRange = findPointsInTimeRange(getType(hiscore.getTypeNumber()),earliestDate);
+                    addProgressionDataPoint(findOldestDataPoint(pointsInTimeRange), getType(hiscore.getTypeNumber()).get(getType(hiscore.getTypeNumber()).size() - 1),hiscore.getTypeNumber(),days);
+                }
+            }
+        } else {
+            ProgressionDataPoint noProgressionDataPoint = new ProgressionDataPoint();
+            for(skillNames skillname: skillNames.values()){
+                skillProgressionData noSkillProgressionData = new skillProgressionData(0L, 0L, 0L,skillname.getSkillName());
+                noProgressionDataPoint.addSkillProgressionData(noSkillProgressionData, days);
+            }
+            noProgressionDataPoint.setType(hiscoreTypes.NORMAL.getTypeNumber());
+            this.progression.add(noProgressionDataPoint);
         }
     }
 
