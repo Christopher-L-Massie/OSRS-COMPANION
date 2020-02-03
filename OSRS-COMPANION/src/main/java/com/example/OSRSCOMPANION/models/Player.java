@@ -49,7 +49,6 @@ public class Player {
     @OneToMany(cascade = CascadeType.ALL)
     private List<DataPoint> data = new ArrayList<>();
 
-
     /*
     The last time this player was updated in the database
     */
