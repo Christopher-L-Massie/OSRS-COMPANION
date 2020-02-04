@@ -7,7 +7,8 @@ public enum hiscoreTypes {
     ULTIMATE("_ultimate",2),
     HARDCORE("_hardcore_ironman",3),
     DEADMAN("_deadman",4),
-    SEASONAL("_seasonal", 5);
+    SEASONAL("_seasonal", 5),
+    TOURNAMENT("_tournament",6);
 
     //|||PROPERTIES|||
 
