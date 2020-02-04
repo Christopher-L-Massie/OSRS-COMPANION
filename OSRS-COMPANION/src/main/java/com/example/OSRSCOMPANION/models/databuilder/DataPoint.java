@@ -192,4 +192,20 @@ public class DataPoint {
     private void setType(Integer type){
         this.type = type;
     }
+
+    public List<clueData> getClueInfo() {
+        return clueInfo;
+    }
+
+    public void setClueInfo(List<clueData> clueInfo) {
+        this.clueInfo = clueInfo;
+    }
+
+    public List<bossData> getBossInfo() {
+        return bossInfo;
+    }
+
+    public void setBossInfo(List<bossData> bossInfo) {
+        this.bossInfo = bossInfo;
+    }
 }
