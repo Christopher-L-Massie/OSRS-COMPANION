@@ -5,7 +5,8 @@ public enum hiscoreTypes {
     NORMAL("",0),
     IRON("_ironman",1),
     ULTIMATE("_ultimate",2),
-    HARDCORE("_hardcore_ironman",3);
+    HARDCORE("_hardcore_ironman",3),
+    DEADMAN("_deadman",4);
 
     //|||PROPERTIES|||
 
