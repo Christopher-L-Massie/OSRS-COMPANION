@@ -4,12 +4,13 @@ public enum clueNames {
 
     //|||VALUES|||
 
-    BEGINNER("beginner",0),
-    EASY("easy",1),
-    MEDIUM("medium",2),
-    HARD("hard",3),
-    ELITE("elite",4),
-    MASTER("master",5);
+    ALL("all",0),
+    BEGINNER("beginner",1),
+    EASY("easy",2),
+    MEDIUM("medium",3),
+    HARD("hard",4),
+    ELITE("elite",5),
+    MASTER("master",6);
 
     //|||PROPERTIES|||
 
