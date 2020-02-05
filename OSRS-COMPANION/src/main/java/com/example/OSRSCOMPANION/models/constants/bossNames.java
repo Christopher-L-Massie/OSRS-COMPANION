@@ -62,5 +62,22 @@ public enum bossNames {
         this.bossName = bossName;
         this.bossNumber = bossNumber;
     }
+
+    //|||ACCESSORS|||
     
+    public String getBossName() {
+        return bossName;
+    }
+
+    public void setBossName(String bossName) {
+        this.bossName = bossName;
+    }
+
+    public Integer getBossNumber() {
+        return bossNumber;
+    }
+
+    public void setBossNumber(Integer bossNumber) {
+        this.bossNumber = bossNumber;
+    }
 }
