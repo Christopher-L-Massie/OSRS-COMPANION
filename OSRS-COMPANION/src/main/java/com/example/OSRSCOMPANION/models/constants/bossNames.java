@@ -21,7 +21,6 @@ public enum bossNames {
     DAGANOTH_REX,
     DAGANOTH_SUPREME,
     DERANGED_ARCHAEOLOGIST,
-    DERANGED_ARCHAEOLOGIST,
     GENERAL_GRAARDOR,
     GIANT_MOLE,
     GROTESQUE_GAURDIANS,
@@ -47,5 +46,5 @@ public enum bossNames {
     VORKATH,
     WINTERTODT,
     ZALCANO,
-    ZULRAH;
+    ZULRAH
 }
