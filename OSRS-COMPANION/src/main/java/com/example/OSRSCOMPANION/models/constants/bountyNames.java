@@ -4,8 +4,8 @@ public enum bountyNames {
 
     //|||VALUES|||
 
-    HUNTER,
-    ROGUE
+    HUNTER("Hunter"),
+    ROGUE("Rogue");
 
     //|||PROPERTIES|||
 
