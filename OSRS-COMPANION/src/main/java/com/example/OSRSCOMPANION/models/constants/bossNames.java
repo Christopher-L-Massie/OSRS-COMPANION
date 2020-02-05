@@ -46,7 +46,7 @@ public enum bossNames {
     VORKATH,
     WINTERTODT,
     ZALCANO,
-    ZULRAH
+    ZULRAH;
 
     //|||PROPERTIES|||
 
@@ -55,4 +55,12 @@ public enum bossNames {
     //I believe they will want to keep the bosses in alphabetical order. Hopefully they just amend to the end of the existing data string and keep them in order
     //(I will actually find out 2/6/2020 what happens when the new boss is added.)
     private Integer bossNumber;
+
+    //|||CONSTRUCTORS|||
+
+    bossNames(String bossName, Integer bossNumber) {
+        this.bossName = bossName;
+        this.bossNumber = bossNumber;
+    }
+    
 }
