@@ -16,4 +16,14 @@ public enum bountyNames {
     bountyNames(String bountyName){
         this.bountyName = bountyName;
     }
+
+    //|||ACCESSORS|||
+    
+    public String getBountyName() {
+        return bountyName;
+    }
+
+    public void setBountyName(String bountyName) {
+        this.bountyName = bountyName;
+    }
 }
