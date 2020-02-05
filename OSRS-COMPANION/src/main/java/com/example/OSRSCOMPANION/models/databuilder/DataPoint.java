@@ -1,5 +1,6 @@
 package com.example.OSRSCOMPANION.models.databuilder;
 
+import com.example.OSRSCOMPANION.models.constants.bountyNames;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -69,7 +70,7 @@ public class DataPoint {
                 String inputLine;
 
                 //manipulates the data out of String form and places each value into an easy to
-                //use array of all values
+                //use array of all 179 values
                 while ((inputLine = in.readLine()) != null) {
                     StringBuffer response = new StringBuffer(inputLine);
                     String[] dataArray = response.toString().split(",");
@@ -90,6 +91,18 @@ public class DataPoint {
                     skillInfo.add(new skillData(dataArrayLongs.get(i), dataArrayLongs.get(i+1), dataArrayLongs.get(i+2),skill.getSkillName()));
                     i += 3;
                 }
+                //I do not know what these two points are I can't find a person who has them
+                //so in the event someone is tracked that has either of these two
+                //I can then try to figure out what the value is I'm assume it's a Rank/Score combo of something
+                //Castle wars maybe?
+                if (i == 72 || i == 73){
+                    if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
+                        System.out.println("DATAPOINTS 72 or 73 filled - investigate");
+                    }
+                    i++;
+                }
+                
+
 
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
