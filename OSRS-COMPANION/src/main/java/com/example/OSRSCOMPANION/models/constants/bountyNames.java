@@ -10,5 +10,10 @@ public enum bountyNames {
     //|||PROPERTIES|||
 
     public String bountyName;
-    
+
+    //|||CONSTRUCTORS|||
+
+    bountyNames(String bountyName){
+        this.bountyName = bountyName;
+    }
 }
