@@ -23,7 +23,7 @@ public enum bossNames {
     DERANGED_ARCHAEOLOGIST("Deranged Archaeologist",16),
     GENERAL_GRAARDOR("General Graardor",17),
     GIANT_MOLE("Giant Mole", 18),
-    GROTESQUE_GAURDIANS("Grotesque Guardians",19),
+    GROTESQUE_GUARDIANS("Grotesque Guardians",19),
     HESPORI("Hespori",20),
     KALPHITE_QUEEN("Kalphite Queen",21),
     KING_BLACK_DRAGON("King Black Dragon",22),
