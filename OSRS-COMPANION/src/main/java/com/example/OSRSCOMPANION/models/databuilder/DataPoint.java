@@ -23,11 +23,13 @@ public class DataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillData> skillInfo = new ArrayList<>();
 
+    /*
     @OneToMany(cascade = CascadeType.ALL)
     private List<clueData> clueInfo = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<bossData> bossInfo = new ArrayList<>();
+     */
 
     private boolean isRecent = true;
 
@@ -193,6 +195,7 @@ public class DataPoint {
         this.type = type;
     }
 
+    /*
     public List<clueData> getClueInfo() {
         return clueInfo;
     }
@@ -208,4 +211,6 @@ public class DataPoint {
     public void setBossInfo(List<bossData> bossInfo) {
         this.bossInfo = bossInfo;
     }
+    
+     */
 }
