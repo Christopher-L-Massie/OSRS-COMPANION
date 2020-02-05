@@ -47,4 +47,12 @@ public enum bossNames {
     WINTERTODT,
     ZALCANO,
     ZULRAH
+
+    //|||PROPERTIES|||
+
+    private String bossName;
+    //below is technically not needed as is but! future editions on JAGEX's end may make this needed to keep old data working
+    //I believe they will want to keep the bosses in alphabetical order. Hopefully they just amend to the end of the existing data string and keep them in order
+    //(I will actually find out 2/6/2020 what happens when the new boss is added.)
+    private Integer bossNumber;
 }
