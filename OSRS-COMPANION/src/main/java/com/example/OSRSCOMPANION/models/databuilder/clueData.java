@@ -27,4 +27,31 @@ public class clueData {
         this.clueScore = clueScore;
     }
 
+    //|||METHODS|||
+
+    //|||ACCESSORS||
+    
+    public Integer getClueType() {
+        return clueType;
+    }
+
+    public void setClueType(Integer clueType) {
+        this.clueType = clueType;
+    }
+
+    public long getClueRank() {
+        return clueRank;
+    }
+
+    public void setClueRank(long clueRank) {
+        this.clueRank = clueRank;
+    }
+
+    public long getClueScore() {
+        return clueScore;
+    }
+
+    public void setClueScore(long clueScore) {
+        this.clueScore = clueScore;
+    }
 }
