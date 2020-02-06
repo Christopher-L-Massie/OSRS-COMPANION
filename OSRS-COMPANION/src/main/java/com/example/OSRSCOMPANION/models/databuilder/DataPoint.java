@@ -1,5 +1,6 @@
 package com.example.OSRSCOMPANION.models.databuilder;
 
+import com.example.OSRSCOMPANION.models.constants.bossNames;
 import com.example.OSRSCOMPANION.models.constants.bountyNames;
 import com.example.OSRSCOMPANION.models.constants.clueNames;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
@@ -100,7 +101,7 @@ public class DataPoint {
                     if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
                         System.out.println("DATAPOINTS 72 or 73 filled - investigate");
                     }
-                    i++;
+                    i = 74;
                 }
                 for (bountyNames name : bountyNames.values()){
                     //add to bountyData
@@ -108,6 +109,10 @@ public class DataPoint {
                 }
                 for (clueNames clue : clueNames.values()){
                     //add to clueData
+                    i += 2;
+                }
+                if (i == 92 || i == 93){
+                    //add LMS score/rank
                     i += 2;
                 }
                 
