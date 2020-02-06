@@ -120,7 +120,7 @@ public class DataPoint {
                     i += 2;
                 }
                 for (bossNames boss : bossNames.values()){
-                    //add to bossData
+                    bossInfo.add(new bossData(boss.getBossName(),boss.getBossNumber(),dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
                     i += 2;
                 }
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
