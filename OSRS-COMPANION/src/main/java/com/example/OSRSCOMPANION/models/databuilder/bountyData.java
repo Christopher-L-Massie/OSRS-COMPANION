@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class bountyData {
 
     //|||PROPERTIES|||
-    
+
     @Id
     @GeneratedValue
     private int id;
@@ -16,4 +16,14 @@ public class bountyData {
     public String bountyType;
     public long bountyRank;
     public long bountyScore;
+
+    //|||CONSTRUCTORS|||
+
+    public bountyData(){}
+
+    public bountyData(String bountyType,long bountyRank,long bountyScore){
+        this.bountyType = bountyType;
+        this.bountyRank = bountyRank;
+        this.bountyScore = bountyScore;
+    }
 }
