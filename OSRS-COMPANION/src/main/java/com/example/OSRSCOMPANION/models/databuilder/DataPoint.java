@@ -115,7 +115,10 @@ public class DataPoint {
                     //add LMS score/rank
                     i += 2;
                 }
-                
+                for (bossNames boss : bossNames.values()){
+                    //add to bossData
+                    i += 2;
+                }
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
                 System.out.println(this.dataTimeStamp.getTime());
