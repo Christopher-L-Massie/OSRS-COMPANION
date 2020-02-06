@@ -1,6 +1,7 @@
 package com.example.OSRSCOMPANION.models.databuilder;
 
 import com.example.OSRSCOMPANION.models.constants.bountyNames;
+import com.example.OSRSCOMPANION.models.constants.clueNames;
 import com.example.OSRSCOMPANION.models.constants.skillNames;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -103,6 +104,10 @@ public class DataPoint {
                 }
                 for (bountyNames name : bountyNames.values()){
                     //add to bountyData
+                    i += 2;
+                }
+                for (clueNames clue : clueNames.values()){
+                    //add to clueData
                     i += 2;
                 }
                 
