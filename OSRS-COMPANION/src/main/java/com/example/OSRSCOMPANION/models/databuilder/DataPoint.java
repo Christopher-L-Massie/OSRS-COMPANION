@@ -116,7 +116,7 @@ public class DataPoint {
                     i += 2;
                 }
                 if (i == 92 || i == 93){
-                    //add LMS score/rank
+                    lmsInfo.add(new lmsData(dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
                     i += 2;
                 }
                 for (bossNames boss : bossNames.values()){
