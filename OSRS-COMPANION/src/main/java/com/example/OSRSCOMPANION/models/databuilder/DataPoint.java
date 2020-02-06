@@ -101,9 +101,11 @@ public class DataPoint {
                     }
                     i++;
                 }
+                for (bountyNames name : bountyNames.values()){
+                    //add to bountyData
+                    i += 2;
+                }
                 
-
-
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
                 System.out.println(this.dataTimeStamp.getTime());
