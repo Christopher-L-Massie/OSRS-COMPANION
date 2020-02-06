@@ -15,4 +15,12 @@ public class lmsData {
 
     private long lmsRank;
     private long lmsScore;
+
+    //|||Constructors|||
+    public lmsData(){}
+
+    public lmsData(long lmsRank, long lmsScore){
+        this.lmsRank = lmsRank;
+        this.lmsScore = lmsScore;
+    }
 }
