@@ -26,4 +26,38 @@ public class bountyData {
         this.bountyRank = bountyRank;
         this.bountyScore = bountyScore;
     }
+
+    //|||ACCESSSORS||
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBountyType() {
+        return bountyType;
+    }
+
+    public void setBountyType(String bountyType) {
+        this.bountyType = bountyType;
+    }
+
+    public long getBountyRank() {
+        return bountyRank;
+    }
+
+    public void setBountyRank(long bountyRank) {
+        this.bountyRank = bountyRank;
+    }
+
+    public long getBountyScore() {
+        return bountyScore;
+    }
+
+    public void setBountyScore(long bountyScore) {
+        this.bountyScore = bountyScore;
+    }
 }
