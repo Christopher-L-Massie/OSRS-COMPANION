@@ -227,7 +227,6 @@ public class DataPoint {
         this.type = type;
     }
 
-    /*
     public List<clueData> getClueInfo() {
         return clueInfo;
     }
@@ -243,6 +242,24 @@ public class DataPoint {
     public void setBossInfo(List<bossData> bossInfo) {
         this.bossInfo = bossInfo;
     }
-    
-     */
+
+    public void setSkillInfo(List<skillData> skillInfo) {
+        this.skillInfo = skillInfo;
+    }
+
+    public List<bountyData> getBountyInfo() {
+        return bountyInfo;
+    }
+
+    public void setBountyInfo(List<bountyData> bountyInfo) {
+        this.bountyInfo = bountyInfo;
+    }
+
+    public List<lmsData> getLmsInfo() {
+        return lmsInfo;
+    }
+
+    public void setLmsInfo(List<lmsData> lmsInfo) {
+        this.lmsInfo = lmsInfo;
+    }
 }
