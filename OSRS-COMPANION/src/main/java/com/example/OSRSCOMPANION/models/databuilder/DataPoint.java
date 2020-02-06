@@ -112,7 +112,7 @@ public class DataPoint {
                     i += 2;
                 }
                 for (clueNames clue : clueNames.values()){
-                    //add to clueData
+                    clueInfo.add(new clueData(clue.getClueType(),dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
                     i += 2;
                 }
                 if (i == 92 || i == 93){
