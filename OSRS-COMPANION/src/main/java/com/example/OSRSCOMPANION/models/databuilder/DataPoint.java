@@ -25,7 +25,7 @@ public class DataPoint {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillData> skillInfo = new ArrayList<>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<clueData> clueInfo = new ArrayList<>();
 
@@ -108,7 +108,7 @@ public class DataPoint {
                     i = 74;
                 }
                 for (bountyNames name : bountyNames.values()){
-                    //add to bountyData
+                    bountyInfo.add(new bountyData(name.bountyName,dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
                     i += 2;
                 }
                 for (clueNames clue : clueNames.values()){
