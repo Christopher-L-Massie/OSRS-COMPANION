@@ -27,4 +27,48 @@ public class bossData {
         this.bossRank = bossRank;
         this.bossScore = bossScore;
     }
+
+    //|||Methods|||
+
+    //|||ACCESSORS|||
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBossName() {
+        return bossName;
+    }
+
+    public void setBossName(String bossName) {
+        this.bossName = bossName;
+    }
+
+    public Integer getBossNumber() {
+        return bossNumber;
+    }
+
+    public void setBossNumber(Integer bossNumber) {
+        this.bossNumber = bossNumber;
+    }
+
+    public long getBossRank() {
+        return bossRank;
+    }
+
+    public void setBossRank(long bossRank) {
+        this.bossRank = bossRank;
+    }
+
+    public long getBossScore() {
+        return bossScore;
+    }
+
+    public void setBossScore(long bossScore) {
+        this.bossScore = bossScore;
+    }
 }
