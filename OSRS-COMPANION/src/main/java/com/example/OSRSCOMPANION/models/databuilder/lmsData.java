@@ -23,4 +23,32 @@ public class lmsData {
         this.lmsRank = lmsRank;
         this.lmsScore = lmsScore;
     }
+
+    //|||Methods|||
+
+    //|||Accessors|||
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getLmsRank() {
+        return lmsRank;
+    }
+
+    public void setLmsRank(long lmsRank) {
+        this.lmsRank = lmsRank;
+    }
+
+    public long getLmsScore() {
+        return lmsScore;
+    }
+
+    public void setLmsScore(long lmsScore) {
+        this.lmsScore = lmsScore;
+    }
 }
