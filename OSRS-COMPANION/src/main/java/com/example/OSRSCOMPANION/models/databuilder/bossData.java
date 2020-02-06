@@ -17,4 +17,14 @@ public class bossData {
     private Integer bossNumber;
     private long bossRank;
     private long bossScore;
+
+    //|||Constructors|||
+    public bossData(){}
+
+    public bossData(String bossName,Integer bossNumber,long bossRank,long bossScore){
+        this.bossName = bossName;
+        this.bossNumber = bossNumber;
+        this.bossRank = bossRank;
+        this.bossScore = bossScore;
+    }
 }
