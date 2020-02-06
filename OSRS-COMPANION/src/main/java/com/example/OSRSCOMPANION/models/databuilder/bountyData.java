@@ -27,6 +27,8 @@ public class bountyData {
         this.bountyScore = bountyScore;
     }
 
+    //|||METHODS|||
+
     //|||ACCESSSORS||
 
     public int getId() {
