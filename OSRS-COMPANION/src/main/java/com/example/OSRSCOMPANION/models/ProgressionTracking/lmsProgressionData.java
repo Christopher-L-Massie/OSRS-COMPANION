@@ -12,8 +12,17 @@ public class lmsProgressionData {
     @Id
     @GeneratedValue
     private int id;
-    
+
     private long lmsRankChange;
     private long lmsScoreChange;
+
+    //|||CONSTRUCTORS|||
+
+    public lmsProgressionData(){}
+
+    public lmsProgressionData(long lmsRankChange,long lmsScoreChange){
+        this.lmsRankChange = lmsRankChange;
+        this.lmsScoreChange = lmsScoreChange;
+    }
 
 }
