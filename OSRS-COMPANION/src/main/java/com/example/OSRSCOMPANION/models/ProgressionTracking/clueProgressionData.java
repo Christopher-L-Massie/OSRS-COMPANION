@@ -29,6 +29,56 @@ public class clueProgressionData {
         this.scoreChange = scoreChange;
         this.days = days;
     }
-    
 
+    //|||Methods|||
+
+    //|||ACCESSORS|||
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getClueTypeNumber() {
+        return clueTypeNumber;
+    }
+
+    public void setClueTypeNumber(Integer clueTypeNumber) {
+        this.clueTypeNumber = clueTypeNumber;
+    }
+
+    public String getClueTypeName() {
+        return clueTypeName;
+    }
+
+    public void setClueTypeName(String clueTypeName) {
+        this.clueTypeName = clueTypeName;
+    }
+
+    public long getRankChange() {
+        return rankChange;
+    }
+
+    public void setRankChange(long rankChange) {
+        this.rankChange = rankChange;
+    }
+
+    public long getScoreChange() {
+        return scoreChange;
+    }
+
+    public void setScoreChange(long scoreChange) {
+        this.scoreChange = scoreChange;
+    }
+
+    public long getDays() {
+        return days;
+    }
+
+    public void setDays(long days) {
+        this.days = days;
+    }
 }
