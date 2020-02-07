@@ -31,7 +31,7 @@ public class bossData {
     //|||Methods|||
 
     //|||ACCESSORS|||
-    
+
     public int getId() {
         return id;
     }

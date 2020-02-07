@@ -18,7 +18,7 @@ public enum bountyNames {
     }
 
     //|||ACCESSORS|||
-    
+
     public String getBountyName() {
         return bountyName;
     }

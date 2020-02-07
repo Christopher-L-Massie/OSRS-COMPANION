@@ -30,7 +30,7 @@ public class clueData {
     //|||METHODS|||
 
     //|||ACCESSORS||
-    
+
     public Integer getClueType() {
         return clueType;
     }

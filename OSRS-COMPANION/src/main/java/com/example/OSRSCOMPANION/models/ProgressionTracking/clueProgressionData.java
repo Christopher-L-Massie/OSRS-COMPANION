@@ -33,7 +33,7 @@ public class clueProgressionData {
     //|||Methods|||
 
     //|||ACCESSORS|||
-    
+
     public int getId() {
         return id;
     }

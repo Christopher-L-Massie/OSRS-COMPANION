@@ -295,6 +295,9 @@ public class Player {
         }
     }
 
+    //|||Boss Data helper methods
+
+
     //|||ACCESSORS|||
 
     public int getId(){return this.id;}
