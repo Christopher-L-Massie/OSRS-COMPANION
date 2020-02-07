@@ -29,6 +29,9 @@ public class ProgressionDataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillProgressionData> progressionData = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<clueProgressionData> clueProgressionData = new ArrayList<>();
+
     //|||CONSTRUCTORS|||
 
     //empty constructor for database functionality
