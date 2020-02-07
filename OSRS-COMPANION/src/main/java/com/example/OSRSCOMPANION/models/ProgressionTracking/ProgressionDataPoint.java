@@ -32,6 +32,9 @@ public class ProgressionDataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<clueProgressionData> clueProgressionData = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<bountyProgressionData> bountyProgressionData = new ArrayList<>();
+
     //|||CONSTRUCTORS|||
 
     //empty constructor for database functionality
