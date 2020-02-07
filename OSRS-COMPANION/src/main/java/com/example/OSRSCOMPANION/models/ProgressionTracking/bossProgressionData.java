@@ -7,8 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class bossProgressionData {
 
-    //|||PROPERTIES
-    
+    //|||PROPERTIES|||
+
     @Id
     @GeneratedValue
     private int id;
@@ -17,4 +17,15 @@ public class bossProgressionData {
     private String bossName;
     private long bossRankChange;
     private long bossScoreChange;
+
+    //|||CONSTRUCTORS|||
+
+    public bossProgressionData(){}
+
+    public bossProgressionData(Integer bossNumber,String bossName,long bossRankChange,long bossScoreChange){
+        this.bossNumber = bossNumber;
+        this.bossName = bossName;
+        this.bossRankChange = bossRankChange;
+        this.bossScoreChange = bossScoreChange;
+    }
 }
