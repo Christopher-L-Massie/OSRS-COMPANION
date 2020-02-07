@@ -28,4 +28,48 @@ public class bossProgressionData {
         this.bossRankChange = bossRankChange;
         this.bossScoreChange = bossScoreChange;
     }
+
+    //|||METHODS|||
+
+    //|||ACCESSORS|||
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getBossNumber() {
+        return bossNumber;
+    }
+
+    public void setBossNumber(Integer bossNumber) {
+        this.bossNumber = bossNumber;
+    }
+
+    public String getBossName() {
+        return bossName;
+    }
+
+    public void setBossName(String bossName) {
+        this.bossName = bossName;
+    }
+
+    public long getBossRankChange() {
+        return bossRankChange;
+    }
+
+    public void setBossRankChange(long bossRankChange) {
+        this.bossRankChange = bossRankChange;
+    }
+
+    public long getBossScoreChange() {
+        return bossScoreChange;
+    }
+
+    public void setBossScoreChange(long bossScoreChange) {
+        this.bossScoreChange = bossScoreChange;
+    }
 }
