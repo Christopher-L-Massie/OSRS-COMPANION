@@ -40,8 +40,9 @@ public class ProgressionDataPoint {
     //empty constructor for database functionality
     public ProgressionDataPoint(){}
 
-    public ProgressionDataPoint(skillProgressionData skillProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer Type){
+    public ProgressionDataPoint(skillProgressionData skillProgressionData,clueProgressionData clueProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer Type){
         this.progressionData.add(skillProgressionData);
+        this.clueProgressionData.add(clueProgressionData);
         this.isNormal = isNormal;
         this.isIronman = isIronman;
         this.isHardcore = isHardcore;
