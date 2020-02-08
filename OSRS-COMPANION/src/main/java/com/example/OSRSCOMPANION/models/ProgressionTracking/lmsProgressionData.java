@@ -25,4 +25,31 @@ public class lmsProgressionData {
         this.lmsScoreChange = lmsScoreChange;
     }
 
+    //|||METHODS|||
+
+    //|||ACCESSORS|||
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getLmsRankChange() {
+        return lmsRankChange;
+    }
+
+    public void setLmsRankChange(long lmsRankChange) {
+        this.lmsRankChange = lmsRankChange;
+    }
+
+    public long getLmsScoreChange() {
+        return lmsScoreChange;
+    }
+
+    public void setLmsScoreChange(long lmsScoreChange) {
+        this.lmsScoreChange = lmsScoreChange;
+    }
 }
