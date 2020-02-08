@@ -102,5 +102,39 @@ public class ProgressionDataPoint {
 
     public void setType(Integer type){this.type = type;}
 
+    public void setProgressionData(List<skillProgressionData> progressionData) {
+        this.progressionData = progressionData;
+    }
 
+    public List<com.example.OSRSCOMPANION.models.ProgressionTracking.clueProgressionData> getClueProgressionData() {
+        return clueProgressionData;
+    }
+
+    public void setClueProgressionData(List<com.example.OSRSCOMPANION.models.ProgressionTracking.clueProgressionData> clueProgressionData) {
+        this.clueProgressionData = clueProgressionData;
+    }
+
+    public List<com.example.OSRSCOMPANION.models.ProgressionTracking.bountyProgressionData> getBountyProgressionData() {
+        return bountyProgressionData;
+    }
+
+    public void setBountyProgressionData(List<com.example.OSRSCOMPANION.models.ProgressionTracking.bountyProgressionData> bountyProgressionData) {
+        this.bountyProgressionData = bountyProgressionData;
+    }
+
+    public List<com.example.OSRSCOMPANION.models.ProgressionTracking.lmsProgressionData> getLmsProgressionData() {
+        return lmsProgressionData;
+    }
+
+    public void setLmsProgressionData(List<com.example.OSRSCOMPANION.models.ProgressionTracking.lmsProgressionData> lmsProgressionData) {
+        this.lmsProgressionData = lmsProgressionData;
+    }
+
+    public List<com.example.OSRSCOMPANION.models.ProgressionTracking.bossProgressionData> getBossProgressionData() {
+        return bossProgressionData;
+    }
+
+    public void setBossProgressionData(List<com.example.OSRSCOMPANION.models.ProgressionTracking.bossProgressionData> bossProgressionData) {
+        this.bossProgressionData = bossProgressionData;
+    }
 }
