@@ -38,6 +38,9 @@ public class ProgressionDataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<lmsProgressionData> lmsProgressionData = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<bossProgressionData> bossProgressionData = new ArrayList<>();
+
     //|||CONSTRUCTORS|||
 
     //empty constructor for database functionality
