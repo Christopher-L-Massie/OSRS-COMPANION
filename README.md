@@ -30,11 +30,17 @@ Below is list of current and planned features for OSRS Companion.
 
 -Complete an array of custom made achievements to help motivate you further on your adventure
 
--Compete in tournaments against other players either in skill experience gained,clue scrolls completed , or bosses killed!
+-Compete in tournaments against other players in a variety of ways!
+
+          -Boss kill competitions
+          
+          -Clue scroll competitions
+          
+          -Skilling competitions
 
 -Create a free account and verify your ownership of a (Player) Account with a simple skilling request
 
-          -When attempting to verify ownership over a 'OSRS' account users will be asked to gain experience in 5 different skills within
+          -When attempting to verify ownership over a 'OSRS' account users will be asked to gain experience
           
           -15 minutes if this is completed the account will be considered theirs
           
