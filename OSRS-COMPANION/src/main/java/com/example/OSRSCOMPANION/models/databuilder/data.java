@@ -26,4 +26,40 @@ public class data {
         this.rank = rank;
         this.rank = rank;
     }
+
+    //|||METHODS|||
+
+    //|||ACCESSORS
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(int dataType) {
+        this.dataType = dataType;
+    }
+
+    public long getRank() {
+        return rank;
+    }
+
+    public void setRank(long rank) {
+        this.rank = rank;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
+    }
 }
