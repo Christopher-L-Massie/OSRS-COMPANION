@@ -14,7 +14,7 @@ public enum timeValues {
 
     //|||CONSTRUCTORS|||
 
-    private timeValues(long milliseconds){
+    timeValues(long milliseconds){
         this.milliseconds = milliseconds;
     }
 
