@@ -12,7 +12,7 @@ public enum hiscoreTypes {
 
     //|||PROPERTIES|||
 
-    public String hiscore;
+    private String hiscore;
     private Integer typeNumber;
 
     //|||CONSTRUCTORS|||
