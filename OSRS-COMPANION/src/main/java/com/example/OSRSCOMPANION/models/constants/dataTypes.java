@@ -16,5 +16,14 @@ public enum dataTypes {
     private int typeNumber;
     private String typeName;
 
+    //|||CONSTRUCTORS|||
+
+    dataTypes(int typeNumber,String typeName){
+        this.typeNumber = typeNumber;
+        this.typeName = typeName;
+    }
+
+
+
 
 }
