@@ -4,12 +4,12 @@ public enum dataTypes {
 
     //|||VALUES|||
 
-    SKILLDATA(),
-    UNKNOWNDATA(),
-    BOUNTYDATA(),
-    CLUEDATA(),
-    LMSDATA(),
-    BOSSDATA();
+    SKILLDATA(0,"skillData"),
+    UNKNOWNDATA(1,"unknownData"),
+    BOUNTYDATA(2,"bountyData"),
+    CLUEDATA(3,"clueData"),
+    LMSDATA(4,"lmsData"),
+    BOSSDATA(5,"bossData");
 
     //|||PROPERTIES|||
 
