@@ -345,9 +345,10 @@ public class Player {
         return lmsNames.values();
     }
 
-
-
-
+    public static bossNames[] getBossDataTypeValues(){
+        return bossNames.values();
+    }
+    
     //|||Boss Data helper methods
 
 
