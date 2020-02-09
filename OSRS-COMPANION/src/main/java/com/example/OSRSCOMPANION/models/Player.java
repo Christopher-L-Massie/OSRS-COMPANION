@@ -337,6 +337,10 @@ public class Player {
         return bountyNames.values();
     }
 
+    public static clueNames[] getClueDataTypeValues(){
+        return clueNames.values();
+    }
+
 
 
 
