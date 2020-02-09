@@ -329,6 +329,12 @@ public class Player {
         return skillNames.values();
     }
 
+    public static unknownDataPlaceHolder[] getUnknownDataTypeValues(){
+        return unknownDataPlaceHolder.values();
+    }
+
+
+
 
     //|||Boss Data helper methods
 
