@@ -333,6 +333,10 @@ public class Player {
         return unknownDataPlaceHolder.values();
     }
 
+    public static bountyNames[] getBountyDataTypeValues(){
+        return bountyNames.values();
+    }
+
 
 
 
