@@ -341,6 +341,10 @@ public class Player {
         return clueNames.values();
     }
 
+    public static lmsNames[] getLmsDataTypeValues(){
+        return lmsNames.values();
+    }
+
 
 
 
