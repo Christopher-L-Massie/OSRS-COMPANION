@@ -9,7 +9,7 @@ public enum bountyNames {
 
     //|||PROPERTIES|||
 
-    public String bountyName;
+    private String bountyName;
 
     //|||CONSTRUCTORS|||
 
