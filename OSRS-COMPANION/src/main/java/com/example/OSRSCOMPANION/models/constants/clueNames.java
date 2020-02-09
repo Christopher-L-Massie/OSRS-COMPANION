@@ -19,7 +19,7 @@ public enum clueNames {
 
     //|||CONSTRUCTORS|||
 
-    private clueNames(String clueName, Integer clueType){
+    clueNames(String clueName, Integer clueType){
         this.clueName = clueName;
         this.clueType = clueType;
     }
