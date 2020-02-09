@@ -88,10 +88,7 @@ public class DataPoint {
                     skillInfo.add(new skillData(dataArrayLongs.get(i), dataArrayLongs.get(i+1), dataArrayLongs.get(i+2),skill.getSkillName()));
                     i += 3;
                 }
-                //I do not know what these two points are I can't find a person who has them
-                //so in the event someone is tracked that has either of these two
-                //I can then try to figure out what the value is I'm assume it's a Rank/Score combo of something
-                //Castle wars maybe?
+                
                 if (i == 72 || i == 73){
                     if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
                         System.out.println("DATAPOINTS 72 or 73 filled - investigate");
