@@ -22,6 +22,13 @@ public class Player {
     private static Integer clueDataTypeNumber = dataTypes.CLUEDATA.getTypeNumber();
     private static Integer lmsDataTypeNumber = dataTypes.LMSDATA.getTypeNumber();
     private static Integer bossDataTypeNumber = dataTypes.BOSSDATA.getTypeNumber();
+    /*Hiscore Types*/
+    private static Integer normalHiscoreTypeNumber = hiscoreTypes.NORMAL.getTypeNumber();
+    private static Integer ironmanHiscoreTypeNumber = hiscoreTypes.IRON.getTypeNumber();
+    private static Integer ultimateHiscoreTypeNumber = hiscoreTypes.ULTIMATE.getTypeNumber();
+    private static Integer hardcoreHiscoreTypeNumber = hiscoreTypes.HARDCORE.getTypeNumber();
+    private static Integer deadmanHiscoreTypeNumber = hiscoreTypes.DEADMAN.getTypeNumber();
+    private static Integer seasonalHiscoreTypeNumber = hiscoreTypes.SEASONAL.getTypeNumber();
 
     //|||PROPERTIES|||
 
@@ -301,7 +308,7 @@ public class Player {
         }
     }
 
-    
+
 
     //|||Boss Data helper methods
 
