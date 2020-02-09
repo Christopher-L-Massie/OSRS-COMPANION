@@ -16,4 +16,14 @@ public class data {
     private int dataType;
     private long rank;
     private long score;
+
+    //|||CONSTRUCTORS|||
+    public data(){}
+
+    public data(String name,int dataType,long rank,long score){
+        this.name = name;
+        this.dataType = dataType;
+        this.rank = rank;
+        this.rank = rank;
+    }
 }
