@@ -307,7 +307,23 @@ public class Player {
             }
         }
     }
-
+    //|||STATIC METHODS|||
+    public static void getDataType(Integer typeNumber){
+        switch (typeNumber){
+            case (skillDataTypeNumber):
+                return getSkillDataTypeValues();
+            case (unknownDataTypeNumber):
+                return getUnknownDataTypeValues();
+            case (bountyDataTypeNumber):
+                return getBountyDataTypeValues();
+            case (clueDataTypeNumber):
+                return getClueDataTypeValues();
+            case (lmsDataTypeNumber):
+                return getLmsDataTypeValues();
+            case (bossDataTypeNumber):
+                return getBossDataTypeValues();
+        }
+    }
 
 
     //|||Boss Data helper methods
