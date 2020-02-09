@@ -1,10 +1,7 @@
 package com.example.OSRSCOMPANION.models;
 import com.example.OSRSCOMPANION.models.Achievements.Achievement;
 import com.example.OSRSCOMPANION.models.ProgressionTracking.*;
-import com.example.OSRSCOMPANION.models.constants.playerAchievements;
-import com.example.OSRSCOMPANION.models.constants.skillNames;
-import com.example.OSRSCOMPANION.models.constants.timeValues;
-import com.example.OSRSCOMPANION.models.constants.hiscoreTypes;
+import com.example.OSRSCOMPANION.models.constants.*;
 import com.example.OSRSCOMPANION.models.databuilder.*;
 import org.hibernate.annotations.NaturalId;
 import javax.net.ssl.HttpsURLConnection;
@@ -16,6 +13,15 @@ import java.util.*;
 @Entity
 @Table(name = "player")
 public class Player {
+
+    //|||CONSTANTS|||
+    /*Data Types*/
+    private static Integer skillDataTypeNumber = dataTypes.SKILLDATA.getTypeNumber();
+    private static Integer unknownDataTypeNumber = dataTypes.UNKNOWNDATA.getTypeNumber();
+    private static Integer bountyDataTypeNumber = dataTypes.BOUNTYDATA.getTypeNumber();
+    private static Integer clueDataTypeNumber = dataTypes.CLUEDATA.getTypeNumber();
+    private static Integer lmsDataTypeNumber = dataTypes.LMSDATA.getTypeNumber();
+    private static Integer bossDataTypeNumber = dataTypes.BOSSDATA.getTypeNumber();
 
     //|||PROPERTIES|||
 
@@ -294,6 +300,8 @@ public class Player {
             }
         }
     }
+
+    
 
     //|||Boss Data helper methods
 
