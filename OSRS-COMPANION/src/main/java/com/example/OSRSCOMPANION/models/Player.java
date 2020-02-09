@@ -16,19 +16,19 @@ public class Player {
 
     //|||CONSTANTS|||
     /*Data Types*/
-    private static Integer skillDataTypeNumber = dataTypes.SKILLDATA.getTypeNumber();
-    private static Integer unknownDataTypeNumber = dataTypes.UNKNOWNDATA.getTypeNumber();
-    private static Integer bountyDataTypeNumber = dataTypes.BOUNTYDATA.getTypeNumber();
-    private static Integer clueDataTypeNumber = dataTypes.CLUEDATA.getTypeNumber();
-    private static Integer lmsDataTypeNumber = dataTypes.LMSDATA.getTypeNumber();
-    private static Integer bossDataTypeNumber = dataTypes.BOSSDATA.getTypeNumber();
+    public static final int skillDataTypeNumber = dataTypes.SKILLDATA.getTypeNumber();
+    public static final int unknownDataTypeNumber = dataTypes.UNKNOWNDATA.getTypeNumber();
+    public static final int bountyDataTypeNumber = dataTypes.BOUNTYDATA.getTypeNumber();
+    public static final int clueDataTypeNumber = dataTypes.CLUEDATA.getTypeNumber();
+    public static final int lmsDataTypeNumber = dataTypes.LMSDATA.getTypeNumber();
+    public static final int bossDataTypeNumber = dataTypes.BOSSDATA.getTypeNumber();
     /*Hiscore Types*/
-    private static Integer normalHiscoreTypeNumber = hiscoreTypes.NORMAL.getTypeNumber();
-    private static Integer ironmanHiscoreTypeNumber = hiscoreTypes.IRON.getTypeNumber();
-    private static Integer ultimateHiscoreTypeNumber = hiscoreTypes.ULTIMATE.getTypeNumber();
-    private static Integer hardcoreHiscoreTypeNumber = hiscoreTypes.HARDCORE.getTypeNumber();
-    private static Integer deadmanHiscoreTypeNumber = hiscoreTypes.DEADMAN.getTypeNumber();
-    private static Integer seasonalHiscoreTypeNumber = hiscoreTypes.SEASONAL.getTypeNumber();
+    public static final int normalHiscoreTypeNumber = hiscoreTypes.NORMAL.getTypeNumber();
+    public static final int ironmanHiscoreTypeNumber = hiscoreTypes.IRON.getTypeNumber();
+    public static final int ultimateHiscoreTypeNumber = hiscoreTypes.ULTIMATE.getTypeNumber();
+    public static final int hardcoreHiscoreTypeNumber = hiscoreTypes.HARDCORE.getTypeNumber();
+    public static final int deadmanHiscoreTypeNumber = hiscoreTypes.DEADMAN.getTypeNumber();
+    public static final int seasonalHiscoreTypeNumber = hiscoreTypes.SEASONAL.getTypeNumber();
 
     //|||PROPERTIES|||
 
@@ -308,20 +308,22 @@ public class Player {
         }
     }
     //|||STATIC METHODS|||
-    public static void getDataType(Integer typeNumber){
+    public static void getDataType(int typeNumber){
         switch (typeNumber){
-            case (skillDataTypeNumber):
-                return getSkillDataTypeValues();
-            case (unknownDataTypeNumber):
-                return getUnknownDataTypeValues();
-            case (bountyDataTypeNumber):
-                return getBountyDataTypeValues();
-            case (clueDataTypeNumber):
-                return getClueDataTypeValues();
-            case (lmsDataTypeNumber):
-                return getLmsDataTypeValues();
-            case (bossDataTypeNumber):
-                return getBossDataTypeValues();
+            case (0):
+                getSkillDataTypeValues();
+            case (1):
+                getUnknownDataTypeValues();
+            case (2):
+                getBountyDataTypeValues();
+            case (3):
+                getClueDataTypeValues();
+            case (4):
+                getLmsDataTypeValues();
+            case (5):
+                getBossDataTypeValues();
+            default:
+                getSkillDataTypeValues();
         }
     }
 
@@ -348,7 +350,7 @@ public class Player {
     public static bossNames[] getBossDataTypeValues(){
         return bossNames.values();
     }
-    
+
     //|||Boss Data helper methods
 
 
