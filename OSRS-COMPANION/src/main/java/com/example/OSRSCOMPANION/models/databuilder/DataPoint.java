@@ -26,6 +26,9 @@ public class DataPoint {
     @OneToMany(cascade = CascadeType.ALL)
     private List<skillData> skillInfo = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<data> data = new ArrayList<>();
+
     private boolean isRecent = true;
 
     private boolean isNormal = false;
