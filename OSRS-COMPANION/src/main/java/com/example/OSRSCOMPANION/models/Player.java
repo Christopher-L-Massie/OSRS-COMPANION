@@ -325,6 +325,10 @@ public class Player {
         }
     }
 
+    public static skillNames[] getSkillDataTypeValues(){
+        return skillNames.values();
+    }
+
 
     //|||Boss Data helper methods
 
