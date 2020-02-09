@@ -4,10 +4,17 @@ public enum dataTypes {
 
     //|||VALUES|||
 
-    SKILLDATA,
-    UNKNOWNDATA,
-    BOUNTYDATA,
-    CLUEDATA,
-    LMSDATA,
-    BOSSDATA
+    SKILLDATA(),
+    UNKNOWNDATA(),
+    BOUNTYDATA(),
+    CLUEDATA(),
+    LMSDATA(),
+    BOSSDATA();
+
+    //|||PROPERTIES|||
+
+    private int typeNumber;
+    private String typeName;
+
+
 }
