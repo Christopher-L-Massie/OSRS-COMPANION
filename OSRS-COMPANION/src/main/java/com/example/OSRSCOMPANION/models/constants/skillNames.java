@@ -35,7 +35,7 @@ public enum skillNames {
 
     //|||CONSTRUCTORS|||
 
-    private skillNames(String skillName, int skillNumber){
+    skillNames(String skillName, int skillNumber){
         this.skillName = skillName;
         this.skillNumber = skillNumber;
     }
