@@ -78,17 +78,21 @@ public class DataPoint {
                 //rank
                 //level
                 //experience
-                //skillname
 
                 int dataPlaceValue = 0;
                 for (skillNames skill : skillNames.values()){
                     skillInfo.add(new skillData(dataArrayLongs.get(dataPlaceValue), dataArrayLongs.get(dataPlaceValue+1), dataArrayLongs.get(dataPlaceValue+2),skill.getSkillName()));
                     dataPlaceValue += 3;
                 }
-                for (dataTypes dataType : dataTypes.values()){
-                    for (int i = 0; i <= getDataType(dataType.getTypeNumber()).length; i++)
 
+                //rank
+                //score
+
+                for (dataNames dataName : dataNames.values()){
+                    data.add(new data(dataName.getName(),dataName.getTypeNumber(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
+                    dataPlaceValue +=2;
                 }
+                /*
                 if (dataPlaceValue == 72 || dataPlaceValue == 73){
                     if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
                         System.out.println("DATAPOINTS 72 or 73 filled - investigate");
@@ -111,6 +115,7 @@ public class DataPoint {
                     bossInfo.add(new bossData(boss.getBossName(),boss.getBossNumber(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
                     dataPlaceValue += 2;
                 }
+                 */
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
                 System.out.println(this.dataTimeStamp.getTime());
