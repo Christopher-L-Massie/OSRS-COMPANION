@@ -30,21 +30,16 @@ public class ProgressionDataPoint {
     private List<skillProgressionData> skillProgressionData = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<ProgressionData> clueProgressionData = new ArrayList<>();
-
-
+    private List<ProgressionData> progressionData = new ArrayList<>();
 
     //|||CONSTRUCTORS|||
 
     //empty constructor for database functionality
     public ProgressionDataPoint(){}
 
-    public ProgressionDataPoint(skillProgressionData skillProgressionData,clueProgressionData clueProgressionData,bountyProgressionData bountyProgressionData,lmsProgressionData lmsProgressionData,bossProgressionData bossProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer type){
+    public ProgressionDataPoint(skillProgressionData skillProgressionData,ProgressionData ProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer type){
         this.skillProgressionData.add(skillProgressionData);
-        this.clueProgressionData.add(clueProgressionData);
-        this.bountyProgressionData.add(bountyProgressionData);
-        this.lmsProgressionData.add(lmsProgressionData);
-        this.bossProgressionData.add(bossProgressionData);
+        this.progressionData.add(ProgressionData);
         this.isNormal = isNormal;
         this.isIronman = isIronman;
         this.isHardcore = isHardcore;
