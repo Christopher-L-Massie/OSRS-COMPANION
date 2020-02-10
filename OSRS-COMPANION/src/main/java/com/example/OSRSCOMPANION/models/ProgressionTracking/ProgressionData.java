@@ -17,4 +17,14 @@ public class ProgressionData {
     private int dataType;
     private long rankChange;
     private long scoreChange;
+
+    //|||CONSTRUCTORS|||
+    ProgressionData(){}
+
+    ProgressionData(String name,int dataType,long rankChange,long scoreChange){
+        this.name = name;
+        this.dataType = dataType;
+        this.rankChange = rankChange;
+        this.scoreChange = scoreChange;
+    }
 }
