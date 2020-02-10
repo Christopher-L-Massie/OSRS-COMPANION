@@ -57,4 +57,9 @@ public class otherNames {
     ZALCANO("Zalcano",41),
     ZULRAH("Zulrah",42);
 
+    //|||PROPERTIES|||
+
+    private String name;
+    private int typeNumber;
+
 }
