@@ -1,9 +1,6 @@
 package com.example.OSRSCOMPANION.models.databuilder;
 
-import com.example.OSRSCOMPANION.models.constants.bossNames;
-import com.example.OSRSCOMPANION.models.constants.bountyNames;
-import com.example.OSRSCOMPANION.models.constants.clueNames;
-import com.example.OSRSCOMPANION.models.constants.skillNames;
+import com.example.OSRSCOMPANION.models.constants.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.*;
@@ -83,33 +80,36 @@ public class DataPoint {
                 //experience
                 //skillname
 
-                int i = 0;
+                int iter = 0;
                 for (skillNames skill : skillNames.values()){
-                    skillInfo.add(new skillData(dataArrayLongs.get(i), dataArrayLongs.get(i+1), dataArrayLongs.get(i+2),skill.getSkillName()));
-                    i += 3;
+                    skillInfo.add(new skillData(dataArrayLongs.get(iter), dataArrayLongs.get(iter+1), dataArrayLongs.get(iter+2),skill.getSkillName()));
+                    iter += 3;
                 }
-                
-                if (i == 72 || i == 73){
+                for (dataTypes dataType : dataTypes.values()){
+                    for (int i = 0; i <= getDataType(dataType.getTypeNumber()).length; i++)
+
+                }
+                if (iter == 72 || iter == 73){
                     if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
                         System.out.println("DATAPOINTS 72 or 73 filled - investigate");
                     }
-                    i = 74;
+                    iter = 74;
                 }
                 for (bountyNames name : bountyNames.values()){
-                    bountyInfo.add(new bountyData(name.bountyName,dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
-                    i += 2;
+                    bountyInfo.add(new bountyData(name.bountyName,dataArrayLongs.get(iter),dataArrayLongs.get(iter+1)));
+                    iter += 2;
                 }
                 for (clueNames clue : clueNames.values()){
-                    clueInfo.add(new clueData(clue.getClueType(),dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
-                    i += 2;
+                    clueInfo.add(new clueData(clue.getClueType(),dataArrayLongs.get(iter),dataArrayLongs.get(iter+1)));
+                    iter += 2;
                 }
                 if (i == 92 || i == 93){
-                    lmsInfo.add(new lmsData(dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
-                    i += 2;
+                    lmsInfo.add(new lmsData(dataArrayLongs.get(iter),dataArrayLongs.get(iter+1)));
+                    iter += 2;
                 }
                 for (bossNames boss : bossNames.values()){
-                    bossInfo.add(new bossData(boss.getBossName(),boss.getBossNumber(),dataArrayLongs.get(i),dataArrayLongs.get(i+1)));
-                    i += 2;
+                    bossInfo.add(new bossData(boss.getBossName(),boss.getBossNumber(),dataArrayLongs.get(iter),dataArrayLongs.get(iter+1)));
+                    iter += 2;
                 }
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
@@ -121,6 +121,13 @@ public class DataPoint {
             e.printStackTrace();
         } finally {
 
+        }
+    }
+
+    public skillNames[] getDataType(Integer typeNumber){
+        switch(typeNumber){
+            case (0):
+                return skillNames.values();
         }
     }
 
