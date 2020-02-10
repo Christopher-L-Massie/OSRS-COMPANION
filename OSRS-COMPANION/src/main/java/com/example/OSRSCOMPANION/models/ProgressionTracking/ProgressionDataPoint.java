@@ -27,7 +27,7 @@ public class ProgressionDataPoint {
     private Integer type;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<skillProgressionData> progressionData = new ArrayList<>();
+    private List<skillProgressionData> skillProgressionData = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ProgressionData> clueProgressionData = new ArrayList<>();
@@ -40,7 +40,7 @@ public class ProgressionDataPoint {
     public ProgressionDataPoint(){}
 
     public ProgressionDataPoint(skillProgressionData skillProgressionData,clueProgressionData clueProgressionData,bountyProgressionData bountyProgressionData,lmsProgressionData lmsProgressionData,bossProgressionData bossProgressionData,boolean isNormal, boolean isIronman, boolean isHardcore, boolean isUltimate, Integer type){
-        this.progressionData.add(skillProgressionData);
+        this.skillProgressionData.add(skillProgressionData);
         this.clueProgressionData.add(clueProgressionData);
         this.bountyProgressionData.add(bountyProgressionData);
         this.lmsProgressionData.add(lmsProgressionData);
@@ -55,7 +55,7 @@ public class ProgressionDataPoint {
     //|||METHODS|||
 
     public void addSkillProgressionData(skillProgressionData skillProgressionData, long days){
-        this.progressionData.add(skillProgressionData);
+        this.skillProgressionData.add(skillProgressionData);
         this.days = days;
     }
 
@@ -87,16 +87,16 @@ public class ProgressionDataPoint {
 
     public void setIsRecent(boolean isRecent){ this.isRecent = isRecent;}
 
-    public List<skillProgressionData> getProgressionData() {
-        return this.progressionData;
+    public List<skillProgressionData> getSkillProgressionData() {
+        return this.skillProgressionData;
     }
 
     public Integer getType(){return this.type;}
 
     public void setType(Integer type){this.type = type;}
 
-    public void setProgressionData(List<skillProgressionData> progressionData) {
-        this.progressionData = progressionData;
+    public void setSkillProgressionData(List<skillProgressionData> skillProgressionData) {
+        this.skillProgressionData = skillProgressionData;
     }
 
     public List<com.example.OSRSCOMPANION.models.ProgressionTracking.clueProgressionData> getClueProgressionData() {
