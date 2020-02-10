@@ -92,10 +92,9 @@ public class DataPoint {
                     data.add(new data(dataName.getName(),dataName.getTypeNumber(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
                     dataPlaceValue +=2;
                 }
-                
-                this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
-                System.out.println(this.dataTimeStamp.getTime());
+                this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
+                
             } else {
                 System.out.println("Not featured on hiscore");
             }
