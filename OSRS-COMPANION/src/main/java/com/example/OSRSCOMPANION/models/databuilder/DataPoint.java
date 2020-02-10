@@ -92,30 +92,7 @@ public class DataPoint {
                     data.add(new data(dataName.getName(),dataName.getTypeNumber(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
                     dataPlaceValue +=2;
                 }
-                /*
-                if (dataPlaceValue == 72 || dataPlaceValue == 73){
-                    if(dataArrayLongs.get(72) != -1 || dataArrayLongs.get(73) != -1){
-                        System.out.println("DATAPOINTS 72 or 73 filled - investigate");
-                    }
-                    dataPlaceValue = 74;
-                }
-                for (bountyNames name : bountyNames.values()){
-                    bountyInfo.add(new bountyData(name.bountyName,dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
-                    dataPlaceValue += 2;
-                }
-                for (clueNames clue : clueNames.values()){
-                    clueInfo.add(new clueData(clue.getClueType(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
-                    dataPlaceValue += 2;
-                }
-                if (i == 92 || i == 93){
-                    lmsInfo.add(new lmsData(dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
-                    dataPlaceValue += 2;
-                }
-                for (bossNames boss : bossNames.values()){
-                    bossInfo.add(new bossData(boss.getBossName(),boss.getBossNumber(),dataArrayLongs.get(dataPlaceValue),dataArrayLongs.get(dataPlaceValue+1)));
-                    dataPlaceValue += 2;
-                }
-                 */
+                
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
 
                 System.out.println(this.dataTimeStamp.getTime());
