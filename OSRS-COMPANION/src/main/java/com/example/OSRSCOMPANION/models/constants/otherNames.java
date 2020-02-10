@@ -62,4 +62,11 @@ public class otherNames {
     private String name;
     private int typeNumber;
 
+    //|||CONSTRUCTORS|||
+
+    otherNames(String name,int typeNumber){
+        this.name = name;
+        this.typeNumber = typeNumber;
+    }
+
 }
