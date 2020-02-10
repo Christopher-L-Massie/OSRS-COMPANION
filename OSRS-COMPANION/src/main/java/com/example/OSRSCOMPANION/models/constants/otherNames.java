@@ -1,6 +1,6 @@
 package com.example.OSRSCOMPANION.models.constants;
 
-public class otherNames {
+public enum otherNames {
 
     UKNOWN("Unknown"),
     HUNTER("Hunter"),
@@ -70,7 +70,7 @@ public class otherNames {
     }
 
     //|||ACCESSORS|||
-    
+
     public String getName() {
         return name;
     }
