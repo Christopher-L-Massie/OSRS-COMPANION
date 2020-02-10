@@ -30,16 +30,9 @@ public class ProgressionDataPoint {
     private List<skillProgressionData> progressionData = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<clueProgressionData> clueProgressionData = new ArrayList<>();
+    private List<ProgressionData> clueProgressionData = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<bountyProgressionData> bountyProgressionData = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<lmsProgressionData> lmsProgressionData = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<bossProgressionData> bossProgressionData = new ArrayList<>();
 
     //|||CONSTRUCTORS|||
 
