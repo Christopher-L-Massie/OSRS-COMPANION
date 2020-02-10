@@ -94,7 +94,7 @@ public class DataPoint {
                 }
 
                 this.dataTimeStamp = new Timestamp(System.currentTimeMillis());
-                
+
             } else {
                 System.out.println("Not featured on hiscore");
             }
@@ -102,13 +102,6 @@ public class DataPoint {
             e.printStackTrace();
         } finally {
 
-        }
-    }
-
-    public skillNames[] getDataType(Integer typeNumber){
-        switch(typeNumber){
-            case (0):
-                return skillNames.values();
         }
     }
 
