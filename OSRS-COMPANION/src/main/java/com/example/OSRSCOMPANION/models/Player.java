@@ -307,53 +307,9 @@ public class Player {
             }
         }
     }
-    //|||STATIC METHODS|||
-    public static void getDataType(int typeNumber){
-        switch (typeNumber){
-            case (0):
-                getSkillDataTypeValues();
-            case (1):
-                getUnknownDataTypeValues();
-            case (2):
-                getBountyDataTypeValues();
-            case (3):
-                getClueDataTypeValues();
-            case (4):
-                getLmsDataTypeValues();
-            case (5):
-                getBossDataTypeValues();
-            default:
-                getSkillDataTypeValues();
-        }
-    }
-
-    public static skillNames[] getSkillDataTypeValues(){
-        return skillNames.values();
-    }
-
-    public static unknownDataPlaceHolder[] getUnknownDataTypeValues(){
-        return unknownDataPlaceHolder.values();
-    }
-
-    public static bountyNames[] getBountyDataTypeValues(){
-        return bountyNames.values();
-    }
-
-    public static clueNames[] getClueDataTypeValues(){
-        return clueNames.values();
-    }
-
-    public static lmsNames[] getLmsDataTypeValues(){
-        return lmsNames.values();
-    }
-
-    public static bossNames[] getBossDataTypeValues(){
-        return bossNames.values();
-    }
 
     //|||Boss Data helper methods
-
-
+    
     //|||ACCESSORS|||
 
     public int getId(){return this.id;}
