@@ -30,6 +30,28 @@ Below is list of current and planned features for OSRS Companion.
 
 -Complete an array of custom made achievements to help motivate you further on your adventure
 
+          -Achievements for each Character to complete
+                    
+                    -Skilling Milestones
+                    
+                    -Rank Milestones
+                    
+                    -Progression Milestones
+                    
+                    -Bossing Milestones
+                    
+                    -Various other Achievements for characters to complete
+          
+          -Achievements for Users
+          
+                    -Verify a Character
+                    
+                    -Create a Tournament
+                    
+                    -Create a Calculator
+                    
+                    -More to come
+
 -Compete in tournaments against other players in a variety of ways!
 
           -Boss kill competitions
