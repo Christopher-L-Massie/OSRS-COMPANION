@@ -37,9 +37,9 @@
                             <div th:if="${skillData.isRecent}">
                                     <td><img th:src="@{'/images/skill-icons/'+${skill.skillName}+'_icon.png/'}" th:title="${skill.skillName}"></td>
                                     <td th:text="${skill.skillName}"></td>
-                                    <td th:title="${progressionData[iter.index].levelDifference}" th:text="${skill.level}"></td>
-                                    <td th:title="${progressionData[iter.index].rankDifference}" th:text="${skill.rank}"></td>
-                                    <td th:title="${progressionData[iter.index].experienceDifference}" th:text="${skill.experience}"></td>
+                                    <td th:title="${skillProgressionData[iter.index].levelDifference}" th:text="${skill.level}"></td>
+                                    <td th:title="${skillProgressionData[iter.index].rankDifference}" th:text="${skill.rank}"></td>
+                                    <td th:title="${skillProgressionData[iter.index].experienceDifference}" th:text="${skill.experience}"></td>
 
                             </div>
                         </tr>
