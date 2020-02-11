@@ -19,10 +19,10 @@ public class ProgressionData {
     private long scoreChange;
 
     //|||CONSTRUCTORS|||
-    
-    ProgressionData(){}
 
-    ProgressionData(String name,int dataType,long rankChange,long scoreChange){
+    public ProgressionData(){}
+
+    public ProgressionData(String name,int dataType,long rankChange,long scoreChange){
         this.name = name;
         this.dataType = dataType;
         this.rankChange = rankChange;
