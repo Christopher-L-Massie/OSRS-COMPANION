@@ -21,7 +21,7 @@
 </form>
 
 <p th:text="${progression}"></p>
-<div th:each="skill : ${progression.progressionData}">
+<div th:each="skill : ${progression.skillProgressionData}">
     <p th:text="${skill.experienceDifference}"></p>
 </div>
 
