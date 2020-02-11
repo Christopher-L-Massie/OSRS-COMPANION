@@ -17,6 +17,7 @@ public class entry {
     private long buyPrice;
     private long sellPrice;
     private long margin;
+    private long goldInvestment;
 
     //|||Constructors|||
     public entry(){}
@@ -27,5 +28,6 @@ public class entry {
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
         this.margin = sellPrice- buyPrice;
+        this.goldInvestment = buyPrice * amountBought;
     }
 }
