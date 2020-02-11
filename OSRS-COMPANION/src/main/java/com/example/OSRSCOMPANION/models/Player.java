@@ -247,6 +247,13 @@ public class Player {
             newDataPoint.addSkillProgressionData(new skillProgressionData(rankDifference,experienceDifference,levelDifference,skill.getSkillName()),days);
         }
 
+        for(dataNames dataName : dataNames.values()){
+            data newData = currentDataPoint.getData().get();
+            data oldData = oldestDataPoint.getData().get();
+            long rankDifference = newData.getRank() - oldData.getRank();
+            long scoreDifference = newData.getScore() - oldData.getScore();
+        }
+
         this.progression.add(newDataPoint);
     }
 
@@ -309,7 +316,7 @@ public class Player {
     }
 
     //|||Boss Data helper methods
-    
+
     //|||ACCESSORS|||
 
     public int getId(){return this.id;}
