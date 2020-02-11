@@ -17,4 +17,15 @@ public class entry {
     private long buyPrice;
     private long sellPrice;
     private long margin;
+
+    //|||Constructors|||
+    public entry(){}
+
+    public entry(String itemName,long amountBought,long buyPrice, long sellPrice){
+        this.itemName = itemName;
+        this.amountBought = amountBought;
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+        this.margin = sellPrice- buyPrice;
+    }
 }
