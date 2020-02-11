@@ -1,6 +1,6 @@
 package com.example.OSRSCOMPANION.models.constants;
 
-public enum otherNames {
+public enum dataNames {
 
     UKNOWN("Unknown",1),
     HUNTER("Hunter",2),
@@ -64,7 +64,7 @@ public enum otherNames {
 
     //|||CONSTRUCTORS|||
 
-    otherNames(String name,int typeNumber){
+    dataNames(String name, int typeNumber){
         this.name = name;
         this.typeNumber = typeNumber;
     }
