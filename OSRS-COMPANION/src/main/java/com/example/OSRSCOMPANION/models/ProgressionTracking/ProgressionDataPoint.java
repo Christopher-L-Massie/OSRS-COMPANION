@@ -54,11 +54,6 @@ public class ProgressionDataPoint {
         this.days = days;
     }
 
-    public void addDataProgressionData(ProgressionData progressionData, long days){
-        this.progressionData.add(progressionData);
-        this.days = days;
-    }
-
     public void addProgressionData(skillProgressionData skillProgressionData, ProgressionData progressionData, long days){
         this.skillProgressionData.add(skillProgressionData);
         this.progressionData.add(progressionData);
