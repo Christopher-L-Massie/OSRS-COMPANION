@@ -248,11 +248,13 @@ public class Player {
         }
 
         for(dataNames dataName : dataNames.values()){
-            data newData = currentDataPoint.getData().get();
-            data oldData = oldestDataPoint.getData().get();
+            data newData = currentDataPoint.getData().get(dataName.getDataPlaceValue());
+            data oldData = oldestDataPoint.getData().get(dataName.getDataPlaceValue());
             long rankDifference = newData.getRank() - oldData.getRank();
             long scoreDifference = newData.getScore() - oldData.getScore();
+            newDataPoint.addDataProgressionData(new ProgressionData(dataName.getName(),dataName.getTypeNumber(),rankDifference,scoreDifference),days);
         }
+
 
         this.progression.add(newDataPoint);
     }
