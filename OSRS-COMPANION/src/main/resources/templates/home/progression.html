@@ -33,7 +33,7 @@
 
 
                 <tbody>
-                <tr th:each="skill,iter : ${progressionData}">
+                <tr th:each="skill,iter : ${skillProgressionData}">
                     <div >
                         <td><img th:src="@{'/images/skill-icons/'+${skill.skillName}+'_icon.png/'}" th:title="${skill.skillName}"></td>
                         <td th:text="${skill.skillName}"></td>
