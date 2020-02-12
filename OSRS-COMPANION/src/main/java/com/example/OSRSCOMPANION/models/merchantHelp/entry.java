@@ -20,6 +20,7 @@ public class entry {
     private long goldInvestment;
     private long profit;
     private long buyLimit;
+    private long profitPerHour;
 
     //|||Constructors|||
     public entry(){}
@@ -33,5 +34,6 @@ public class entry {
         this.goldInvestment = buyPrice * amountBought;
         this.profit = this.margin * amountBought;
         this.buyLimit = buyLimit;
+        this.profitPerHour = margin * buyLimit / 4;
     }
 }
