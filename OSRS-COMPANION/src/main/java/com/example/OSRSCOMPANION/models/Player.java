@@ -186,6 +186,10 @@ public class Player {
                 skillProgressionData noSkillProgressionData = new skillProgressionData(0L, 0L, 0L,skillname.getSkillName());
                 noProgressionDataPoint.addSkillProgressionData(noSkillProgressionData, days);
             }
+            for(dataNames dataName : dataNames.values()){
+                ProgressionData noProgressionData = new ProgressionData(dataName.getName(),dataName.getTypeNumber(),0L,0L);
+                noProgressionDataPoint.addDataProgressionData(noProgressionData, days);
+            }
             noProgressionDataPoint.setType(hiscoreTypes.NORMAL.getTypeNumber());
             this.progression.add(noProgressionDataPoint);
         }
