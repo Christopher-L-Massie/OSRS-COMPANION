@@ -19,11 +19,12 @@ public class entry {
     private long margin;
     private long goldInvestment;
     private long profit;
+    private long buyLimit;
 
     //|||Constructors|||
     public entry(){}
 
-    public entry(String itemName,long amountBought,long buyPrice, long sellPrice){
+    public entry(String itemName,long amountBought,long buyPrice, long sellPrice,long buyLimit){
         this.itemName = itemName;
         this.amountBought = amountBought;
         this.buyPrice = buyPrice;
@@ -31,5 +32,6 @@ public class entry {
         this.margin = sellPrice- buyPrice;
         this.goldInvestment = buyPrice * amountBought;
         this.profit = this.margin * amountBought;
+        this.buyLimit = buyLimit;
     }
 }
