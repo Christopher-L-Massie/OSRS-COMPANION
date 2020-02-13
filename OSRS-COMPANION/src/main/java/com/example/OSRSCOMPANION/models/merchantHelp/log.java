@@ -1,8 +1,10 @@
 package com.example.OSRSCOMPANION.models.merchantHelp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.example.OSRSCOMPANION.models.User;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class log {
@@ -12,8 +14,12 @@ public class log {
     @GeneratedValue
     private int id;
 
+
     private String owner;
     private long gold;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<entry> entries = new ArrayList<>();
 
     //|||CONSTRUCTORS|||
     public log(){}
