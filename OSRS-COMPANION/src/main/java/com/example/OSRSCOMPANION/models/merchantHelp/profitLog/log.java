@@ -1,6 +1,6 @@
-package com.example.OSRSCOMPANION.models.merchantHelp;
+package com.example.OSRSCOMPANION.models.merchantHelp.profitLog;
 
-import com.example.OSRSCOMPANION.models.User;
+import com.example.OSRSCOMPANION.models.merchantHelp.profitLog.entry;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.OSRSCOMPANION.models.merchantHelp;
+package com.example.OSRSCOMPANION.models.merchantHelp.profitLog;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
