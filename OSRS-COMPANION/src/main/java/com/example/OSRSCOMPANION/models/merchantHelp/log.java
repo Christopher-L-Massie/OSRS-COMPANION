@@ -31,6 +31,10 @@ public class log {
 
     //|||METHODS|||
 
+    public void addEntry(entry entry){
+        this.entries.add(entry);
+    }
+
 
     //|||ACCESSORS|||
     public String getOwner() {
