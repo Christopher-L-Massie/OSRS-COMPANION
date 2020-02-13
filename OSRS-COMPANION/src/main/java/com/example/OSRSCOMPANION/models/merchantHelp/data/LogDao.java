@@ -1,4 +1,4 @@
-package com.example.OSRSCOMPANION.models.data;
+package com.example.OSRSCOMPANION.models.merchantHelp.data;
 
 import com.example.OSRSCOMPANION.models.merchantHelp.log;
 import org.springframework.data.repository.CrudRepository;
