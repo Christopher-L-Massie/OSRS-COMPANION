@@ -93,8 +93,17 @@
             <li title="Landing page for Records."class="active"><a href="/records">Records</a></li>
             <li title="Landing page for Calculators."><a href="/calculators">Calculators</a></li>
             <li title="Landing page for Tournaments."><a href="/tournaments">Tournaments</a></li>
-            <li title="Landing page for Merchanting Log."><a href="/merchant/logs">Merchanting</a></li>
+            <li>
+                <div class="dropdown" id="main-nav-merch-options">
+                    <button class="dropbtn">Merchanting</button>
+                    <div class="dropdown-content">
+                        <a href="/">Profit Logs</a>
+                        <a href="/">Margin Logs</a>
+                    </div>
+                </div>
+            </li>
         </ul>
+
         <form method="post" class="navbar-form navbar-right" action="/search">
             <div class="form-group">
                 <input type=text name ="displayName" class="form-control" placeholder="Search Characters">
