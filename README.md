@@ -72,6 +72,27 @@ Below is list of current and planned features for OSRS Companion.
           
           -for example 1 defence pures would not have to get defence experience to proove they own the account
           
+-Create and Browse Merchant Logs
+
+          -Make entries into your log for trades you have done
+          
+          -view various statistics about each trade made including:
+          
+                    -Return on Investment
+                    
+                    -Profit per Hour
+                    
+                    -Profit
+                    
+                    -Time spent
+          
+          -See total profit over time
+          
+          -Learn from others by viewing public merchant logs
+          
+          -Make your logs public or private
+          
+          
 -Create a customer calculator that others can vote on/use and modify to create even more calculators
 
 -Helpful Graphs will eventually be added
