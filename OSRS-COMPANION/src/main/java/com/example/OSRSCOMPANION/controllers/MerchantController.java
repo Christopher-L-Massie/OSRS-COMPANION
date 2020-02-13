@@ -3,6 +3,7 @@ package com.example.OSRSCOMPANION.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "merchant")
@@ -27,5 +28,12 @@ public class MerchantController {
         model.addAttribute("title", "Create New Log");
 
         return "merchants/create_log";
+    }
+
+    @RequestMapping(value = "log/create")
+    public void processCreateLog(Model model, @RequestParam String logName, @RequestParam long gold){
+
+        
+        displayLog(model);
     }
 }
