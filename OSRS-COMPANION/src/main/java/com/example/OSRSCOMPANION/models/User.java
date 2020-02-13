@@ -36,7 +36,10 @@ public class User {
     //untill it's finished
 
     @OneToMany(cascade = CascadeType.All)
-    private List<Tournament> ownedTournament = new ArrayList<>();
+    private List<Tournament> ownedTournaments = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.All)
+    private List<log> ownedLogs = new ArrayList<>();
 
      */
 
