@@ -14,4 +14,11 @@ public class MerchantController {
 
         return "merchants/merchant_logs";
     }
+
+    @RequestMapping(value = "log")
+    public String displayLog(Model model){
+        model.addAttribute("title","PLACEHOLDER WILL PUT PLAYER NAME");
+
+        return "merchants/merchant_log";
+    }
 }
