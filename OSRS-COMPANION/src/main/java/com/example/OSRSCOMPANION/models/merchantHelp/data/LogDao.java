@@ -1,6 +1,6 @@
 package com.example.OSRSCOMPANION.models.merchantHelp.data;
 
-import com.example.OSRSCOMPANION.models.merchantHelp.log;
+import com.example.OSRSCOMPANION.models.merchantHelp.profitLog.log;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
