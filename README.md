@@ -12,7 +12,7 @@ With the addition of boss hiscores being added to oldschool runescape the scope 
 
 Below is list of current and planned features for OSRS Companion.
 
--Player tracking across all hiscore types including:
+-View current Player stats across all hiscore types including:
 
           -Normal Hiscores
 
@@ -27,6 +27,20 @@ Below is list of current and planned features for OSRS Companion.
           -Any other mode that jagex may add! (Leagues is the most recent example!)
           
 -See Player Progression over any number of days (As long as the program has datapoints stretching back that far!)
+
+          -See how many of a certain boss you killed last week!
+          
+          -Check to see if you reached your experience goal for the month!
+          
+          -Find out how many Clue Scrolls you solved last year!
+          
+-Achieve Glory by obtaining a site record!
+
+          -Records for bosses killed in a week!
+          
+          -Records for skill levels gained in a day!
+          
+          -Records for clue scrolls and so much more!
 
 -Complete an array of custom made achievements to help motivate you further on your adventure
 
@@ -71,6 +85,27 @@ Below is list of current and planned features for OSRS Companion.
           -one of the skills would require you to 'break' the account so to speak
           
           -for example 1 defence pures would not have to get defence experience to proove they own the account
+          
+-Create and Browse Merchant Logs
+
+          -Make entries into your log for trades you have done
+          
+          -view various statistics about each trade made including:
+          
+                    -Return on Investment
+                    
+                    -Profit per Hour
+                    
+                    -Profit
+                    
+                    -Time spent
+          
+          -See total profit over time
+          
+          -Learn from others by viewing public merchant logs
+          
+          -Make your logs public or private
+          
           
 -Create a customer calculator that others can vote on/use and modify to create even more calculators
 
