@@ -36,4 +36,80 @@ public class entry {
         this.buyLimit = buyLimit;
         this.profitPerHour = margin * buyLimit / 4;
     }
+
+    //|||METHODS|||
+
+    //|||ACCESSORS|||
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public long getAmountBought() {
+        return amountBought;
+    }
+
+    public void setAmountBought(long amountBought) {
+        this.amountBought = amountBought;
+    }
+
+    public long getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(long buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public long getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(long sellPrice) {
+        this.sellPrice = sellPrice;
+    }
+
+    public long getMargin() {
+        return margin;
+    }
+
+    public void setMargin(long margin) {
+        this.margin = margin;
+    }
+
+    public long getGoldInvestment() {
+        return goldInvestment;
+    }
+
+    public void setGoldInvestment(long goldInvestment) {
+        this.goldInvestment = goldInvestment;
+    }
+
+    public long getProfit() {
+        return profit;
+    }
+
+    public void setProfit(long profit) {
+        this.profit = profit;
+    }
+
+    public long getBuyLimit() {
+        return buyLimit;
+    }
+
+    public void setBuyLimit(long buyLimit) {
+        this.buyLimit = buyLimit;
+    }
+
+    public long getProfitPerHour() {
+        return profitPerHour;
+    }
+
+    public void setProfitPerHour(long profitPerHour) {
+        this.profitPerHour = profitPerHour;
+    }
 }
