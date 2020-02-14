@@ -16,7 +16,7 @@ public class MerchantController {
     private LogDao logDao;
 
     @RequestMapping(value="")
-    public String indexRedirectionTest(Model model,@RequestParam String type){
+    public String indexRedirection(Model model,@RequestParam String type){
         if (type.equals("profit")){
             return displayProfitLogs(model);
         } else if (type.equals("margin")){
@@ -26,20 +26,6 @@ public class MerchantController {
             return "merchants/merchant_margin_logs";
         }
     }
-
-    @RequestMapping(value="",method= RequestMethod.POST)
-    public String indexRedirection(Model model,@RequestParam String type){
-        if (type.equals("profit")){
-            displayProfitLogs(model);
-        } else if (type.equals("margin")){
-            displayItemMarginLogs(model);
-        } else {
-            model.addAttribute("Title","Uknown Log Type");
-            return "merchants/merchant_margin_logs";
-        }
-        return "merchants/merchant_margin_logs";
-    }
-
 
     @RequestMapping(value = "profit/logs")
     public String displayProfitLogs(Model model){
