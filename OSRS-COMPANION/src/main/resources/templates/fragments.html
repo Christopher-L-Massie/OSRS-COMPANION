@@ -97,8 +97,8 @@
                 <div class="dropdown" id="main-nav-merch-options">
                     <button class="dropbtn">Merchanting</button>
                     <div class="dropdown-content">
-                        <a href="/merchant/profit/logs">Profit Logs</a>
-                        <a href="/merchant/margin/logs">Item Margin Log</a>
+                        <a th:href="@{/merchant?logType=profit}">Profit Logs</a>
+                        <a th:href="@{/merchant?logType=margin}">Item Margin Log</a>
                     </div>
                 </div>
             </li>
