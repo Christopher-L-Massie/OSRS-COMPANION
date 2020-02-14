@@ -16,7 +16,7 @@ public class MerchantController {
 
 
     @RequestMapping(value = "profit/logs")
-    public String index(Model model){
+    public String displayProfitLogs(Model model){
         model.addAttribute("title","Merchant Logs");
 
         return "merchants/merchant_logs";
