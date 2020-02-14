@@ -1,8 +1,6 @@
 package com.example.OSRSCOMPANION.models.merchantHelp.itemMarginLog;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +8,8 @@ import java.util.List;
 public class itemLog {
 
     //|||PROPERTIES|||
+    @Id
+    @GeneratedValue
     private int id;
 
     private String owner;
