@@ -18,14 +18,13 @@ public class MerchantController {
     @RequestMapping(value="")
     public String indexRedirectionTest(Model model,@RequestParam String type){
         if (type.equals("profit")){
-            displayProfitLogs(model);
+            return displayProfitLogs(model);
         } else if (type.equals("margin")){
-            displayItemMarginLogs(model);
+            return displayItemMarginLogs(model);
         } else {
             model.addAttribute("Title","Uknown Log Type");
             return "merchants/merchant_margin_logs";
         }
-        return "merchants/merchant_margin_logs";
     }
 
     @RequestMapping(value="",method= RequestMethod.POST)
