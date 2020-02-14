@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -14,19 +15,45 @@ public class MerchantController {
     @Autowired
     private LogDao logDao;
 
+    @RequestMapping(value="")
+    public String indexRedirectionTest(Model model,@RequestParam String type){
+        if (type.equals("profit")){
+            displayProfitLogs(model);
+        } else if (type.equals("margin")){
+            displayItemMarginLogs(model);
+        } else {
+            model.addAttribute("Title","Uknown Log Type");
+            return "merchants/merchant_margin_logs";
+        }
+        return "merchants/merchant_margin_logs";
+    }
+
+    @RequestMapping(value="",method= RequestMethod.POST)
+    public String indexRedirection(Model model,@RequestParam String type){
+        if (type.equals("profit")){
+            displayProfitLogs(model);
+        } else if (type.equals("margin")){
+            displayItemMarginLogs(model);
+        } else {
+            model.addAttribute("Title","Uknown Log Type");
+            return "merchants/merchant_margin_logs";
+        }
+        return "merchants/merchant_margin_logs";
+    }
+
 
     @RequestMapping(value = "profit/logs")
     public String displayProfitLogs(Model model){
         model.addAttribute("title","Merchant Logs");
 
-        return "merchants/merchant_logs";
+        return "merchants/merchant_profit_logs";
     }
 
     @RequestMapping(value = "profit/log")
     public String displayLog(Model model){
         model.addAttribute("title","PLACEHOLDER WILL PUT PLAYER NAME");
 
-        return "merchants/merchant_log";
+        return "merchants/merchant_profit_log";
     }
 
     @RequestMapping(value = "profit/log/create")
