@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Table(name="itemTable")
 @Entity
 public class item {
 
@@ -16,15 +17,17 @@ public class item {
 
     private long buyLimit;
 
+    @Column(name="priceChecks")
     @OneToMany(cascade = CascadeType.ALL)
     private List<check> priceChecks = new ArrayList<>();
 
     //|||Constructors|||
     public item() {}
 
-    public item(String name, long buyLimit){
+    public item(String name, long buyLimit,check check){
         this.name = name;
         this.buyLimit = buyLimit;
+        this.priceChecks.add(check);
     }
 
     //|||Accessors|||
@@ -45,7 +48,7 @@ public class item {
     }
 
     public List<check> getPriceChecks() {
-        return priceChecks;
+        return this.priceChecks;
     }
 
     public void setPriceChecks(List<check> priceChecks) {
