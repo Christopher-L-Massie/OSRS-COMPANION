@@ -21,4 +21,14 @@ public class check {
     private long margin;
 
     private Timestamp timeChecked;
+
+    //|||Constructors|||
+    public check(){}
+
+    public check(long buyPrice, long sellPrice){
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+        this.margin = sellPrice - buyPrice;
+        this.timeChecked = new Timestamp(System.currentTimeMillis());
+    }
 }
