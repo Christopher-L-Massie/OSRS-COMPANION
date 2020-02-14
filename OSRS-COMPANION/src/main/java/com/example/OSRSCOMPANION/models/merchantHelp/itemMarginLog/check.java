@@ -3,8 +3,10 @@ package com.example.OSRSCOMPANION.models.merchantHelp.itemMarginLog;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
+@Table(name="itemChecks")
 @Entity
 public class check {
 
@@ -20,7 +22,7 @@ public class check {
 
     private long margin;
 
-    private Timestamp timeChecked;
+    private Timestamp timeChecked = new Timestamp(System.currentTimeMillis());
 
     //|||Constructors|||
     public check(){}
