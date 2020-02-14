@@ -16,10 +16,10 @@ public class MerchantController {
     private LogDao logDao;
 
     @RequestMapping(value="")
-    public String indexRedirection(Model model,@RequestParam String type){
-        if (type.equals("profit")){
+    public String indexRedirection(Model model,@RequestParam String logType){
+        if (logType.equals("profit")){
             return displayProfitLogs(model);
-        } else if (type.equals("margin")){
+        } else if (logType.equals("margin")){
             return displayItemMarginLogs(model);
         } else {
             model.addAttribute("Title","Uknown Log Type");
