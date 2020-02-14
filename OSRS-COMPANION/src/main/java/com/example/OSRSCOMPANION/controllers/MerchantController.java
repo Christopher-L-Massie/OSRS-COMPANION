@@ -44,4 +44,11 @@ public class MerchantController {
         displayLog(model);
     }
     */
+
+    @RequestMapping(value = "margin/logs")
+    public String displayItemMarginLogs(Model model){
+        model.addAttribute("title", "Margin Logs");
+
+        return "merchants/merchant_margin_logs";
+    }
 }
