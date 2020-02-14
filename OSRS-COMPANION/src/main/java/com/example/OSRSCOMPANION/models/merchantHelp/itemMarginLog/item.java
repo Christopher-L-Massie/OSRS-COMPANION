@@ -19,7 +19,13 @@ public class item {
     @OneToMany(cascade = CascadeType.ALL)
     private List<check> priceChecks = new ArrayList<>();
 
-    
+    //|||Constructors|||
+    public item() {}
+
+    public item(String name, long buyLimit){
+        this.name = name;
+        this.buyLimit = buyLimit;
+    }
 
 
 }
