@@ -24,7 +24,7 @@ public enum dataTypes {
     }
 
     //|||ACCESSORS|||
-    
+
     public int getTypeNumber() {
         return typeNumber;
     }
