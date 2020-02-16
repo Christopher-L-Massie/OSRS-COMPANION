@@ -147,7 +147,7 @@
     </div>
 </nav>
 
-<!--Navigation Bar for navigating merchant log database--->
+<!--Navigation Bar for navigating merchant profit log database--->
 <nav th:fragment="profit-logs-navigation" class="navbar navbar-inverse">
     <div class="container-fluid ">
         <div class="navbar-header">
@@ -163,6 +163,33 @@
                 <input type=text name ="editCode" class="form-control" placeholder="Log Edit Code">
             </div>
             <button type="submit" class="btn btn-default">Edit</button>
+        </form>
+    </div>
+</nav>
+
+<!--Navigation Bar for navigating merchant item margin log database--->
+<nav th:fragment="margin-logs-navigation" class="navbar navbar-inverse">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/merchant/margin/logs">Logs</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+            </li>
+            <li><a title="" href="/merchant/log/create">Create New Margin Log</a></li>
+        </ul>
+        <form method="post" class="navbar-form navbar-right" action="/search">
+            <div class="form-group">
+                <input type=text name ="editCode" class="form-control" placeholder="Log Edit Code">
+            </div>
+            <button type="submit" class="btn btn-default">Edit</button>
+            <ul class="nav navbar-nav-right">
+                <li >
+                    <a href="#">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+                </li>
+            </ul>
         </form>
     </div>
 </nav>
