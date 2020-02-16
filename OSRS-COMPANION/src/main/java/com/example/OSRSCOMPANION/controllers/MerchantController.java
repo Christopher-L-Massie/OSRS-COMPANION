@@ -1,11 +1,10 @@
 package com.example.OSRSCOMPANION.controllers;
 
-import com.example.OSRSCOMPANION.models.merchantHelp.data.LogDao;
+import com.example.OSRSCOMPANION.models.merchantHelp.data.ProfitLogDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MerchantController {
 
     @Autowired
-    private LogDao logDao;
+    private ProfitLogDao profitLogDao;
 
     @RequestMapping(value="")
     public String indexRedirection(Model model,@RequestParam String logType){
@@ -34,14 +33,14 @@ public class MerchantController {
         return "merchants/merchant_profit_logs";
     }
 
-    @RequestMapping(value = "profit/log")
+    @RequestMapping(value = "profit/profitLog")
     public String displayLog(Model model){
         model.addAttribute("title","PLACEHOLDER WILL PUT PLAYER NAME");
 
         return "merchants/merchant_profit_log";
     }
 
-    @RequestMapping(value = "profit/log/create")
+    @RequestMapping(value = "profit/profitLog/create")
     public String displayCreateLogForm(Model model){
         model.addAttribute("title", "Create New Log");
 
@@ -49,7 +48,7 @@ public class MerchantController {
     }
 
     /*
-    @RequestMapping(value = "log/create")
+    @RequestMapping(value = "profitLog/create")
     public void processCreateLog(Model model, @RequestParam String logName, @RequestParam long gold){
         model.addAttribute("title", logName);
 
