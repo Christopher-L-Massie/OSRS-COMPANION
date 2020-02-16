@@ -39,7 +39,7 @@ public class User {
     private List<Tournament> ownedTournaments = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.All)
-    private List<log> ownedLogs = new ArrayList<>();
+    private List<profitLog> ownedLogs = new ArrayList<>();
 
      */
 
