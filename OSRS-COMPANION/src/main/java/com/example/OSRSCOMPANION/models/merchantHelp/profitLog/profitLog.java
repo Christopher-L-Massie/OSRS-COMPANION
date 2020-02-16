@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class log {
+public class profitLog {
 
     //|||PROPERTIES|||
     @Id
@@ -22,9 +22,9 @@ public class log {
     private List<entry> entries = new ArrayList<>();
 
     //|||CONSTRUCTORS|||
-    public log(){}
+    public profitLog(){}
 
-    public log(String owner,long startingGold){
+    public profitLog(String owner, long startingGold){
         this.owner = owner;
         this.gold = startingGold;
     }
