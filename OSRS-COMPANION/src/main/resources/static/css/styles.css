@@ -46,3 +46,8 @@
 #RSS-news-feed {
     margin-left: 320px;
 }
+
+.margin-log-info {
+    position: relative;
+    margin-right: 20px;
+}
