@@ -106,6 +106,12 @@ Below is list of current and planned features for OSRS Companion.
           
           -Make your logs public or private
           
+          -Different Types of Logs Also!
+          
+                    -Margin Tracking for low effort merchanting
+                    
+                    -Profit Tracking to keep track of your gold made!
+          
           
 -Create a customer calculator that others can vote on/use and modify to create even more calculators
 
