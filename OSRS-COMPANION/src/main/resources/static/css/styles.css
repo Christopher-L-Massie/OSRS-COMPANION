@@ -49,5 +49,7 @@
 
 .margin-log-info {
     position: relative;
-    margin-right: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #af0505;
 }
