@@ -40,21 +40,12 @@ public class MerchantController {
         return "merchants/merchant_profit_log";
     }
 
-    @RequestMapping(value = "profit/profitLog/create")
+    @RequestMapping(value = "logs/create")
     public String displayCreateLogForm(Model model){
         model.addAttribute("title", "Create New Log");
 
         return "merchants/create_log";
     }
-
-    /*
-    @RequestMapping(value = "profitLog/create")
-    public void processCreateLog(Model model, @RequestParam String logName, @RequestParam long gold){
-        model.addAttribute("title", logName);
-
-        displayLog(model);
-    }
-    */
 
     @RequestMapping(value = "margin/logs")
     public String displayItemMarginLogs(Model model){
