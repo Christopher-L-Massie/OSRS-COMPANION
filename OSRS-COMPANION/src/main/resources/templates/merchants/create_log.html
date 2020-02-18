@@ -21,14 +21,18 @@
             <div class="form-group">
                 <input class="form-control" type="number" name="gold" placeholder="Starting Gold" min="1">
             </div>
-            <select title="Select which type of merchant log you'd like to create" name ="logType" class="form-control">
-                <option value="margin">Margin</option>
-                <option value="profit">Profit</option>
-            </select>
-            <select title="Select privacy settings for your log." name ="privacyType" class="form-control">
-                <option value="margin">Public</option>
-                <option value="profit">Private</option>
-            </select>
+            <div class="form-group">
+                <select title="Select which type of merchant log you'd like to create" name ="logType" class="form-control">
+                    <option value="margin">Margin</option>
+                    <option value="profit">Profit</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select title="Select privacy settings for your log." name ="privacyType" class="form-control">
+                    <option value="margin">Public</option>
+                    <option value="profit">Private</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-default">Create Log</button>
         </form>
     </div>
