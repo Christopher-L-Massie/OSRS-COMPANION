@@ -12,28 +12,30 @@
     <nav th:replace="fragments :: log-create-navigation"></nav>
 </div>
 
-<div>
+<div class="log-create-form">
     <div class="container body-content">
         <form method="post" action="/search">
-            <div class="form-group">
+            <div class="log-create-form">
                 <input type=text name ="logName" class="form-control" placeholder="Log Name">
             </div>
-            <div class="form-group">
+            <div class="log-create-form">
                 <input class="form-control" type="number" name="gold" placeholder="Starting Gold" min="1">
             </div>
-            <div class="form-group">
+            <div class="log-create-form">
                 <select title="Select which type of merchant log you'd like to create" name ="logType" class="form-control">
                     <option value="margin">Margin</option>
                     <option value="profit">Profit</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="log-create-form">
                 <select title="Select privacy settings for your log." name ="privacyType" class="form-control">
                     <option value="margin">Public</option>
                     <option value="profit">Private</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-default">Create Log</button>
+            <div class="log-create-form">
+                <button type="submit" class="btn btn-default">Create Log</button>
+            </div>
         </form>
     </div>
 </div>
