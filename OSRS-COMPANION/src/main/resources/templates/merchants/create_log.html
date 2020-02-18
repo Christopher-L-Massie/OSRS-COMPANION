@@ -8,14 +8,8 @@
     <nav th:replace="fragments :: navigation"></nav>
 </div>
 
-
-
 <div class="custom-page-nav">
-    <div >
-        <div class="container body-content">
-            <nav th:replace="fragments :: profit-logs-navigation"></nav>
-        </div>
-    </div>
+    <nav th:replace="fragments :: margin-logs-navigation"></nav>
 </div>
 
 <div>
@@ -28,8 +22,8 @@
                 <input class="form-control" type="number" name="gold" placeholder="Starting Gold" min="1">
             </div>
             <select title="Select which type of merchant log you'd like to create" name ="logType" class="form-control">
-                <option value="lifetime">Margin</option>
-                <option value="year">Profit</option>
+                <option value="margin">Margin</option>
+                <option value="profit">Profit</option>
             </select>
             <button type="submit" class="btn btn-default">Create Log</button>
         </form>
