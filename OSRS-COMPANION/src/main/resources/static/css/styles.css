@@ -59,7 +59,8 @@
 }
 
 .log-create-form {
+    width: 400px;
     margin-bottom: 15px;
-    margin-left: 200px;
+    margin-left: 175px;
     display: flex;
 }
