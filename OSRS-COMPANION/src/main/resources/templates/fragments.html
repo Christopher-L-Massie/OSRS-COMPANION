@@ -193,12 +193,13 @@
     </div>
 </nav>
 
-<!--Navigation Bar for navigating merchant item margin log database--->
+<!--Navigation Bar for navigating creating logs--->
 <nav th:fragment="log-create-navigation" class="navbar navbar-inverse">
     <div class="container-fluid ">
         <div class="navbar-header">
             <a class="navbar-brand" href="/merchant/logs/create">Create Log</a>
         </div>
+
         <form method="post" class="navbar-form navbar-right" action="/search">
             <div class="form-group">
                 <input type=text name ="editCode" class="form-control" placeholder="Log Edit Code">
@@ -211,6 +212,13 @@
                 <span title="Remember your Edit Code!" class="glyphicon glyphicon-info-sign margin-log-info"></span>
             </a>
         </ul>
+        <div class="dropdown" id="create-merch-options">
+            <button class="dropbtn">Merchanting</button>
+            <div class="dropdown-content">
+                <a th:href="@{/merchant?logType=profit}">Profit Logs</a>
+                <a th:href="@{/merchant?logType=margin}">Item Margin Log</a>
+            </div>
+        </div>
     </div>
 </nav>
 
