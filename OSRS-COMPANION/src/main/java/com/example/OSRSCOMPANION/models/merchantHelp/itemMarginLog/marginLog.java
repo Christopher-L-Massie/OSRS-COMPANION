@@ -18,11 +18,14 @@ public class marginLog {
     @OneToMany(cascade = CascadeType.ALL)
     private List<item> trackedItems = new ArrayList<>();
 
+    private boolean isPrivate;
+
     //|||CONSTRUCTORS|||
     public marginLog(){}
 
-    public marginLog(String owner){
+    public marginLog(String owner, boolean isPrivate){
         this.owner = owner;
+        this.isPrivate = isPrivate;
     }
 
     //|||METHODS|||
@@ -34,5 +37,9 @@ public class marginLog {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public boolean isPrivate(){
+        return this.isPrivate;
     }
 }
