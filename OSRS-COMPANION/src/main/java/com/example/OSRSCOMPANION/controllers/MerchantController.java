@@ -40,11 +40,11 @@ public class MerchantController {
         return "merchants/merchant_profit_log";
     }
 
-    @RequestMapping(value = "logs/create")
+    @RequestMapping(value = "profit/create")
     public String displayCreateLogForm(Model model){
         model.addAttribute("title", "Create New Log");
 
-        return "merchants/create_log";
+        return "merchants/createProfitLog";
     }
 
     @RequestMapping(value = "margin/logs")
