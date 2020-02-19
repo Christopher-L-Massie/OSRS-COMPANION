@@ -4,9 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name="itemLog")
+@Table(name="marginLog")
 @Entity
-public class itemLog {
+public class marginLog {
 
     //|||PROPERTIES|||
     @Id
@@ -19,9 +19,9 @@ public class itemLog {
     private List<item> trackedItems = new ArrayList<>();
 
     //|||CONSTRUCTORS|||
-    public itemLog(){}
+    public marginLog(){}
 
-    public itemLog(String owner){
+    public marginLog(String owner){
         this.owner = owner;
     }
 
