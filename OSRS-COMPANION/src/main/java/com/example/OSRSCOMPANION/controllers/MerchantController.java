@@ -47,6 +47,13 @@ public class MerchantController {
         return "merchants/createProfitLog";
     }
 
+    @RequestMapping(value = "margin/create")
+    public String displayCreateMarginLogForm(Model model){
+        model.addAttribute("title", "Create New Log");
+
+        return "merchants/createMarginLog";
+    }
+
     @RequestMapping(value = "margin/logs")
     public String displayItemMarginLogs(Model model){
         model.addAttribute("title", "Margin Logs");
