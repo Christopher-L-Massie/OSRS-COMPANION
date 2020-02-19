@@ -21,12 +21,15 @@ public class profitLog {
     @OneToMany(cascade = CascadeType.ALL)
     private List<entry> entries = new ArrayList<>();
 
+    private boolean isPrivate;
+
     //|||CONSTRUCTORS|||
     public profitLog(){}
 
-    public profitLog(String owner, long startingGold){
+    public profitLog(String owner, long startingGold, boolean isPrivate){
         this.owner = owner;
         this.gold = startingGold;
+        this.isPrivate = isPrivate;
     }
 
     //|||METHODS|||
@@ -51,5 +54,9 @@ public class profitLog {
 
     public void setGold(long gold) {
         this.gold = gold;
+    }
+
+    public boolean isPrivate(){
+        return this.isPrivate();
     }
 }
