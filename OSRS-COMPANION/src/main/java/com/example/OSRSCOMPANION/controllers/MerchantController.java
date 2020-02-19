@@ -41,7 +41,7 @@ public class MerchantController {
     }
 
     @RequestMapping(value = "profit/create")
-    public String displayCreateLogForm(Model model){
+    public String displayCreateProfitLogForm(Model model){
         model.addAttribute("title", "Create New Log");
 
         return "merchants/createProfitLog";
