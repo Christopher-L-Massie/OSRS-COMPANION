@@ -207,18 +207,19 @@
             <button type="submit" class="btn btn-default">Edit</button>
 
         </form>
-        <ul class="navbar-nav-right">
-            <a href="#">
-                <span title="Remember your Edit Code!" class="glyphicon glyphicon-info-sign margin-log-info"></span>
-            </a>
-        </ul>
-        <div class="dropdown" id="create-merch-options">
+        <div class="dropdown navbar-nav" id="create-merch-options">
             <button class="dropbtn">Merchanting</button>
             <div class="dropdown-content">
                 <a th:href="@{/merchant?logType=profit}">Profit Logs</a>
                 <a th:href="@{/merchant?logType=margin}">Item Margin Log</a>
             </div>
         </div>
+        <ul class="navbar-nav-right">
+            <a href="#">
+                <span title="Remember your Edit Code!" class="glyphicon glyphicon-info-sign margin-log-info"></span>
+            </a>
+        </ul>
+
     </div>
 </nav>
 
