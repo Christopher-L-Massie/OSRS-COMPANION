@@ -14,11 +14,12 @@ public class profitLog {
     @GeneratedValue
     private int id;
 
+    private String name;
 
     private String owner;
 
     private long gold;
-    
+
     private long startingGold;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -33,13 +34,14 @@ public class profitLog {
     //|||CONSTRUCTORS|||
     public profitLog(){}
 
-    public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool){
+    public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool, String name){
         this.owner = owner;
         this.gold = startingGold;
         this.startingGold = startingGold;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
         this.isDeleted = false;
+        this.name = name;
     }
 
     //|||METHODS|||
@@ -80,5 +82,9 @@ public class profitLog {
 
     public long getStartingGold() {
         return this.startingGold;
+    }
+
+    public String getName(){
+        return this.name;
     }
 }
