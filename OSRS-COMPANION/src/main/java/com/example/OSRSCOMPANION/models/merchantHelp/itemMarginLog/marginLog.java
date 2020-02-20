@@ -48,15 +48,15 @@ public class marginLog {
         this.owner = owner;
     }
 
-    public boolean isPrivate(){
+    public boolean getIsPrivate(){
         return this.isPrivate;
     }
 
-    public boolean isOldschool() {
+    public boolean getIsOldschool() {
         return this.isOldschool;
     }
 
-    public boolean isDeleted() {
+    public boolean getIsDeleted() {
         return this.isDeleted;
     }
 
