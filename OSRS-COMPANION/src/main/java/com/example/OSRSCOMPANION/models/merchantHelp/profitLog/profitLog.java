@@ -68,16 +68,16 @@ public class profitLog {
         this.gold = gold;
     }
 
-    public boolean isPrivate(){
+    public boolean getIsPrivate(){
         return this.isPrivate;
     }
 
-    public boolean isOldschool() {
+    public boolean getIsOldschool() {
         return this.isOldschool;
     }
 
-    public boolean isDeleted() {
-        return this.isDeleted();
+    public boolean getIsDeleted() {
+        return this.isDeleted;
     }
 
     public long getStartingGold() {
