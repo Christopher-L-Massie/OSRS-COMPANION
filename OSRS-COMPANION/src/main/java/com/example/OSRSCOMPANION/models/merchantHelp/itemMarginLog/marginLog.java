@@ -13,6 +13,8 @@ public class marginLog {
     @GeneratedValue
     private int id;
 
+    private String name;
+
     private String owner;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -27,11 +29,12 @@ public class marginLog {
     //|||CONSTRUCTORS|||
     public marginLog(){}
 
-    public marginLog(String owner, boolean isPrivate, boolean isOldschool){
+    public marginLog(String owner, boolean isPrivate, boolean isOldschool,String name){
         this.owner = owner;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
         this.isDeleted = false;
+        this.name = name;
     }
 
     //|||METHODS|||
@@ -56,4 +59,12 @@ public class marginLog {
     public boolean isDeleted() {
         return this.isDeleted;
     }
+
+     public String getName() {
+        return this.name;
+     }
+
+     public void setName(String name){
+        this.name = name;
+     }
 }
