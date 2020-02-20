@@ -2,6 +2,7 @@ package com.example.OSRSCOMPANION.controllers;
 
 import com.example.OSRSCOMPANION.models.merchantHelp.data.ProfitLogDao;
 import com.example.OSRSCOMPANION.models.merchantHelp.itemMarginLog.marginLog;
+import com.example.OSRSCOMPANION.models.merchantHelp.profitLog.profitLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +45,7 @@ public class MerchantController {
     @RequestMapping(value = "profit/create")
     public String displayCreateProfitLogForm(Model model){
         model.addAttribute("title", "Create New Log");
+        model.addAttribute(new profitLog());
 
         return "merchants/createProfitLog";
     }
