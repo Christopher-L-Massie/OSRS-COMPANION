@@ -16,7 +16,7 @@
 
 <div class="log-create-form">
     <div class="container body-content">
-        <form method="post" action="/search">
+        <form method="post" th:object="${marginLog}">
             <div class="log-create-form">
                 <h3>
                     Margin Log Creator
@@ -26,13 +26,13 @@
                 <h4>Log Name</h4>
             </div>
             <div class="log-create-form">
-                <input type=text name ="logName" class="form-control" placeholder="My Margin Log">
+                <input type=text th:field="*{name}" class="form-control" placeholder="My Margin Log">
             </div>
             <div class="log-create-form">
                 <h4>Game Version</h4>
             </div>
             <div class="log-create-form">
-                <select name="isOldschool"class="form-control">
+                <select th:field="*{isOldschool}"class="form-control">
                     <option value="true">Oldschool Runescape</option>
                     <option value="false">Runescape 3</option>
                 </select>
@@ -41,13 +41,13 @@
                 <h4 title="You can change these later!">Privacy Settings</h4>
             </div>
             <div class="log-create-form">
-                <select title="Select privacy settings for your log." name ="privacyType" class="form-control">
+                <select title="Select privacy settings for your log." th:field="*{isPrivate}" class="form-control">
                     <option value="false">Public</option>
                     <option value="true">Private</option>
                 </select>
             </div>
             <div class="log-create-form">
-                <button title="All settings can be changed later!" type="submit" class="btn btn-default">Create Log</button>
+                <input title="All settings can be changed later!" type="submit" class="btn btn-default">Create Log</input>
             </div>
         </form>
     </div>
