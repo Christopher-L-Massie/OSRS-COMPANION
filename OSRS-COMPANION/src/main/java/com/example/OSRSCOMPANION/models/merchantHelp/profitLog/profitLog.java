@@ -23,13 +23,16 @@ public class profitLog {
 
     private boolean isPrivate;
 
+    private boolean isOldschool;
+
     //|||CONSTRUCTORS|||
     public profitLog(){}
 
-    public profitLog(String owner, long startingGold, boolean isPrivate){
+    public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool){
         this.owner = owner;
         this.gold = startingGold;
         this.isPrivate = isPrivate;
+        this.isOldschool = isOldschool;
     }
 
     //|||METHODS|||
@@ -58,5 +61,9 @@ public class profitLog {
 
     public boolean isPrivate(){
         return this.isPrivate();
+    }
+
+    public boolean isOldschool() {
+        return this.isOldschool();
     }
 }
