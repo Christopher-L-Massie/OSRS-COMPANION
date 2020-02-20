@@ -16,7 +16,10 @@ public class profitLog {
 
 
     private String owner;
+
     private long gold;
+    
+    private long startingGold;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<entry> entries = new ArrayList<>();
@@ -33,6 +36,7 @@ public class profitLog {
     public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool){
         this.owner = owner;
         this.gold = startingGold;
+        this.startingGold = startingGold;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
         this.isDeleted = false;
@@ -72,5 +76,9 @@ public class profitLog {
 
     public boolean isDeleted() {
         return this.isDeleted();
+    }
+
+    public long getStartingGold() {
+        return this.startingGold;
     }
 }
