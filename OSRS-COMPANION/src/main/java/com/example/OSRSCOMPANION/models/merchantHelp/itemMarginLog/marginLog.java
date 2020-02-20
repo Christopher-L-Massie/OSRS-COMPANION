@@ -22,6 +22,8 @@ public class marginLog {
 
     private boolean isOldschool;
 
+    private boolean isDeleted;
+
     //|||CONSTRUCTORS|||
     public marginLog(){}
 
@@ -29,6 +31,7 @@ public class marginLog {
         this.owner = owner;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
+        this.isDeleted = false;
     }
 
     //|||METHODS|||
@@ -48,5 +51,9 @@ public class marginLog {
 
     public boolean isOldschool() {
         return this.isOldschool;
+    }
+
+    public boolean isDeleted() {
+        return this.isDeleted;
     }
 }

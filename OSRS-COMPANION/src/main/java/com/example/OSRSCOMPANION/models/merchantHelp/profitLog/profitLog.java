@@ -25,6 +25,8 @@ public class profitLog {
 
     private boolean isOldschool;
 
+    private boolean isDeleted;
+
     //|||CONSTRUCTORS|||
     public profitLog(){}
 
@@ -33,6 +35,7 @@ public class profitLog {
         this.gold = startingGold;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
+        this.isDeleted = false;
     }
 
     //|||METHODS|||
@@ -60,10 +63,14 @@ public class profitLog {
     }
 
     public boolean isPrivate(){
-        return this.isPrivate();
+        return this.isPrivate;
     }
 
     public boolean isOldschool() {
-        return this.isOldschool();
+        return this.isOldschool;
+    }
+
+    public boolean isDeleted() {
+        return this.isDeleted();
     }
 }
