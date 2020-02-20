@@ -20,12 +20,15 @@ public class marginLog {
 
     private boolean isPrivate;
 
+    private boolean isOldschool;
+
     //|||CONSTRUCTORS|||
     public marginLog(){}
 
-    public marginLog(String owner, boolean isPrivate){
+    public marginLog(String owner, boolean isPrivate, boolean isOldschool){
         this.owner = owner;
         this.isPrivate = isPrivate;
+        this.isOldschool = isOldschool;
     }
 
     //|||METHODS|||
@@ -41,5 +44,9 @@ public class marginLog {
 
     public boolean isPrivate(){
         return this.isPrivate;
+    }
+
+    public boolean isOldschool() {
+        return this.isOldschool;
     }
 }
