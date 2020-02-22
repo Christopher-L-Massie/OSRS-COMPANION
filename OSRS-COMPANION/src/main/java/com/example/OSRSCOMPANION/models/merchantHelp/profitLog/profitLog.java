@@ -87,4 +87,8 @@ public class profitLog {
     public String getName(){
         return this.name;
     }
+
+    public int getId() {
+        return this.id;
+    }
 }
