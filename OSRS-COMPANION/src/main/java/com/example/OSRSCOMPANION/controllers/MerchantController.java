@@ -44,8 +44,8 @@ public class MerchantController {
         return "merchants/merchant_profit_logs";
     }
 
-    @RequestMapping(value = "profit/profitLog")
-    public String displayLog(Model model){
+    @RequestMapping(value = "profit/log")
+    public String displayProfitLog(Model model){
         model.addAttribute("title","PLACEHOLDER WILL PUT PLAYER NAME");
 
         return "merchants/merchant_profit_log";
