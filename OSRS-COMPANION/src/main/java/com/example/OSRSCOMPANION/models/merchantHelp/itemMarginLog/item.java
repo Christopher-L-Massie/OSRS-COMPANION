@@ -1,6 +1,7 @@
 package com.example.OSRSCOMPANION.models.merchantHelp.itemMarginLog;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,30 @@ public class item {
 
     private long buyLimit;
 
+    private Timestamp firstCheck = new Timestamp(System.currentTimeMillis());
+
+    private Timestamp recentCheck;
+
+    //DATA stuff
+
+    //Highs and lows and margins.
+
+    private long dailyLow;
+    private long dailyHigh;
+    private long dailyMargin;
+
+    private long weeklyLow;
+    private long weeklyHigh;
+    private long weeklyMargin;
+
+    private long monthlyLow;
+    private long monthlyHigh;
+    private long monthlyMargin;
+
+    private long yearlyLow;
+    private long yearlyHigh;
+    private long yearlyMargin;
+
     @Column(name="priceChecks")
     @OneToMany(cascade = CascadeType.ALL)
     private List<check> priceChecks = new ArrayList<>();
@@ -29,6 +54,8 @@ public class item {
         this.buyLimit = buyLimit;
         this.priceChecks.add(check);
     }
+
+    
 
     //|||Accessors|||
     public String getName() {
