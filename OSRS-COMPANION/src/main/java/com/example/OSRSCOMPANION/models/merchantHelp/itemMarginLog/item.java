@@ -55,7 +55,28 @@ public class item {
         this.priceChecks.add(check);
     }
 
-    
+    //|||METHODS|||
+
+    public void updateItemInfo(){
+
+        if (this.priceChecks.size() > 0 ){
+            for (check check : this.priceChecks){
+
+            }
+        }
+    }
+
+    public List<check> findChecksInTimeRange(List<check> checks,Timestamp earliestDate){
+        List<check> pointsInTimeRange = new ArrayList<>();
+        for(check check: checks){
+            if(check.getTimeChecked().after(earliestDate)){
+                pointsInTimeRange.add(check);
+            } else {
+                continue;
+            }
+        }
+        return pointsInTimeRange;
+    }
 
     //|||Accessors|||
     public String getName() {
