@@ -104,4 +104,18 @@ public class MerchantController {
 
         return "merchants/createMarginLog";
     }
+
+    @RequestMapping(value = "margin/create", method = RequestMethod.POST)
+    public String displayCreateMarginLogForm(Model model, @ModelAttribute @Valid marginLog marginLog,Errors errors){
+
+        if (errors.hasErrors()){
+            model.addAttribute("title","Create Log");
+            return "merchants/createProfitLog";
+        }
+
+        marginLogDao.save(marginLog);
+
+        return "redirect:log?logId=" + marginLog.getId();
+
+    }
 }
