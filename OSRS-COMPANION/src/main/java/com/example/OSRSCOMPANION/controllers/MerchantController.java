@@ -1,5 +1,6 @@
 package com.example.OSRSCOMPANION.controllers;
 
+import com.example.OSRSCOMPANION.models.merchantHelp.data.MarginLogDao;
 import com.example.OSRSCOMPANION.models.merchantHelp.data.ProfitLogDao;
 import com.example.OSRSCOMPANION.models.merchantHelp.itemMarginLog.marginLog;
 import com.example.OSRSCOMPANION.models.merchantHelp.profitLog.profitLog;
@@ -20,6 +21,9 @@ public class MerchantController {
 
     @Autowired
     private ProfitLogDao profitLogDao;
+
+    @Autowired
+    private MarginLogDao marginLogDao;
 
     @RequestMapping(value="")
     public String indexRedirection(Model model,@RequestParam String logType){
@@ -62,7 +66,7 @@ public class MerchantController {
             model.addAttribute("title","Create Log");
             return "merchants/createProfitLog";
         }
-        
+
     }
 
     @RequestMapping(value = "margin/create", method = RequestMethod.GET)
