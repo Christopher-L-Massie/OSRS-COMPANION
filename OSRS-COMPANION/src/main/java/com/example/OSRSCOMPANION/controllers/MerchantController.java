@@ -6,9 +6,13 @@ import com.example.OSRSCOMPANION.models.merchantHelp.profitLog.profitLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "merchant")
@@ -49,6 +53,16 @@ public class MerchantController {
         model.addAttribute(new profitLog());
 
         return "merchants/createProfitLog";
+    }
+
+    @RequestMapping(value = "profit/create", method = RequestMethod.POST)
+    public String displayCreateProfitLogForm(Model model, @ModelAttribute @Valid marginLog marginLog,Errors errors){
+
+        if (errors.hasErrors()){
+            model.addAttribute("title","Create Log");
+            return "merchants/createProfitLog";
+        }
+        
     }
 
     @RequestMapping(value = "margin/create", method = RequestMethod.GET)
