@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -42,7 +43,7 @@ public class MerchantController {
         return "merchants/merchant_profit_log";
     }
 
-    @RequestMapping(value = "profit/create")
+    @RequestMapping(value = "profit/create", method = RequestMethod.GET)
     public String displayCreateProfitLogForm(Model model){
         model.addAttribute("title", "Create New Log");
         model.addAttribute(new profitLog());
@@ -50,7 +51,7 @@ public class MerchantController {
         return "merchants/createProfitLog";
     }
 
-    @RequestMapping(value = "margin/create")
+    @RequestMapping(value = "margin/create", method = RequestMethod.GET)
     public String displayCreateMarginLogForm(Model model){
         model.addAttribute("title", "Create New Log");
         model.addAttribute(new marginLog());
