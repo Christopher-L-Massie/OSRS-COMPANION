@@ -67,6 +67,10 @@ public class MerchantController {
             return "merchants/createProfitLog";
         }
 
+        marginLogDao.save(marginLog);
+
+        return "redirect:log?logId=" + marginLog.getId();
+
     }
 
     @RequestMapping(value = "margin/create", method = RequestMethod.GET)
