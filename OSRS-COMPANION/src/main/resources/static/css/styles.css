@@ -2,6 +2,8 @@
      margin-top: 25px;
 }
 
+/*Drop down menus */
+
 .dropbtn {
   border-radius: 25px;
   background-color: rgb(18, 18, 18);
@@ -39,24 +41,30 @@
 
 .dropdown:hover .dropbtn {background-color: rgb(18, 18, 18);}
 
+/* Main search bar on website */
+
 #main-nav-merch-options {
     margin-top: 14px;
 }
+
+#main-player-search{
+    margin-right:75px;
+}
+
+/* HOMEPAGE News Feed */
 
 #RSS-news-feed {
     margin-left: 320px;
 }
 
-.margin-log-info {
-    position: relative;
-    margin-top: 15px;
-    margin-left: 10px;
-    color: #af0505;
-}
+
+/*Applied to page navigation bars*/
 
 .custom-page-nav {
     margin-top: 75px;
 }
+
+/*Create Merchant Log Forms*/
 
 .log-create-form {
     width: 400px;
@@ -85,6 +93,11 @@
     margin-left: 125px;
 }
 
-#main-player-search{
-    margin-right:75px;
+/* Styling for the info icon on margin-logs nav bar */
+
+.margin-log-info {
+    position: relative;
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #af0505;
 }
