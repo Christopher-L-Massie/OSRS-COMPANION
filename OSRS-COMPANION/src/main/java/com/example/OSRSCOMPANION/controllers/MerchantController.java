@@ -66,16 +66,16 @@ public class MerchantController {
     }
 
     @RequestMapping(value = "profit/create", method = RequestMethod.POST)
-    public String displayCreateProfitLogForm(Model model, @ModelAttribute @Valid marginLog marginLog,Errors errors){
+    public String displayCreateProfitLogForm(Model model, @ModelAttribute @Valid profitLog profitLog,Errors errors){
 
         if (errors.hasErrors()){
             model.addAttribute("title","Create Log");
             return "merchants/createProfitLog";
         }
 
-        marginLogDao.save(marginLog);
+        profitLogDao.save(profitLog);
 
-        return "redirect:log?logId=" + marginLog.getId();
+        return "redirect:log?logId=" + profitLog.getId();
 
     }
 
