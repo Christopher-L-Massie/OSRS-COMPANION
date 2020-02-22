@@ -25,6 +25,8 @@ public class MerchantController {
     @Autowired
     private MarginLogDao marginLogDao;
 
+    //|||DIRECTOR|||
+
     @RequestMapping(value="")
     public String indexRedirection(Model model,@RequestParam String logType){
         if (logType.equals("profit")){
@@ -36,6 +38,8 @@ public class MerchantController {
             return "merchants/merchant_margin_logs";
         }
     }
+
+    //|||PROFIT LOG|||
 
     @RequestMapping(value = "profit/logs")
     public String displayProfitLogs(Model model){
@@ -50,6 +54,8 @@ public class MerchantController {
 
         return "merchants/merchant_profit_log";
     }
+
+    //Create Profit Log
 
     @RequestMapping(value = "profit/create", method = RequestMethod.GET)
     public String displayCreateProfitLogForm(Model model){
@@ -73,18 +79,29 @@ public class MerchantController {
 
     }
 
-    @RequestMapping(value = "margin/create", method = RequestMethod.GET)
-    public String displayCreateMarginLogForm(Model model){
-        model.addAttribute("title", "Create New Log");
-        model.addAttribute(new marginLog());
-
-        return "merchants/createMarginLog";
-    }
+    //|||MARGIN LOG|||
 
     @RequestMapping(value = "margin/logs")
     public String displayItemMarginLogs(Model model){
         model.addAttribute("title", "Margin Logs");
 
         return "merchants/merchant_margin_logs";
+    }
+
+    @RequestMapping(value = "margin/log")
+    public String displayMarginLog(Model model){
+        model.addAttribute("title","Margin Log");
+
+        return "merchants/merchant_margin_log";
+    }
+
+    //Create Margin Log
+
+    @RequestMapping(value = "margin/create", method = RequestMethod.GET)
+    public String displayCreateMarginLogForm(Model model){
+        model.addAttribute("title", "Create New Log");
+        model.addAttribute(new marginLog());
+
+        return "merchants/createMarginLog";
     }
 }
