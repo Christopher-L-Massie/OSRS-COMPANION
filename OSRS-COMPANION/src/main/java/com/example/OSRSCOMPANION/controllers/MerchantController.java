@@ -35,7 +35,7 @@ public class MerchantController {
             return displayItemMarginLogs(model);
         } else {
             model.addAttribute("Title","Uknown Log Type");
-            return "merchants/merchant_margin_logs";
+            return "merchants/merchantMarginLogs";
         }
     }
 
@@ -45,14 +45,14 @@ public class MerchantController {
     public String displayProfitLogs(Model model){
         model.addAttribute("title","Merchant Logs");
 
-        return "merchants/merchant_profit_logs";
+        return "merchants/merchantProfitLogs";
     }
 
     @RequestMapping(value = "profit/log")
     public String displayProfitLog(Model model){
         model.addAttribute("title","PLACEHOLDER WILL PUT PLAYER NAME");
 
-        return "merchants/merchant_profit_log";
+        return "merchants/merchantProfitLog";
     }
 
     //Create Profit Log
@@ -85,14 +85,14 @@ public class MerchantController {
     public String displayItemMarginLogs(Model model){
         model.addAttribute("title", "Margin Logs");
 
-        return "merchants/merchant_margin_logs";
+        return "merchants/merchantMarginLogs";
     }
 
     @RequestMapping(value = "margin/log")
     public String displayMarginLog(Model model){
         model.addAttribute("title","Margin Log");
 
-        return "merchants/merchant_margin_log";
+        return "merchants/merchantMarginLog";
     }
 
     //Create Margin Log
