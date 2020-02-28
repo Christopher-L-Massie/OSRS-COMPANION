@@ -114,8 +114,17 @@
 
 .margin-log-info {
     position: relative;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     color: #af0505;
 }
 
+/* Account register page */
+
+.pass-warning {
+    position: relative;
+    float: left;
+    color: #af0505;
+    margin-left: 5px;
+    margin-top: 2px;
+}
