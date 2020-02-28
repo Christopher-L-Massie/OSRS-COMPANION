@@ -10,7 +10,7 @@
 
 <div class="log-create-form">
     <div class="container body-content">
-        <form method="post" th:object="${profitLog}">
+        <form method="post" th:object="${User}">
             <div class="log-create-form">
                 <h3>
                     Profit Log Creator
@@ -20,30 +20,27 @@
                 <h4>Log Name</h4>
             </div>
             <div class="log-create-form">
-                <input type=text th:field="*{name}" class="form-control" placeholder="My Profit Log">
+                <input type=text th:field="*{name}" class="form-control" placeholder="Username" required>
             </div>
             <div class="log-create-form">
                 <h4>
-                    Starting Gold
+                    Password
                 </h4>
             </div>
             <div class="log-create-form">
-                <input type="number" th:field="*{startingGold}" class="form-control" placeholder="1000000">
+                <input type="password" th:field="*{password}" class="form-control" required>
             </div>
             <div class="log-create-form">
-                <h4>Game Version</h4>
+                <h4>Confirm Password</h4>
             </div>
             <div class="log-create-form">
-                <select th:field="*{isOldschool}" class="form-control">
-                    <option value="true">Oldschool Runescape</option>
-                    <option value="false">Runescape 3</option>
-                </select>
+                <input type="password" name="confirmPassword" class="form-control" required>
             </div>
             <div class="log-create-form">
                 <h4 title="You can change these later!">Privacy Settings</h4>
             </div>
             <div class="log-create-form">
-                <select title="Select privacy settings for your log." th:field="*{isPrivate}" class="form-control">
+                <select title="Select privacy settings for your log." th:field="*{isPrivate}" class="form-control" required>
                     <option value="false">Public</option>
                     <option value="true">Private</option>
                 </select>
