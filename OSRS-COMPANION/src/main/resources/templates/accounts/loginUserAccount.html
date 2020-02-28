@@ -13,11 +13,11 @@
         <form method="post" th:object="${User}">
             <div class="log-create-form">
                 <h3>
-                    Profit Log Creator
+                    Account Login
                 </h3>
             </div>
             <div class="log-create-form">
-                <h4>Log Name</h4>
+                <h4>Username</h4>
             </div>
             <div class="log-create-form">
                 <input type=text th:field="*{name}" class="form-control" placeholder="Username" required>
@@ -31,22 +31,7 @@
                 <input type="password" th:field="*{password}" class="form-control" required>
             </div>
             <div class="log-create-form">
-                <h4>Confirm Password</h4>
-            </div>
-            <div class="log-create-form">
-                <input type="password" name="confirmPassword" class="form-control" required>
-            </div>
-            <div class="log-create-form">
-                <h4 title="You can change these later!">Privacy Settings</h4>
-            </div>
-            <div class="log-create-form">
-                <select title="Select privacy settings for your log." th:field="*{isPrivate}" class="form-control" required>
-                    <option value="false">Public</option>
-                    <option value="true">Private</option>
-                </select>
-            </div>
-            <div class="log-create-form">
-                <input title="All settings can be changed later!" type="submit" class="btn btn-default submit-log-btn">
+                <input name="Login" type="submit" class="btn btn-default submit-log-btn">
             </div>
         </form>
     </div>
