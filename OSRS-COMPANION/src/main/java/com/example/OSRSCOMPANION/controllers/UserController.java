@@ -15,11 +15,22 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
+
+    /* Account Login */
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String userLoginDisplay(Model model){
         model.addAttribute("title","Login");
         model.addAttribute("User", new User());
 
         return "accounts/loginUserAccount";
+    }
+
+    /* Account Creation */
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public String userRegisterDisplay(Model model){
+        model.addAttribute("title", "Login");
+        model.addAttribute("User", new User());
+
+        return "accounts/createUserAccount";
     }
 }
