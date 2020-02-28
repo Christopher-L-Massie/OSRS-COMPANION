@@ -26,6 +26,8 @@ public class User {
     @Max(value = 25)
     private String password;
 
+    private boolean isPrivate;
+
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Calculator> ownedCalculator = new ArrayList<>();
@@ -46,9 +48,10 @@ public class User {
     //empty constructor
     public User(){}
 
-    public User(String name,String password){
+    public User(String name,String password, boolean isPrivate){
         this.name = name;
         this.password = password;
+        this.isPrivate = isPrivate;
     }
 
     //accessors
