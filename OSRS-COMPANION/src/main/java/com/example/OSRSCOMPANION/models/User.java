@@ -29,8 +29,8 @@ public class User {
     private boolean isPrivate;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Calculator> ownedCalculator = new ArrayList<>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //private List<Calculator> ownedCalculator = new ArrayList<>();
 
     /*
     //mapping out the user class with features that will eventually
@@ -55,9 +55,36 @@ public class User {
     }
 
     //accessors
-    public String getUserName(){return this.name;}
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
 
 }
