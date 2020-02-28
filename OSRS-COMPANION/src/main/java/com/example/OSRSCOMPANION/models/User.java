@@ -19,7 +19,7 @@ public class User {
     @Column(name="userName")
     @Min(value = 3)
     @Max(value = 25)
-    private String userName;
+    private String name;
 
     @Column(name = "password")
     @Min(value = 5)
@@ -46,13 +46,13 @@ public class User {
     //empty constructor
     public User(){}
 
-    public User(String userName,String password){
-        this.userName = userName;
+    public User(String name,String password){
+        this.name = name;
         this.password = password;
     }
 
     //accessors
-    public String getUserName(){return this.userName;}
+    public String getUserName(){return this.name;}
 
 
 
