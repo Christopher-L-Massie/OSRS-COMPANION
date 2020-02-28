@@ -59,6 +59,11 @@
     margin-right: 15px;
 }
 
+.login-register a{
+    text-decoration: none;
+    color: gray;
+}
+
 /* HOMEPAGE News Feed */
 
 #RSS-news-feed {
