@@ -31,10 +31,12 @@ public class profitLog {
 
     private boolean isDeleted;
 
+    private String editCode;
+
     //|||CONSTRUCTORS|||
     public profitLog(){}
 
-    public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool, String name){
+    public profitLog(String owner, long startingGold, boolean isPrivate, boolean isOldschool, String name, String editCode){
         this.owner = owner;
         this.gold = startingGold;
         this.startingGold = startingGold;
@@ -42,6 +44,7 @@ public class profitLog {
         this.isOldschool = isOldschool;
         this.isDeleted = false;
         this.name = name;
+        this.editCode = editCode;
     }
 
     //|||METHODS|||
@@ -90,5 +93,9 @@ public class profitLog {
 
     public int getId() {
         return this.id;
+    }
+
+    public String getEditCode(){
+        return this.editCode;
     }
 }
