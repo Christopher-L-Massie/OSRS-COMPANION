@@ -26,15 +26,18 @@ public class marginLog {
 
     private boolean isDeleted;
 
+    private String editCode;
+
     //|||CONSTRUCTORS|||
     public marginLog(){}
 
-    public marginLog(String owner, boolean isPrivate, boolean isOldschool,String name){
+    public marginLog(String owner, boolean isPrivate, boolean isOldschool,String name,String editCode){
         this.owner = owner;
         this.isPrivate = isPrivate;
         this.isOldschool = isOldschool;
         this.isDeleted = false;
         this.name = name;
+        this.editCode = editCode;
     }
 
     //|||METHODS|||
@@ -71,4 +74,6 @@ public class marginLog {
      public int getId() {
         return this.id;
      }
+
+     public String getEditCode() {return this.editCode;}
 }
